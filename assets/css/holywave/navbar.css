@@ -1,0 +1,96 @@
+nav{
+  font-family:"Lato";
+  margin-bottom:0px !important;
+  box-shadow:0px 0px 7px 0px rgba(0,0,0,0.3);
+  background-color:white !important;
+  border:none !important;
+  outline:none !important;
+  text-align:center !important;
+}
+
+nav .dropdown-menu>li>a{
+  padding:5px 20px;
+}
+
+nav img{
+  height:21px !important;
+  width:173.547px !important;
+  display:inline-block;
+}
+
+nav li a{
+  font-family:"Futura";
+  cursor:pointer;
+}
+
+nav .container-fluid{
+  margin-left:2%;
+  margin-right:2%;
+}
+
+nav .navbar-brand, nav .dropdown-toggle, nav .dropdown-menu li a{
+  font-family:"Futura" !important;
+}
+.navbar-collapse{
+  text-align:left;
+}
+
+
+
+@media screen and (min-width:1441px){
+  nav .container-fluid{
+    margin:auto;
+    max-width:1440px;
+  }
+}
+
+@media screen and (min-width: 768px){
+  nav .dropdown-toggle:active, nav .open .dropdown-toggle{
+    background-color:white !important;
+  }
+
+  nav .dropdown-toggle:active:before, nav .open .dropdown-toggle:before{
+    content:"";
+    position:absolute;
+    left:15px;
+    right:15px;
+    bottom:0px;
+    height:2px;
+    background-color:#19528a;
+  }
+  nav .dropdown:hover .dropdown-menu{
+    display:block;
+  }
+
+  nav .dropdown-menu{
+    border:none;
+  }
+  nav .dropdown-menu>li>a:hover{
+    background-color:white !important;
+    color:#4a6885 !important;
+    transition:0.1s ease-in-out;
+  }
+
+  nav .dropdown:hover:before{
+    content:"";
+    position:absolute;
+    left:15px;
+    right:15px;
+    bottom:0px;
+    height:2px;
+    background-color:#19528a;
+  }
+  nav .navbar-right .dropdown-menu{
+    right:auto !important;
+  }
+
+  nav .dropdown open{
+    background-color:white;
+  }
+
+
+  nav .navbar-nav>li>.dropdown-menu{
+    border-radius:0;
+  }
+
+}
