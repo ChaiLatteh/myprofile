@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Delete Leader</title>
+
+    <style>
+    h2{
+      margin-bottom:10px;
+    }
+    p{
+      margin-top:0px;
+      margin-bottom:25px;
+    }
+
+    </style>
+
+
+
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        <script>
+          alert('{{message}}')
+        </script>
+      {% endfor %}
+    {% endif %}
+
+    <h1 style="color:red;">Are you sure you would like to delete following leader from leadership database?</h1>
+    <h2>Title:</h2>
+    <p>{{this_leader.title}}</p>
+    <h2>First Name:</h2>
+    <p>{{this_leader.first_name}}</p>
+    <h2>Last Name:</h2>
+    <p>{{this_leader.last_name}}</p>
+    <h2>Gender:</h2>
+    <p>{{this_leader.gender}}</p>
+    <h2>Role/Ministry:</h2>
+    <p>{{this_leader.role}}</p>
+
+    <form action="/admin/leaders/{{this_leader.id}}/delete_process" method="post">
+      {% csrf_token %}
+      <input type="submit" value="DELETE">
+      <a href="/admin">Cancel</a>
+    </form>
+  </body>
+</html>

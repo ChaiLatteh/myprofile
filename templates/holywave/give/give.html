@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Give | HolyWave Ministry</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112155877-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-112155877-1');
+    </script>
+
+    <!-- THING WE NEED -->
+    <link rel="stylesheet" href="/static/css/holywave/navbar.css">
+    <link rel="stylesheet" href="/static/css/holywave/footer.css">
+    <!-- Page contents stretch according to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href="/static/css/holywave/futura.css" rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=EB%20Garamond' rel='stylesheet'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+
+
+    <style>
+    html, body{
+      height:100%;
+    }
+    *{
+      font-family:"Lato";
+    }
+    #header{
+      background:url(/static/images/holywave/give/give_header.jpg);
+      background-size:cover;
+      background-position:center;
+      height:400px;
+      text-align:center;
+    }
+    #header h1{
+      font-family:"Futura";
+      color:white;
+      font-size:60px;
+      letter-spacing:9px;
+    }
+    #give_button_wrapper{
+      display:inline-table;
+      margin-left:10px;
+      margin-right:10px;
+      margin-top:10px;
+
+    }
+    #give_button_wrapper button{
+      transition:0.25s ease-in-out;
+      font-size:16px;
+      background-color:transparent;
+      color:white;
+      padding:5px 20px;
+      border:1px solid white;
+      border-radius:0.25em;
+    }
+    #give_button_wrapper button:hover{
+      transition:0.25s ease-in-out;
+      background-color:white;
+      color:#19528a;
+    }
+    #see_faqs_button{
+      width:132px;
+    }
+
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 100; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    .modal-content{
+      background-color:transparent;
+      border:none;
+      border-radius:0px;
+      box-shadow:none;
+      overflow-y:auto;
+      max-height:90%;
+      margin: auto;
+      width: 40%;
+    }
+    .close {
+      display:none;
+      opacity:0.9;
+      color: #aaaaaa;
+      float: right;
+      font-size: 38px;
+      font-weight: bold;
+      margin-right:10px;
+    }
+
+    .close:hover, .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .video_container_wrapper{
+      max-width:90rem;
+      margin:auto;
+      /* padding-top:40px; */
+    }
+    .video_container{
+      position:relative;
+      width:100%;
+      height:0;
+      padding-top:56.25%;
+    }
+
+    #give h3{
+      font-size:14px;
+      text-align:center;
+      margin-top:0px;
+      margin-bottom:50px;
+    }
+
+    @media screen and (min-width:1441px){
+
+    }
+    @media screen and (max-width:1440px){
+      .modal-content{
+        width:60%;
+      }
+    }
+    @media screen and (max-width:1024px){
+      #header h1{
+        font-size:50px;
+      }
+      .modal-content{
+        width:80%;
+      }
+    }
+    @media screen and (max-width:768px){
+      #header h1{
+        font-size:45px;
+      }
+      #give_button_wrapper button{
+        font-size:14px;
+      }
+      #see_faqs_button{
+        width:121px;
+      }
+      #give h3{
+        font-size:12px;
+      }
+      .modal-content{
+        width:90%;
+      }
+    }
+    @media screen and (max-width:425px){
+      #header h1{
+        font-size:36px;
+      }
+    }
+    @media screen and (max-width:375px){
+      #header h1{
+        font-size:34px;
+      }
+    }
+    @media screen and (max-width:320px){
+      #header h1{
+        font-size:32px;
+      }
+    }
+    </style>
+
+  </head>
+  <body>
+    {% include "holywave/navbar.html" %}
+
+    <!-- Content Start -->
+    <div id="header" class="container-fluid">
+      <div style="display:table; margin:auto; height:100%;">
+        <div style="display:table-cell; vertical-align:middle;">
+          <h1>GIVE</h1>
+          <a id="give_button_wrapper"><button id="watch_video_button">Watch Video</button></a>
+          <a id="give_button_wrapper" href="/holywave/give/faq"><button id="see_faqs_button">See FAQs</button></a>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="video_container_wrapper">
+          <div class="video_container">
+            <iframe id="give_video" src="https://player.vimeo.com/video/251583875" style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="give" class="container-fluid">
+      <iframe src="https://wallet.subsplash.com/ui/embed/VPTP3C/" width="100%" height="630" style="border:none;overflow:hidden" frameborder="0" scrolling="no"></iframe>
+      <h3>You will be redirected to our third-party’s secure servers to complete your transaction.</h3>
+    </div>
+
+
+    <script>
+    var watch_video_button=document.getElementById("watch_video_button");
+    var modal=document.getElementsByClassName("modal")[0];
+    var closeButton=document.getElementsByClassName("close")[0];
+    var give_video=document.getElementById("give_video");
+    var player=$f(give_video);
+
+    watch_video_button.onclick=function(){
+      modal.style.display="flex";
+    }
+    closeButton.onclick=function(){
+      modal.style.display="none";
+      player.api("pause");
+      // $('#give_video').attr('src', $('#give_video').attr('src'));
+    }
+    // window.onclick=function(event){
+    //   if(event.target==modal){
+    //     modal.style.display="none";
+    //     player.api("pause");
+    //     // $('#give_video').attr('src', $('#give_video').attr('src'));
+    //   }
+    // }
+    modal.onclick=function(){
+      modal.style.display="none";
+      player.api("pause");
+    }
+    </script>
+
+    <!-- Content End -->
+
+
+    {% include "holywave/footer.html" %}
+
+
+
+
+  </body>
+</html>

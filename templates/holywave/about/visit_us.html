@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Visit Us | HolyWave Ministry</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112155877-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-112155877-1');
+    </script>
+
+    <!-- THING WE NEED -->
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <!-- Page contents stretch according to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href="/static/css/futura.css" rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=EB%20Garamond' rel='stylesheet'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="preload" href="/static/images/holywave/about/visit_us/building_a_2.jpg" as="image">
+    <link rel="preload" href="/static/images/holywave/about/visit_us/building_b_2.jpg" as="image">
+    <link rel="preload" href="/static/images/holywave/about/visit_us/building_c_2.jpg" as="image">
+
+
+    <style>
+    *{
+      font-family:"Lato";
+    }
+    #header{
+      background:url(/static/images/holywave/about/visit_us/visit_us_header3.jpg);
+      background-position:center;
+      background-size:cover;
+      height:400px;
+      text-align:center;
+      position:relative;
+    }
+    #header h1{
+      font-family:"Futura";
+      color:white;
+      font-size:60px;
+      letter-spacing:9px;
+    }
+
+    #info{
+      margin-bottom:70px;
+    }
+
+    #info h1{
+      font-size:36px;
+      letter-spacing:2.5px;
+      padding:15px;
+      margin-top:60px;
+      margin-bottom:25px;
+    }
+
+    #map_container{
+      width:90%;
+      margin:auto;
+      text-align:center;
+      margin-bottom:60px;
+    }
+    #kdc_map{
+      width:98%;
+      margin:1%;
+    }
+
+    #buildings{
+      margin-bottom:50px;
+    }
+
+    #buildings h1{
+      font-size:36px;
+      letter-spacing:2.5px;
+      padding:15px;
+      margin-bottom:25px;
+    }
+
+    #buildings_container_inner{
+      width:90%;
+      margin:auto;
+      text-align:left;
+    }
+    #building{
+      transition:0.25s ease-in-out;
+      border:1px solid #dddddd;
+      color:#19528a;
+      height:auto;
+      padding-bottom:15px;
+      margin:1%;
+      width:22.7%;
+      display:inline-block;
+      vertical-align:top;
+      text-align:left;
+      cursor:context-menu;
+
+    }
+
+    #building:hover{
+      box-shadow: 0px 4px 6px -3px rgba(0,0,0,.25);
+    }
+
+    .building_thumbnail{
+      transition:0.2s ease-in-out;
+      height:200px;
+      width:100%;
+      background-size:cover !important;
+      background-position:center !important;
+    }
+
+
+    #building:hover>.building_thumbnail{
+      transition:0.2s ease-in-out;
+      /* height:200px !important;
+      width:100% !important; */
+      background-size:cover !important;
+      background-position:center !important;
+    }
+
+    #building_thumbnail_1{
+      background:url(/static/images/holywave/about/visit_us/hyssop_1.jpg);
+    }
+    #building_thumbnail_2{
+      background:url(/static/images/holywave/about/visit_us/building_a_1.jpg);
+    }
+    #building_thumbnail_3{
+      background:url(/static/images/holywave/about/visit_us/building_b_1.jpg);
+    }
+    #building_thumbnail_4{
+      background:url(/static/images/holywave/about/visit_us/building_c_1.jpg);
+    }
+    #building_thumbnail_5{
+      background:url(/static/images/holywave/about/visit_us/building_d_1.jpg);
+    }
+    #building_thumbnail_6{
+      background:url(/static/images/holywave/about/visit_us/building_e_1.jpg);
+    }
+    #building_thumbnail_7{
+      background:url(/static/images/holywave/about/visit_us/building_f_1.jpg);
+    }
+
+    #building:hover>#building_thumbnail_1{
+      background:url(/static/images/holywave/about/visit_us/hyssop_2.jpg);
+    }
+    #building:hover>#building_thumbnail_2{
+      background:url(/static/images/holywave/about/visit_us/building_a_2.jpg);
+    }
+    #building:hover>#building_thumbnail_3{
+      background:url(/static/images/holywave/about/visit_us/building_b_2.jpg);
+    }
+    #building:hover>#building_thumbnail_4{
+      background:url(/static/images/holywave/about/visit_us/building_c_2.jpg);
+    }
+    #building:hover>#building_thumbnail_5{
+      background:url(/static/images/holywave/about/visit_us/building_d_2.jpg);
+    }
+    #building:hover>#building_thumbnail_6{
+      background:url(/static/images/holywave/about/visit_us/building_b_2.jpg);
+    }
+    #building:hover>#building_thumbnail_7{
+      background:url(/static/images/holywave/about/visit_us/building_f_2.jpg);
+    }
+
+
+    #building h3, H4{
+      margin:10px;
+      color:black;
+    }
+
+    @media screen and (min-width:1441px){
+      #info h3{
+        font-size:20px;
+      }
+      #map_container{
+        max-width:1400px;
+        padding:0px 15px;
+      }
+      #buildings_container_inner{
+        max-width:1400px;
+        padding:0px 15px;
+      }
+      #building h3{
+        font-size:22px;
+      }
+      #building h4{
+        font-size:16px;
+      }
+    }
+    @media screen and (max-width:1440px){
+      #info h3{
+        font-size:20px;
+      }
+      #building{
+        width:31%;
+      }
+      #building h3{
+        font-size:20px;
+      }
+      #building h5{
+        font-size:16px;
+      }
+    }
+    @media screen and (max-width:1024px){
+      #header h1{
+        font-size:50px;
+      }
+      #info h1, #buildings h1{
+        font-size:34px;
+      }
+      #info h3{
+        font-size:18px;
+      }
+    }
+    @media screen and (max-width:768px){
+      #header h1{
+        font-size:45px;
+      }
+      #info h1, #buildings h1{
+        font-size:32px;
+      }
+      #info h3{
+        font-size:16px;
+      }
+
+      #building{
+        width:47.6%
+      }
+      #building h3{
+        font-size:18px;
+      }
+      #building h4{
+        font-size:14px;
+      }
+
+    }
+    @media screen and (max-width:425px){
+      #header h1{
+        font-size:36px;
+      }
+      #info h1, #buildings h1{
+        font-size:30px;
+      }
+      #info h3{
+        font-size:14px;
+      }
+      #building{
+        width:100%;
+        margin-bottom:15px;
+      }
+    }
+    @media screen and (max-width:375px){
+      #header h1{
+        font-size:34px;
+      }
+      #info h1, #buildings h1{
+        font-size:28px;
+      }
+
+    }
+    @media screen and (max-width:320px){
+      #header h1{
+        font-size:32px;
+      }
+      #info h1, #buildings h1{
+        font-size:26px;
+      }
+
+    }
+    </style>
+
+  </head>
+  <body>
+    {% include "holywave/navbar.html" %}
+
+    <!-- Content Start -->
+    <div id="header" class="container-fluid">
+      <div style="display:table; height:100%; margin:auto;">
+        <div style="display:table-cell; vertical-align:middle;">
+          <h1 id="tagline">VISIT US</h1>
+        </div>
+      </div>
+    </div>
+
+    <div id="info">
+      <div style="display:table; height:100%; margin:auto; text-align:center;">
+        <div style="display:table-cell; vertical-align:middle;">
+          <h1>TIMES AND LOCATION</h1>
+          <h3>Sunday Services: 9:10 AM, 11:10 AM</h3>
+          <h3 style="margin-top:26px;">SRCC Kingdom Dream Center (KDC)</h3>
+          <h3 style="margin-top:0px;">1900 W. Crescent Ave., Anaheim, CA 92801</h3>
+          <h3 style="margin-top:26px; font-style:italic;">See Map Below for Parking</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div id="map_container">
+        <img id="kdc_map" src="/static/images/holywave/about/visit_us/kdc-map.jpg">
+      </div>
+    </div>
+
+
+    <div id="buildings" class="container-fluid" style="text-align:center;">
+      <h1>WHEN YOU ARRIVE</h1>
+
+      <div id="buildings_container" style="min-height:500px; text-align:center; margin:auto;">
+        <div id="buildings_container_inner">
+
+          <div id="building" style="border:1px solid #4a6885; background-color:#4a6885;">
+            <div class="building_thumbnail" id="building_thumbnail_1"></div>
+            <h3 style="color:white;">HYSSOP HALL</h3>
+            <h4 style="color:white;">HolyWave’s Main Sanctuary</h4>
+          </div>
+
+          <div id="building">
+            <div class="building_thumbnail" id="building_thumbnail_2"></div>
+            <h3>BUILDING A</h3>
+            <h4>Toddlers Ministry (18-36 months), Newcomers Lounge</h4>
+          </div>
+
+          <div id="building">
+            <div class="building_thumbnail" id="building_thumbnail_3"></div>
+            <h3>BUILDING B (EED)</h3>
+            <h4>Early Elementary Department (1st to 3rd grade)</h4>
+          </div>
+
+          <div id="building">
+            <div class="building_thumbnail" id="building_thumbnail_4"></div>
+            <h3>BUILDING C</h3>
+            <h4>KDC Cafe, Kitchen</h4>
+          </div>
+
+
+          <div id="building">
+            <div class="building_thumbnail" id="building_thumbnail_5"></div>
+            <h3>BUILDING D</h3>
+            <h4>Hyssop Stage (E-Jr. High, K-Jr. High), Hyssop Theater (E-High, K-High)</h4>
+          </div>
+
+          <div id="building">
+            <div class="building_thumbnail" id="building_thumbnail_6"></div>
+            <h3>BUILDING E (UED)</h3>
+            <h4>Upper Elementary Department (4th-6th grade)</h4>
+          </div>
+
+          <div id="building">
+            <div class="building_thumbnail" class="building_thumbnail" id="building_thumbnail_7"></div>
+            <h3>BUILDING F</h3>
+            <h4>Multipurpose Room (MPR), Library, Classrooms, Education Dept. Offices, Infant Ministry (3-18 months)</h4>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- Content End -->
+
+    {% include "holywave/footer.html" %}
+
+  </body>
+</html>

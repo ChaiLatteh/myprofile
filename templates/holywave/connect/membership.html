@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Membership | HolyWave Ministry</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112155877-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-112155877-1');
+    </script>
+
+    <!-- THING WE NEED -->
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <!-- Page contents stretch according to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href="/static/css/futura.css" rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=EB%20Garamond' rel='stylesheet'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+    html, body{
+      height:100%;
+    }
+    *{
+      font-family:"Lato";
+    }
+    #header{
+      background-image:url(/static/images/holywave/connect/membership/membership_header.jpg);
+      background-size:cover;
+      background-position:center;
+      height:400px;
+      text-align:center;
+      position:relative;
+    }
+    #header h1{
+      font-family:"Futura";
+      color:white;
+      font-size:60px;
+      letter-spacing:9px;
+    }
+
+    #coming_soon{
+      height:80%;
+      min-height:600px;
+      background-image:url(/static/images/holywave/comingsoon6.png);
+      background-size:cover;
+      background-position:center;
+    }
+
+    @media screen and (min-width:1441px){
+
+    }
+    @media screen and (max-width:1440px){
+
+    }
+    @media screen and (max-width:1024px){
+      #header h1{
+        font-size:50px;
+      }
+    }
+    @media screen and (max-width:768px){
+      #header h1{
+        font-size:45px;
+      }
+    }
+    @media screen and (max-width:425px){
+      #header h1{
+        font-size:36px;
+      }
+    }
+    @media screen and (max-width:375px){
+      #header h1{
+        font-size:34px;
+      }
+    }
+    @media screen and (max-width:320px){
+      #header h1{
+        font-size:32px;
+      }
+    }
+
+    </style>
+
+  </head>
+  <body>
+
+    {% include "holywave/navbar.html" %}
+
+
+    <!-- Content Start -->
+    <div id="header" class="container-fluid">
+      <div style="display:table; height:100%; margin:auto;">
+        <div style="display:table-cell; vertical-align:middle;">
+          <h1>MEMBERSHIP</h1>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="coming_soon" class="container-fluid">
+      <div style="display:table; height:100%; margin:auto; text-align:center;">
+        <div style="display:table-cell; vertical-align:middle;">
+        </div>
+      </div>
+    </div>
+    <!-- Content End -->
+
+    {% include "holywave/footer.html" %}
+
+  </body>
+</html>

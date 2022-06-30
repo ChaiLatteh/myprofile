@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Upcoming Event</title>
+
+    <script src="/static/js/tiny_mce/tiny_mce.js"></script>
+    <script src="/static/js/tiny_mce/textareas.js"></script>
+
+
+    <style>
+    input, select{
+      margin-bottom:10px;
+    }
+    </style>
+
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        <p style="color:red;">{{message}}</p>
+      {% endfor %}
+    {% endif %}
+
+    <form action="/admin/upcomingevents/add_process" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h1>New Upcoming Event</h1>
+      * = Required
+      {{form.as_p}}
+      <input type="submit" formaction="/admin/upcomingevents/add_process" value="Publish">
+      <input style="border:1px solid #19528a; border-radius:0.2em; background-color:#19528a; color:white; cursor:pointer; margin-left:10px; margin-right:40px;" type="submit" formaction="/admin/upcomingevents/drafts/add_process" value="Save as Draft">
+      <a href="/admin">Cancel</a>
+    </form>
+
+    <script>
+
+    document.getElementById("id_start_date").type="date";
+    document.getElementById("id_end_date").type="date";
+    document.getElementById("id_start_time").type="time";
+    document.getElementById("id_end_time").type="time";
+
+
+    // ----------------------- Button Custom Input ------------------------
+    var other_input = document.getElementById("id_button_3");
+    var custom_button = document.createElement("input");
+    var custom_input = other_input.parentNode.insertBefore(custom_button, other_input.nextSibling);
+    custom_input.setAttribute("id", "custom_input");
+    custom_input.setAttribute("type", "text");
+    custom_input.setAttribute("name", "custom_button");
+    custom_input.onclick = function(){
+      this.previousSibling.checked = true;
+    }
+
+    document.getElementById("id_button_0").onclick = function(){
+      custom_input.value="";
+    }
+    document.getElementById("id_button_1").onclick = function(){
+      custom_input.value="";
+    }
+    document.getElementById("id_button_2").onclick = function(){
+      custom_input.value="";
+    }
+    // ----------------------- Button Custom Input ------------------------
+
+    // ----------------------- Uncheck Radio Buttons ------------------------
+    var uncheck = document.createElement("button");
+    var uncheck_button = custom_input.parentNode.insertBefore(uncheck, custom_input.nextSibling);
+    uncheck_button.setAttribute("type", "button");
+    uncheck_button.innerHTML = "UNCHECK ALL"
+    uncheck_button.style.display = "table";
+    uncheck_button.onclick = function(){
+      document.getElementById("id_button_0").checked = false;
+      document.getElementById("id_button_1").checked = false;
+      document.getElementById("id_button_2").checked = false;
+      document.getElementById("id_button_3").checked = false;
+      custom_input.value="";
+    }
+    // ----------------------- Uncheck Radio Buttons ------------------------
+
+
+    </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HolyWave Ministry</title>
+    <meta name="description" content="HolyWave is the English-speaking ministry of Sa-Rang Community Church">
+    <meta name="keywords" content="HolyWave, Sa-Rang Community Church, Korean-American church, Korean church, English ministry, Orange County, Southern California">
+
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="HolyWave Ministry"/>
+    <meta property="og:title" content="HolyWave Ministry"/>
+    <meta property="og:description" content="HolyWave is the English-speaking ministry of Sa-Rang Community Church">
+    <meta property="og:url" content="http://www.holywave.org"/>
+    <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/holywave/holywave+social+media+preview/Link+Preview.jpg"/>
+    <meta property="og:image:type" content="image/jpeg"/>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112155877-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-112155877-1');
+    </script>
+
+    <!-- Page contents stretch according to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href="/static/css/holywave/futura.css" rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=EB%20Garamond' rel='stylesheet'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+
+
+    <style>
+    html, body{
+      height:100%;
+    }
+    *{
+      font-family:"Lato";
+    }
+    .glyphicon{
+      font-family:"Glyphicons Halflings" !important;
+    }
+
+
+    #intro{
+      min-height:600px;
+      height:100%;
+      padding:0px;
+      text-align:center;
+      /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0), 85%, rgba(255, 255, 255, 1)), url(/static/images/home/new-bulletin-header.jpg); */
+      background-image:url(/static/images/holywave/home/new-bulletin-header.jpg);
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+    }
+
+    .main_tagline{
+      font-family:"Futura";
+      margin:0px 20px;
+      font-size:60px;
+      color:white;
+      letter-spacing:8px;
+      line-height:1.35;
+    }
+
+    a{
+      color:white;
+      text-decoration:none !important;
+    }
+    a:hover{
+      color:#88D6F8;
+      transition:0.1s ease-in-out;
+    }
+    a:focus{
+      color:#88D6F8;
+    }
+
+    #scroll_arrow{
+      margin:auto;
+      display:table;
+
+    }
+
+
+    #tagline{
+      font-family:"EB Garamond";
+      font-size:22px;
+      letter-spacing:1px;
+      line-height:30px;
+    }
+    .transition_in{
+      opacity:0;
+    }
+    .afterScroll{
+      transition:0.5s ease-in-out;
+      opacity:1;
+    }
+
+    #background_video{
+      object-fit:fill;
+      position:absolute;
+      right: 0;
+      top: 50px;
+      width: 100%;
+      min-height:600px;
+      height: 100%;
+    }
+
+    #join_us{
+      width:100%;
+      padding-top:20px;
+      padding-bottom:80px;
+      text-align:center;
+      background-image:url(/static/images/holywave/home/bg-join-us-2.jpg);
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+    }
+
+    #join_us h1{
+      font-size:36px;
+      letter-spacing:2.5px;
+      color:white;
+      padding:15px;
+      margin-top:60px;
+      margin-bottom:25px;
+    }
+
+    .directions a{
+      transition:0.25s ease-in-out;
+    }
+
+    #redirects{
+      background-color:white;
+      text-align:center;
+      margin-top:95px;
+      margin-bottom:95px;
+    }
+
+    #sermons_redirect, #upcomingevents_redirect{
+      width:250px;
+      font-size:16px;
+      transition: 0.2s;
+      background-color:transparent;
+      color:#19528a;
+      border-radius:0.25em;
+      border:2px solid #19528a;
+      padding:15px 20px;
+      margin:0px 25px 25px 25px;
+    }
+
+    #sermons_redirect:hover, #upcomingevents_redirect:hover{
+      background-color:#19528a;
+      border:2px solid #19528a;
+      color:white;
+    }
+
+    #are_you_new{
+      display:inline-table;
+      margin-top:20px;
+      color:#19528a;
+      font-size:16px;
+      transition:0.25s;
+    }
+    #are_you_new:hover{
+      text-decoration:underline !important;
+    }
+
+
+    button{
+      border:none;
+      outline:none;
+    }
+    button.service{
+      background-color:white;
+      width:100%;
+      padding:20px 0px 0px 0px;
+
+      -webkit-transition:0.4s;
+      transition:0.4s;
+      opacity:0.75;
+    }
+    button.service.active, button.service:hover{
+      opacity: 1;
+    }
+    /* button.service:hover{
+      box-shadow: 0 -4px 12px rgba(0,0,0,.5);
+    }
+    button.service.active{
+      box-shadow:
+      0 -4px 12px rgba(0,0,0,.5);
+    } */
+    button.panel{
+      background-color:#DADADA;
+      max-height:0;
+      width:100%;
+      padding:0 15px;
+      border:none;
+      border-radius:0;
+      outline:none;
+      overflow:hidden;
+      margin:auto;
+      transition: max-height 0.25s ease-out;
+      /* box-shadow:
+      0 3px 12px rgba(0,0,0,.5); */
+    }
+
+
+    .service_expand{
+      transition: 0.25s ease-in-out;
+      font-size:12px;
+      margin:0px;
+      padding:5px;
+      background-color:#DADADA;
+    }
+
+    /*.service_collapse{
+      width:50%;
+      background-color:white;
+      max-height:0;
+      overflow:hidden;
+      margin:auto;
+      outline:none;
+      border:none;
+      padding:0;
+      transition: max-height 0.25s ease-out;
+    }*/
+
+
+    .service h2{
+      font-size:28px;
+      margin:auto;
+    }
+    .service h4{
+      font-size:14px;
+      margin-left:10px;
+      margin-right:10px;
+    }
+    .service h5{
+      font-size:10px;
+    }
+
+    #service_box{
+      width:30%;
+      max-width:400px;
+      margin-left:50px;
+      margin-right:50px;
+    }
+
+
+    .directions h3{
+      font-size:20px;
+    }
+    .directions h5 a{
+      font-size:14px;
+    }
+
+    #upcomingevents{
+      margin-bottom:50px;
+      outline:none;
+    }
+
+    #upcomingclasses{
+      margin-bottom:50px;
+    }
+
+    #upcomingevents h1, #upcomingclasses h1{
+      font-size:36px;
+      letter-spacing:2.5px;
+      padding:15px;
+      margin-top:50px;
+      margin-bottom:25px;
+    }
+
+    #upcomingevents_container, #upcomingclasses_container{
+      margin:auto;
+      text-align:center;
+    }
+
+    #upcomingevents_container_inner, #upcomingclasses_container_inner{
+      width:90%;
+      margin:auto;
+      text-align:left;
+    }
+
+
+    .upcomingevent, .upcomingclass{
+      transition:0.25s ease-in-out;
+      cursor:pointer;
+      border: 1px solid #dddddd;
+      height:380px;
+      margin:1%;
+      width:22.8%;
+      display:inline-block;
+      vertical-align:top;
+      text-align:left;
+    }
+
+    .upcomingevent:hover, .upcomingclass:hover{
+      box-shadow:0px 4px 6px -3px rgba(0,0,0,.25);
+      transition:0.25s ease-in-out;
+    }
+
+
+    .thumbnail{
+      height:200px;
+      width:100%;
+      border-radius:0;
+      background-size:cover !important;
+      background-position:center !important;
+    }
+
+
+
+    .upcomingevent h3, .upcomingclass h3{
+      font-size:22px;
+      font-weight:bold;
+      margin:10px;
+    }
+    .upcomingevent h4, .upcomingclass h4{
+      font-size:16px;
+      margin:10px;
+    }
+
+    .upcomingevent h5, .upcomingclass h5{
+      margin:20px 0px 0px 10px;
+      color:#337ab7;
+      font-size:16px;
+    }
+
+
+
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 100; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    .modal-content{
+      overflow-y:auto;
+      width:75%;
+      max-width:850px;
+      max-height:95%;
+      background-color: #fefefe;
+      margin: auto;
+      border:none;
+      /* border: 1px solid #888; */
+      border-radius:0;
+    }
+
+    .modal-content h3{
+      font-size:22px;
+      font-weight:bold;
+    }
+    .modal-content h4{
+      font-size:20px;
+    }
+    .modal-content p, .modal-content ul, .modal-content ol{
+      font-size:18px;
+      margin-top:22px;
+      margin-bottom:22px;
+    }
+    .modal-content li{
+      font-size:18px;
+      margin-top:5px;
+      margin-bottom:5px;
+    }
+    .modal-content a{
+      color:#337ab7;
+      transition:0.2s;
+    }
+
+    .modal-content a:hover{
+      color:#88D6F8;
+      transition:0.2s;
+    }
+
+    .modal img{
+      height:50%;
+      width:100%;
+    }
+
+    .close {
+      font-weight:100;
+      text-shadow:0px 0px 2px black;
+      opacity:0.9;
+      color: white;
+      float: right;
+      font-size: 38px;
+      margin-right:10px;
+    }
+
+    .close:hover, .close:focus {
+      opacity:1;
+      color:white;
+      text-shadow:0px 0px 3px black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .event_register_button, .class_register_button{
+      font-size:18px;
+      transition:0.5s ease-in-out;
+      border-radius:0.25em;
+      /*border:2px solid #ef4c59;*/
+      border:2px solid #19528a;
+      outline:none;
+      background-color:transparent;
+      padding:5px 20px !important;
+      color:#19528a;
+      /*color:#ef4c59;*/
+    }
+
+    /*.event_register_button{
+      font-size:18px;
+      transition:0.5s ease-in-out;
+      border-radius:0.25em;
+      border:2px solid transparent;
+      outline:none;
+      background-color:transparent;
+      padding:5px 20px !important;
+      color:white;
+      background-color:#337ab7;
+    }*/
+
+    #event_contact, #class_contact{
+      margin-top:0px;
+      margin-bottom:20px;
+    }
+    #event_contact a, #class_contact a{
+      color:#337ab7;
+      transition:0.2s;
+    }
+    #event_contact a:hover, #class_contact a:hover{
+      color:#88D6F8;
+      transition:0.2s;
+    }
+
+    .event_register_button:hover, .class_register_button:hover{
+      border:2px solid transparent;
+      color:white;
+      background-color:#19528a;
+    }
+
+    /*.event_register_button:hover{
+      background-color:#19528a;
+    }*/
+
+
+
+
+    @media screen and (min-width:1441px){
+      #sermons_redirect, #upcomingevents_redirect, #are_you_new{
+        font-size:18px;
+      }
+
+      .service h2{
+        font-size:28px;
+      }
+      .service h4{
+        font-size:16px;
+      }
+      .service h5{
+        font-size:12px;
+      }
+
+      .directions h3{
+        font-size:20px;
+      }
+
+      #upcomingevents_container_inner, #upcomingclasses_container_inner{
+        max-width:1400px;
+        padding:0px 15px;
+      }
+
+      .upcomingevent h3, .upcomingclass h3{
+        font-size:22px;
+      }
+      .upcomingevent h5, .upcomingclass h5{
+        font-size:14px;
+      }
+    }
+    @media screen and (max-width:1440px){
+      #service_box{
+        width:30%;
+      }
+
+      .service h2{
+        font-size:26px;
+      }
+      .service h4{
+        font-size:16px;
+      }
+      .service h5{
+        font-size:12px;
+      }
+
+      .directions h3{
+        font-size:18px;
+      }
+
+      .upcomingevent, .upcomingclass{
+        width:31%;
+      }
+
+      .upcomingevent h3, .upcomingclass h3{
+        font-size:20px;
+      }
+      .upcomingevent h5, .upcomingclass h5{
+        font-size:12px;
+      }
+
+      .modal-content h3{
+        font-size:20px;
+      }
+      .modal-content h4{
+        font-size:18px;
+      }
+      .modal-content p, .modal-content ul, .modal-content ol, .modal-content li{
+        font-size:16px;
+      }
+      .event_register_button, .class_register_button{
+        font-size:16px;
+      }
+    }
+    @media screen and (max-width:1024px){
+      #background_video{
+        display:none;
+      }
+      #intro, #join_us{
+        background-attachment:scroll;
+      }
+      .main_tagline{
+        font-size:50px;
+      }
+
+      #join_us h1, #upcomingevents h1, #upcomingclasses h1{
+        font-size:34px;
+      }
+
+      #service_box{
+        max-width:340px;
+        width:60%;
+        margin-left:50px;
+        margin-right:50px;
+      }
+
+      .service h4{
+        margin-left:35px;
+        margin-right:35px;
+      }
+
+    }
+    @media screen and (max-width:768px){
+      .main_tagline{
+        font-size:45px;
+      }
+
+      #sermons_redirect, #upcomingevents_redirect{
+        width:220px;
+        font-size:14px;
+      }
+      #are_you_new{
+        font-size:14px;
+      }
+
+      #join_us h1, #upcomingevents h1, #upcomingclasses h1{
+        font-size: 32px;
+      }
+
+      #service_box{
+        width:60%;
+        margin-left:25px;
+        margin-right:25px;
+      }
+      .service h2{
+        font-size:24px;
+      }
+      .service h4{
+        font-size:14px;
+      }
+      .service h5{
+        font-size:10px;
+      }
+
+      .directions h3{
+        font-size:16px;
+      }
+      .directions h5 a{
+        font-size:12px;
+      }
+
+
+
+      .upcomingevent, .upcomingclass{
+        width:47.6%;
+      }
+      .upcomingevent_thumbnail, .upcomingclass_thumbnail{
+        height:275px;
+      }
+      .upcomingevent h3, .upcomingclass h3{
+        font-size:18px;
+      }
+      .upcomingevent h4 .upcomingclass h4{
+        font-size:14px;
+      }
+
+      .modal-content{
+        width:80%;
+      }
+      .modal-content h3{
+        font-size:18px;
+      }
+      .modal-content h4{
+        font-size:16px;
+      }
+      .modal-content p, .modal-content ul, .modal-content ol, .modal-content li{
+        font-size:14px;
+      }
+      .event_register_button, .class_register_button{
+        font-size:14px;
+      }
+    }
+
+    @media screen and (max-width:575px){
+      #sermons_redirect, #upcomingevents_redirect{
+        margin:0px auto 20px auto;
+        display:table;
+      }
+      .modal-content ul, ol{
+        padding-left:30px;
+      }
+    }
+
+    @media screen and (max-width:425px){
+      .main_tagline{
+        font-size:36px;
+      }
+
+      #join_us h1, #upcomingevents h1, #upcomingclasses h1{
+        font-size:30px;
+      }
+
+      #service_box{
+        width:80%;
+      }
+
+      .upcomingevent, .upcomingclass{
+        width:100%;
+        margin-bottom:15px;
+      }
+
+      .modal-content ul, ol{
+        padding-left:20px;
+      }
+    }
+
+    @media screen and (max-width:375px){
+      #intro{
+        background-image:url(/static/images/holywave/home/new-bulletin-header.jpg);
+      }
+      .main_tagline{
+        font-size:34px;
+      }
+
+      #join_us h1, #upcomingevents h1, #upcomingclasses h1{
+        font-size:28px;
+      }
+
+      .service h4{
+        margin-left:20px;
+        margin-right:20px;
+      }
+
+
+      /* .modal-content h3{
+        font-size:22px;
+      } */
+      /* .modal-content h4{
+        font-size:18px;
+      } */
+    }
+
+    @media screen and (max-width:320px){
+      .main_tagline{
+        font-size:32px;
+      }
+
+      #join_us h1, #upcomingevents h1, #upcomingclasses h1{
+        font-size:26px;
+      }
+    }
+
+    </style>
+
+    <script>
+    $(document).ready(function(){
+      var transition_in = $(".transition_in");
+      $(window).scroll(function(){
+        for (var i=0; i<transition_in.length; i++){
+          if ($(window).scrollTop() >= transition_in[i].getBoundingClientRect().top){
+            transition_in[i].classList.add("afterScroll");
+          }
+        }
+      });
+    });
+    </script>
+
+
+  </head>
+  <body>
+
+    {% include "holywave/navbar.html" %}
+
+    <!-- Content Start -->
+    <div id="intro" class="container-fluid">
+      <!-- <video id="background_video" loop src="https://s3-us-west-2.amazonaws.com/holywave/Background+Video/Website+BG+Video+(target+10+Mbps).mp4" autoplay muted></video> -->
+      <div style="display:table; height:100%; margin:0 auto; text-align:center;">
+        <div style="display:table-cell; position:relative; vertical-align:middle;">
+          <h1 class="main_tagline">A SPIRIT-FILLED COMMUNITY<br>OF FULLY COMMITTED DISCIPLES</h1>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div id="redirects" class="container-fluid">
+      <a href="/resources/sermons"><button id="sermons_redirect">Watch the Latest Sermon</button></a>
+      <a href="#upcomingevents"><button id="upcomingevents_redirect">See Upcoming Events</button></a>
+      <br>
+      <a href="/connect/im_new" id="are_you_new">Are you new? Get started here.</a>
+
+      <!-- <h1 id="tagline" class="transition_in">Welcome Home.</h1> -->
+    </div>
+
+
+    <div id="join_us" class="container-fluid">
+      <h1>JOIN US ON SUNDAYS</h1>
+      <!-- <div class="row"> -->
+        <!-- <div class="col-sm-2"></div> -->
+        <div id="service_box" style="margin-bottom:25px; display:inline-block;">
+          <button class="service">
+            <h2>1st Service</h2>
+            <h2 style="margin-bottom:20px;">9:10 AM</h2>
+            <h4>See list of education ministries that gather at 9 AM</h4>
+            <h5 class="service_expand">Expand &#43;</h5>
+          </button>
+          <button class="panel" style="text-align:center;">
+            <br>
+            <span>Infants (3-18 months)</span>
+            <br>
+            <span>Toddlers (18-36 months)</span>
+            <br>
+            <span>Pre-K (3-6 years)</span>
+            <br>
+            <span>Early Elementary (grades 1-3)</span>
+            <br>
+            <span>Upper Elementary (grades 4-6)</span>
+            <br>
+            <span>E-Jr. High (grades 7-8)</span>
+            <br>
+            <span>E-High (grades 9-12)</span>
+            <br>
+            <br>
+          </button>
+        </div>
+        <div id="service_box" style="margin-bottom:25px; display:inline-block;">
+          <button class="service">
+            <h2>2nd Service</h2>
+            <h2 style="margin-bottom:20px;">11:10 AM</h2>
+            <h4>See list of education ministries that gather at 11 AM</h4>
+            <h5 class="service_expand">Expand  &#43;</h5>
+          </button>
+          <button class="panel">
+            <br>
+            <span>Toddlers (18-36 months)</span>
+            <br>
+            <span>Pre-K (3-6 years)</span>
+            <br>
+            <span>Early Elementary (grades 1-3)</span>
+            <br>
+            <span>Upper Elementary (grades 4-6)</span>
+            <br>
+            <span>K-Jr. High (grades 7-8)</span>
+            <br>
+            <span>K-High (grades 9-12)</span>
+            <br>
+            <br>
+          </button>
+        </div>
+      <!-- </div> -->
+      <div class="directions">
+        <h3 style="color:white;">1900 W. Crescent Ave., Anaheim, CA 92801</h3>
+        <h5 style="color:white;"><a href="https://www.google.com/maps/place/Sa-Rang+Community+Church+Kingdom+Dream+Center/@33.8392139,-117.9520618,19.25z/data=!4m5!3m4!1s0x80dd299234636fc9:0xdff50d79dac9151a!8m2!3d33.8394541!4d-117.9519133" target="_blank">Open in Google Maps</a> | <a href="/holywave/about/visit_us">Parking Directions</a></h5>
+      </div>
+    </div>
+    <script>
+    var service_container=document.getElementsByClassName("service");
+    var service_panel=document.getElementsByClassName("panel");
+    for (var i=0; i < service_container.length; i++){
+      service_container[i].onclick = function(){
+        var panel=this.nextElementSibling;
+        this.classList.toggle("active");
+        if(this.className.split(" ").indexOf("active")>-1){
+          panel.style.maxHeight=panel.scrollHeight+"px";
+          this.lastElementChild.innerHTML="Collapse  &#215;";
+        }
+        else{
+          panel.style.maxHeight=null;
+          this.lastElementChild.innerHTML="Expand  &#43;";
+        }
+      }
+    }
+    for (var i=0; i< service_panel.length; i++){
+      service_panel[i].onclick = function(){
+        this.previousElementSibling.classList.toggle("active");
+        if(this.style.maxHeight){
+          this.style.maxHeight=null;
+          this.previousElementSibling.lastElementChild.innerHTML="Expand  &#43;";
+        }
+        else{
+          this.style.maxHeight=this.scrollHeight+"px";
+        }
+      }
+    }
+    </script>
+
+    <div id="upcomingevents" class="container-fluid" style="min-height:500px; text-align:center;">
+      <h1>UPCOMING EVENTS</h1>
+      <div id="upcomingevents_container">
+        <div id="upcomingevents_container_inner">
+
+          {% for upcomingevent in upcomingevents_list %}
+            <div class="upcomingevent">
+              {% if upcomingevent.image %}
+                <div class="thumbnail" style="background-image:url({{upcomingevent.image.url}});"></div>
+              {% else %}
+                <div class="thumbnail" style="background-image:url(/static/images/blank.png)"></div>
+              {% endif %}
+              <h3>{{upcomingevent.title}}</h3>
+              {% if upcomingevent.start_date == upcomingevent.end_date %}
+                {% if not upcomingevent.start_time %}
+                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}}</h4>
+                {% elif upcomingevent.start_time == upcomingevent.end_time %}
+                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                {% elif upcomingevent.start_time != upcomingevent.end_time and not upcomingevent.end_time %}
+                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                {% elif upcomingevent.start_time != upcomingevent.end_time %}
+                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</h4>
+                {% endif %}
+              {% elif upcomingevent.start_date != upcomingevent.end_date %}
+                {% if not upcomingevent.start_time %}
+                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} - {{upcomingevent.end_date|date:"F j (D.)"}}</h4>
+                {% elif upcomingevent.start_time == upcomingevent.end_time %}
+                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} - {{upcomingevent.end_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                {% elif upcomingevent.start_time != upcomingevent.end_time and not upcomingevent.end_time %}
+                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} - {{upcomingevent.end_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                {% elif upcomingevent.start_time != upcomingevent.end_time %}
+                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} - {{upcomingevent.end_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</h4>
+                {% endif %}
+              {% endif %}
+
+              <h4>{{upcomingevent.location}}</h4>
+              <h5>More details &#8594;</h5>
+            </div>
+            <div class="modal" style="text-align:left;">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                {% if upcomingevent.image %}
+                  <div class="thumbnail" style="background-image:url({{upcomingevent.image.url}});"></div>
+                {% else %}
+                  <div class="thumbnail" style="background-image:url(/static/images/blank.png);"></div>
+                {% endif %}
+                <div style="margin:30px 20px 30px 20px;">
+                  <h3>{{upcomingevent.title}}</h3>
+
+                  {% if upcomingevent.start_date == upcomingevent.end_date %}
+                    {% if not upcomingevent.start_time %}
+                      <h4>{{upcomingevent.start_date|date:"F d (D.)"}}</h4>
+                    {% elif upcomingevent.start_time == upcomingevent.end_time %}
+                      <h4>{{upcomingevent.start_date|date:"F d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                    {% elif upcomingevent.start_time != upcomingevent.end_time and not upcomingevent.end_time %}
+                      <h4>{{upcomingevent.start_date|date:"F d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                    {% elif upcomingevent.start_time != upcomingevent.end_time %}
+                      <h4>{{upcomingevent.start_date|date:"F d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</h4>
+                    {% endif %}
+                  {% elif upcomingevent.start_date != upcomingevent.end_date %}
+                    {% if not upcomingevent.start_time %}
+                      <h4>{{upcomingevent.start_date|date:"F d (D.)"}} - {{upcomingevent.end_date|date:"F d (D.)"}}</h4>
+                    {% elif upcomingevent.start_time == upcomingevent.end_time %}
+                      <h4>{{upcomingevent.start_date|date:"F d (D.)"}} - {{upcomingevent.end_date|date:"F d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                    {% elif upcomingevent.start_time != upcomingevent.end_time and not upcomingevent.end_time %}
+                      <h4>{{upcomingevent.start_date|date:"F d (D.)"}} - {{upcomingevent.end_date|date:"F d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                    {% elif upcomingevent.start_time != upcomingevent.end_time %}
+                      <h4>{{upcomingevent.start_date|date:"F d (D.)"}} - {{upcomingevent.end_date|date:"F d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</h4>
+                    {% endif %}
+                  {% endif %}
+
+
+                  <h4>{{upcomingevent.location}}</h4>
+                  <p>{{upcomingevent.description|safe}}</p>
+                  {% if upcomingevent.contact_person and upcomingevent.contact_email %}
+                    <p id="event_contact">Contact: {{upcomingevent.contact_person}}, <a href="mailto:{{upcomingevent.contact_email}}">{{upcomingevent.contact_email}}</a></p>
+                  {% elif upcomingevent.contact_person and not upcomingevent.contact_email %}
+                    <p id="event_contact">Contact: {{upcomingevent.contact_person}}</p>
+                  {% elif not upcomingevent.contact_person and upcomingevent.contact_email %}
+                    <p id="event_contact">Contact: <a href="mailto:{{upcomingevent.contact_email}}">{{upcomingevent.contact_email}}</a></p>
+                  {% endif %}
+
+                  {% if upcomingevent.button %}
+                    <div style="width:100%; text-align:center;">
+                      <a href="{{upcomingevent.button_link}}" target="_blank"><button class="event_register_button">{{upcomingevent.button}}</button></a>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+
+
+
+        </div>
+      </div>
+
+
+    </div>
+    <!-- end of upcoming events -->
+    {% if upcomingclasses_list %}
+    <div id="upcomingclasses" class="container-fluid" style="min-height:500px; text-align:center;">
+      <h1>UPCOMING CLASSES</h1>
+      <div id="upcomingclasses_container">
+        <div id="upcomingclasses_container_inner">
+
+          {% for upcomingclass in upcomingclasses_list %}
+            <div class="upcomingclass">
+              {% if upcomingclass.image %}
+                <div class="thumbnail" style="background-image:url({{upcomingclass.image.url}});"></div>
+              {% else %}
+                <div class="thumbnail" style="background-image:url(/static/images/blank.png)"></div>
+              {% endif %}
+              <h3>{{upcomingclass.title}}</h3>
+              {% if upcomingclass.start_date == upcomingclass.end_date %}
+                {% if not upcomingclass.start_time %}
+                  <h4>{{upcomingclass.start_date|date:"F j (D.)"}}</h4>
+                {% elif upcomingclass.start_time == upcomingclass.end_time %}
+                  <h4>{{upcomingclass.start_date|date:"F j (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}}</h4>
+                {% elif upcomingclass.start_time != upcomingclass.end_time and not upcomingclass.end_time %}
+                  <h4>{{upcomingclass.start_date|date:"F j (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}}</h4>
+                {% elif upcomingclass.start_time != upcomingclass.end_time %}
+                  <h4>{{upcomingclass.start_date|date:"F j (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}} - {{upcomingclass.end_time|date:"g:i A"}}</h4>
+                {% endif %}
+              {% elif upcomingclass.start_date != upcomingclass.end_date %}
+                {% if not upcomingclass.start_time %}
+                  <h4>{{upcomingclass.start_date|date:"F j (D.)"}} - {{upcomingclass.end_date|date:"F j (D.)"}}</h4>
+                {% elif upcomingclass.start_time == upcomingclass.end_time %}
+                  <h4>{{upcomingclass.start_date|date:"F j (D.)"}} - {{upcomingclass.end_date|date:"F j (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}}</h4>
+                {% elif upcomingclass.start_time != upcomingclass.end_time and not upcomingclass.end_time %}
+                  <h4>{{upcomingclass.start_date|date:"F j (D.)"}} - {{upcomingclass.end_date|date:"F j (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}}</h4>
+                {% elif upcomingclass.start_time != upcomingclass.end_time %}
+                  <h4>{{upcomingclass.start_date|date:"F j (D.)"}} - {{upcomingclass.end_date|date:"F j (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}} - {{upcomingclass.end_time|date:"g:i A"}}</h4>
+                {% endif %}
+              {% endif %}
+
+              <h4>{{upcomingclass.location}}</h4>
+              <h5>More details &#8594;</h5>
+            </div>
+            <div class="modal" style="text-align:left;">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                {% if upcomingclass.image %}
+                  <div class="thumbnail" style="background-image:url({{upcomingclass.image.url}});"></div>
+                {% else %}
+                  <div class="thumbnail" style="background-image:url(/static/images/blank.png);"></div>
+                {% endif %}
+                <div style="margin:30px 20px 30px 20px;">
+                  <h3>{{upcomingclass.title}}</h3>
+
+                  {% if upcomingclass.start_date == upcomingclass.end_date %}
+                    {% if not upcomingclass.start_time %}
+                      <h4>{{upcomingclass.start_date|date:"F d (D.)"}}</h4>
+                    {% elif upcomingclass.start_time == upcomingclass.end_time %}
+                      <h4>{{upcomingclass.start_date|date:"F d (D.)"}} · {{upcomingclass.start_time|date:"g:i A"}}</h4>
+                    {% elif upcomingclass.start_time != upcomingclass.end_time and not upcomingclass.end_time %}
+                      <h4>{{upcomingclass.start_date|date:"F d (D.)"}} · {{upcomingclass.start_time|date:"g:i A"}}</h4>
+                    {% elif upcomingclass.start_time != upcomingclass.end_time %}
+                      <h4>{{upcomingclass.start_date|date:"F d (D.)"}} · {{upcomingclass.start_time|date:"g:i A"}} - {{upcomingclass.end_time|date:"g:i A"}}</h4>
+                    {% endif %}
+                  {% elif upcomingclass.start_date != upcomingclass.end_date %}
+                    {% if not upcomingclass.start_time %}
+                      <h4>{{upcomingclass.start_date|date:"F d (D.)"}} - {{upcomingclass.end_date|date:"F d (D.)"}}</h4>
+                    {% elif upcomingclass.start_time == upcomingclass.end_time %}
+                      <h4>{{upcomingclass.start_date|date:"F d (D.)"}} - {{upcomingclass.end_date|date:"F d (D.)"}} · {{upcomingclass.start_time|date:"g:i A"}}</h4>
+                    {% elif upcomingclass.start_time != upcomingclass.end_time and not upcomingclass.end_time %}
+                      <h4>{{upcomingclass.start_date|date:"F d (D.)"}} - {{upcomingclass.end_date|date:"F d (D.)"}} · {{upcomingclass.start_time|date:"g:i A"}}</h4>
+                    {% elif upcomingclass.start_time != upcomingclass.end_time %}
+                      <h4>{{upcomingclass.start_date|date:"F d (D.)"}} - {{upcomingclass.end_date|date:"F d (D.)"}} | {{upcomingclass.start_time|date:"g:i A"}} - {{upcomingclass.end_time|date:"g:i A"}}</h4>
+                    {% endif %}
+                  {% endif %}
+
+
+                  <h4>{{upcomingclass.location}}</h4>
+                  <p>{{upcomingclass.description|safe}}</p>
+                  {% if upcomingclass.contact_person and upcomingclass.contact_email %}
+                    <p id="class_contact">Contact: {{upcomingclass.contact_person}}, <a href="mailto:{{upcomingclass.contact_email}}">{{upcomingclass.contact_email}}</a></p>
+                  {% elif upcomingclass.contact_person and not upcomingclass.contact_email %}
+                    <p id="class_contact">Contact: {{upcomingclass.contact_person}}</p>
+                  {% elif not upcomingclass.contact_person and upcomingclass.contact_email %}
+                    <p id="class_contact">Contact: <a href="mailto:{{upcomingclass.contact_email}}">{{upcomingclass.contact_email}}</a></p>
+                  {% endif %}
+
+                  {% if upcomingclass.button %}
+                    <div style="width:100%; text-align:center;">
+                      <a href="{{upcomingclass.button_link}}" target="_blank"><button class="class_register_button">{{upcomingclass.button}}</button></a>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+
+
+
+        </div>
+      </div>
+
+
+    </div>
+    {% endif %}
+
+
+    <!-- Content End -->
+
+
+    <script>
+    var upcomingEvent=document.getElementsByClassName("upcomingevent");
+    var upcomingClass=document.getElementsByClassName("upcomingclass");
+    var modal=document.getElementsByClassName("modal");
+    var closeButton=document.getElementsByClassName("close");
+    for(var i=0; i<modal.length; i++){
+
+      if (upcomingEvent[i]){
+        upcomingEvent[i].onclick=function(){
+          for(var i=0; i<upcomingEvent.length; i++){
+            this.nextElementSibling.style.display="flex";
+          }
+        }
+      }
+
+      if (upcomingClass[i]){
+        upcomingClass[i].onclick=function(){
+          for(var i=0; i<upcomingClass.length; i++){
+            this.nextElementSibling.style.display="flex";
+          }
+        }
+      }
+
+      closeButton[i].onclick=function(){
+        for(var i=0; i<modal.length; i++){
+          modal[i].style.display="none";
+        }
+      }
+
+
+      modal[i].onclick=function(){
+        this.style.display="none";
+      }
+
+      modal[i].firstElementChild.onclick=function(event){
+        event.stopPropagation();
+      }
+
+      // window.onclick=function(event){
+      //   for(var i=0; i<modal.length; i++){
+      //     if(event.target==modal[i]){
+      //       modal[i].style.display="none";
+      //     }
+      //   }
+      // }
+
+    }
+
+
+    </script>
+
+
+    {% include "holywave/footer.html" %}
+
+
+
+
+    <script>
+    // Select all links with hashes
+    $('a[href*="#"]')
+      // Remove links that don't actually link to anything
+      .not('[href="#"]')
+      .not('[href="#0"]')
+      .click(function(event) {
+        // On-page links
+        if (
+          location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+          &&
+          location.hostname == this.hostname
+        ) {
+          // Figure out element to scroll to
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+          // Does a scroll target exist?
+          if (target.length) {
+            // Only prevent default if animation is actually gonna happen
+            event.preventDefault();
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 500, function() {
+              // Callback after animation
+              // Must change focus!
+              var $target = $(target);
+              $target.focus();
+              if ($target.is(":focus")) { // Checking if the target was focused
+                return false;
+              } else {
+                $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                $target.focus(); // Set focus again
+              };
+            });
+          }
+        }
+      });
+    </script>
+
+
+
+  </body>
+</html>

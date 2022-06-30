@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Get Involved | HolyWave Ministry</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112155877-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-112155877-1');
+    </script>
+
+    <!-- THING WE NEED -->
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <!-- Page contents stretch according to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href="/static/css/futura.css" rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=EB%20Garamond' rel='stylesheet'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+    *{
+      font-family:"Lato";
+    }
+    #header{
+      background:url(/static/images/holywave/connect/get_involved/get_involved_header.jpg);
+      background-size:cover;
+      background-position:center;
+      text-align:center;
+      height:400px;
+    }
+    #header h1{
+      font-family:"Futura";
+      color:white;
+      font-size:60px;
+      letter-spacing:9px;
+    }
+
+    #ministries{
+      padding:50px 65px;
+      width:1240px;
+      margin:auto;
+      text-align:center;
+    }
+
+    #ministries a{
+      text-decoration:none;
+      color:black;
+    }
+
+    #ministry_description a{
+      color:#337ab7;
+      display:inline-block;
+      font-size:inherit;
+    }
+
+    .panel-header{
+      transition:0.25s ease-in-out;
+      font-size:18px;
+      background-color:#fafafa;
+      margin-top:15px;
+      text-align:left;
+      display:block;
+      border:1px solid #ececec;
+      padding:15px 20px;
+      font-weight:bold;
+    }
+
+    .panel-header:hover{
+      transition:0.2s ease-in-out;
+      color:#4a6885 !important;
+    }
+    .panel-header[aria-expanded="true"]{
+      color:#4a6885 !important;
+    }
+
+    .panel-body-wrapper{
+      text-align:left;
+      display:block;
+      /* border:1px solid #ececec; */
+      padding:5px 15px;
+    }
+    .panel-body{
+      /* margin-bottom:20px; */
+      text-align:left;
+      display:block;
+      border-bottom:1px solid #ececec;
+      margin:0px;
+      padding:15px 10px;
+    }
+
+    .panel-body a{
+      font-size:16px;
+      display:block;
+    }
+
+    .panel-body a:hover{
+      color:#4a6885 !important;
+    }
+
+    .panel-body div a{
+      transition:0.2s ease-in-out;
+      font-size:16px;
+      display:inline-block;
+      color: #337ab7 !important;
+    }
+    .panel-body div a:hover{
+      transition:0.2s ease-in-out;
+      color:#88D6F8 !important;
+    }
+
+
+    .panel-body a[aria-expanded="true"]{
+      color:#4a6885 !important;
+      font-weight:bold;
+    }
+
+    .panel-body h5{
+      font-size:16px;
+      margin-top:10px;
+      margin-bottom:0px;
+    }
+    .panel-body p{
+      line-height:21px;
+    }
+
+
+
+
+    @media screen and (min-width:1441px){
+
+    }
+    @media screen and (max-width:1440px){
+      #ministries{
+        width:80%;
+        padding:50px 0px;
+      }
+    }
+    @media screen and (max-width:1024px){
+      #header h1{
+        font-size:50px;
+      }
+      #ministries{
+        width:85%;
+      }
+    }
+    @media screen and (max-width:768px){
+      #header h1{
+        font-size:45px;
+      }
+      .panel-header{
+        font-size:16px;
+      }
+      .panel-body a, .panel-body h5{
+        font-size:14px;
+      }
+    }
+    @media screen and (max-width:425px){
+      #header h1{
+        font-size:36px;
+      }
+
+    }
+    @media screen and (max-width:375px){
+      #header h1{
+        font-size:34px;
+      }
+      #ministries{
+        width:90%;
+      }
+
+    }
+    @media screen and (max-width:320px){
+      #header h1{
+        font-size:32px;
+      }
+    }
+
+    </style>
+
+
+  </head>
+  <body>
+
+    {% include "holywave/navbar.html" %}
+
+
+    <!-- Content Start -->
+    <div id="header" class="container-fluid">
+      <div style="display:table; height:100%; margin:auto;">
+        <div style="display:table-cell; vertical-align:middle;">
+          <h1>GET INVOLVED</h1>
+        </div>
+      </div>
+    </div>
+
+    <div id="ministries" class="container-fluid" style="min-height:500px;">
+
+      {% for ministry_category in ministry_category_list %}
+        <a class="panel-header" data-toggle="collapse" href="#{{ministry_category.ministry_category}}" style="text-transform:capitalize;">{{ministry_category.ministry_category}} <span style="float:right; font-weight:normal; font-size:10px; margin-top:3px;">Expand<span style="font-weight:bold; font-size:12px; margin-left:5px;">&#43;</span></span></a>
+        <div class="collapse" id="{{ministry_category.ministry_category}}">
+          <div class="panel-body-wrapper">
+            {% for ministry in ministry_category.ministries.all|dictsort:"id" %}
+              <div class="panel-body">
+                <a class="plus_minus" data-toggle="collapse" href="#{{ministry_category.ministry_category}}-{{ministry.id}}">{{ministry.ministry_name}}<span style="float:right; font-weight:bold; font-size:12px; margin-left:5px;">&#43;</span></a>
+                <div class="collapse" id="{{ministry_category.ministry_category}}-{{ministry.id}}">
+                  <h5 id="ministry_description">{{ministry.description|safe}}</h5>
+                  {% if ministry.contact_person and ministry.contact_email %}
+                    <h5>Contact: {{ministry.contact_person}}, <a href="mailto:{{ministry.contact_email}}" style="font-size:inherit;">{{ministry.contact_email}}</a></h5>
+                  {% elif ministry.contact_person and not ministry.contact_email %}
+                    <h5>Contact: {{ministry.contact_person}}</h5>
+                  {% elif ministry.contact_email and not ministry.contact_person %}
+                    <h5>Contact: <a href="mailto:{{ministry.contact_email}}" style="font-size:inherit;">{{ministry.contact_email}}</a></h5>
+                  {% elif ministry.contact_extra %}
+                    <h5>{{ministry.contact_extra|safe}}</h5>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+    <!-- Content End -->
+
+    {% include "holywave/footer.html" %}
+
+    <script>
+    var expand_collapse = document.getElementsByClassName("panel-header");
+    var plus_minus = document.getElementsByClassName("plus_minus");
+
+    for (var i=0; i<expand_collapse.length; i++){
+      expand_collapse[i].onclick = function(){
+        if (this.getAttribute("aria-expanded")=="true"){
+          this.firstChild.nextElementSibling.innerHTML="Expand<span style='font-weight:bold; font-size:12px; margin-left:5px;'>&#43;</span>";
+        }
+        else{
+          this.firstChild.nextElementSibling.innerHTML="Collapse<span style='font-weight:bold; font-size:12px; margin-left:5px;'>&#215;</span>";
+        }
+
+      }
+    }
+
+    for (var i=0; i<plus_minus.length; i++){
+      plus_minus[i].onclick = function(){
+        if (this.getAttribute("aria-expanded")=="true"){
+          this.firstChild.nextElementSibling.innerHTML="&#43";
+        }
+        else{
+          this.firstChild.nextElementSibling.innerHTML="&#8722;";
+        }
+      }
+    }
+    </script>
+
+  </body>
+</html>

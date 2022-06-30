@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Ministry</title>
+
+    <script src="/static/js/tiny_mce/tiny_mce.js"></script>
+    <script src="/static/js/tiny_mce/textareas.js"></script>
+
+    <style>
+      label{
+        display:table;
+        margin-bottom:20px;
+      }
+    </style>
+
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        <script>
+          alert('{{message}}');
+        </script>
+      {% endfor %}
+    {% endif %}
+
+    <form action="/admin/ministries/add_process" method="post">
+      <h1>Add Ministry</h1>
+      {% csrf_token %}
+      <label>Ministry Category:
+        <select name="ministry_category" required>
+          <option value="">Select</option>
+          <option value=""></option>
+          {% for category in ministry_category %}
+            <option value="{{category.ministry_category}}">{{category.ministry_category}}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Ministry Name: <input type="text" name="ministry_name"></label>
+      <label>Description: <textarea name="description" rows="8" cols="80"></textarea></label>
+      <label>Contact Person: <input type="text" name="contact_person"></label>
+      <label>Contact Email: <input type="email" name="contact_email"></label>
+      <label style="display:none;">Contact Extra: <textarea name="contact_extra"></textarea></label>
+      <input type="submit" value="Publish">
+      <a href="/admin">Cancel</a>
+    </form>
+  </body>
+</html>

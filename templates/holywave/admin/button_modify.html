@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Modify Button</title>
+
+    <style>
+    label{
+      display:table;
+      margin-bottom:20px;
+    }
+    </style>
+
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+      <script>
+        alert('{{message}}');
+      </script>
+      {% endfor %}
+    {% endif %}
+
+    <input id="button_active" type="hidden" value="{{this_button.active}}">
+
+    <form action="/admin/buttons/{{this_button.id}}/modify_process" method="post">
+      {% csrf_token %}
+      <label>Button Name: <input type="text" name="name" value="{{this_button.name}}" readonly></label>
+      <label>Button Character: <input type="text" name="button" value="{{this_button.button}}"></label>
+      <label>Application Link: <input type="text" name="application_link" value="{{this_button.application_link}}"></label>
+      <label> Application Status:
+        <label onclick="disappear()" style="display:inline-table; margin-right:20px; margin-bottom:0px;"><input id="active" type="radio" name="active" value=True>Open</input></label>
+        <label onclick="appear()" style="display:inline-table; margin-bottom:0px;"><input id="inactive" type="radio" name="active" value=False style="margin-left:10px;">Closed</input></label>
+      </label>
+      <label id="closed_application_notice">Closed Application Notice: <input type="text" name="closed_application_notice" value="{{this_button.closed_application_notice}}"></label>
+      <input type="submit" value="Modify">
+      <a href="/admin">Cancel</a>
+    </form>
+    <script>
+    if (document.getElementById("button_active").value=="True"){
+      document.getElementById("active").checked=true;
+    }
+    else if (document.getElementById("button_active").value=="False"){
+      document.getElementById("inactive").checked=true;
+    }
+
+    if (document.getElementById("active").checked == true){
+      document.getElementById("closed_application_notice").style.display="none";
+    }
+    else if (document.getElementById("inactive").checked == true){
+      document.getElementById("closed_application_notice").style.display="block";
+    }
+
+    function disappear(){
+      document.getElementById("closed_application_notice").style.display="none";
+    }
+
+    function appear(){
+      document.getElementById("closed_application_notice").style.display="block";
+    }
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Modify Ministry</title>
+
+    <script src="/static/js/tiny_mce/tiny_mce.js"></script>
+    <script src="/static/js/tiny_mce/textareas.js"></script>
+
+    <style>
+    label{
+      display:table;
+      margin-bottom:20px;
+    }
+    </style>
+
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        <script>
+          alert('{{message}}');
+        </script>
+      {% endfor %}
+    {% endif %}
+
+    <form action="/admin/ministries/{{this_ministry.id}}/modify_process" method="post">
+      {% csrf_token %}
+      <label>Ministry Category:
+        <select name="ministry_category">
+          <option value="{{this_ministry.ministry_category.ministry_category}}">{{this_ministry.ministry_category.ministry_category}}</option>
+          <option value=""></option>
+          {% for category in ministry_category %}
+            <option value="{{category.ministry_category}}">{{category.ministry_category}}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Ministry Name: <input type="text" name="ministry_name" value="{{this_ministry.ministry_name}}"></label>
+      <label>Description: <textarea name="description" rows="8" cols="80">{{this_ministry.description}}</textarea></label>
+      <label>Contact Person: <input type="text" name="contact_person" value="{{this_ministry.contact_person}}"></label>
+      <label>Contact Email: <input type="email" name="contact_email" value="{{this_ministry.contact_email}}"></label>
+      {% if this_ministry.contact_extra %}
+        <label>Contact Extra: <textarea name="contact_extra">{{this_ministry.contact_extra}}</textarea></label>
+      {% else %}
+        <label style="display:none;">Contact Extra: <textarea name="contact_extra">{{this_ministry.contact_extra}}</textarea></label>
+      {% endif %}
+      <input type="submit" value="Modify">
+      <a href="/admin">Cancel</a>
+    </form>
+  </body>
+</html>

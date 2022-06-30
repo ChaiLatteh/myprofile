@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Delete Reading</title>
+
+    <style>
+    h2{
+      margin-bottom:10px;
+    }
+    p{
+      margin-top:0px;
+      margin-bottom:25px;
+    }
+
+    </style>
+
+
+
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        <script>
+          alert('{{message}}')
+        </script>
+      {% endfor %}
+    {% endif %}
+
+    <h1 style="color:red;">Are you sure you would like to delete following reading from readings database?</h1>
+    <h2>Category:</h2>
+    <p>{{this_reading.category}}</p>
+    <h2>Title & Subtitle:</h2>
+    <p><b>{{this_reading.title}}</b>: {{this_reading.subtitle}}</p>
+    <h2>Author:</h2>
+    <p>{{this_reading.author}}</p>
+
+    <form action="/admin/readings/{{this_reading.id}}/delete_process" method="post">
+      {% csrf_token %}
+      <input type="submit" value="DELETE">
+      <a href="/admin">Cancel</a>
+    </form>
+  </body>
+</html>

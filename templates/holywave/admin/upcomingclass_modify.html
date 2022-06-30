@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Class</title>
+
+    <script src="/static/js/tiny_mce/tiny_mce.js"></script>
+    <script src="/static/js/tiny_mce/textareas.js"></script>
+
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+      <script>
+        alert('{{message}}')
+      </script>
+      {% endfor %}
+    {% endif %}
+
+    <form action="/admin/upcomingclasses/{{this_upcomingclass.id}}/modify_process" method="post">
+      {% csrf_token %}
+      Title: <input type="text" name="title" value="{{this_upcomingclass.title}}">
+      <br>
+      Start Date: <input type="date" name="start_date" value="{{this_upcomingclass.start_date|date:'Y-m-d'}}">
+      <br>
+      End Date: <input type="date" name="end_date" value="{{this_upcomingclass.end_date|date:'Y-m-d'}}">
+      <br>
+      Start Time: <input type="time" name="start_time" value="{{this_upcomingclass.start_time|date:'H:i'}}">
+      <br>
+      End Time: <input type="time" name="end_time" value="{{this_upcomingclass.end_time|date:'H:i'}}">
+      <br>
+      Location: <input type="text" name="location" value="{{this_upcomingclass.location}}">
+      <br>
+      Description: <textarea name="description" rows="8" cols="80">{{this_upcomingclass.description}}</textarea>
+      <br>
+      Contact Person: <input type="text" name="contact_person" value="{{this_upcomingclass.contact_person}}">
+      <br>
+      Contact Email: <input type="email" name="contact_email" value="{{this_upcomingclass.contact_email}}">
+      <br>
+      Button:
+      <ul>
+        <li><label><input id="button_0" type="radio" name="button" value="Register Now"> Register Now</label></li>
+        <li><label><input id="button_1" type="radio" name="button" value="Apply Here"> Apply Here</label></li>
+        <li><label><input id="button_2" type="radio" name="button" value="Sign Up Here"> Sign Up Here</label></li>
+        <li><label><input id="other_input" type="radio" name="button" value=" "> <input id="custom_input" type="text" name="custom_button" value="{{this_upcomingclass.button}}"></label></li>
+      </ul>
+      <input id="button_value" type="hidden" value="{{this_upcomingclass.button}}">
+      <br>
+      Button Link: <input type="text" name="button_link" value="{{this_upcomingclass.button_link}}">
+      <input type="submit" value="Modify">
+      <a href="/admin">Cancel</a>
+    </form>
+
+    <script>
+    // ----------------------- Button Custom Input ------------------------
+    var other_input = document.getElementById("other_input");
+    var custom_input = document.getElementById("custom_input");
+    var button_0 = document.getElementById("button_0");
+    var button_1 = document.getElementById("button_1");
+    var button_2 = document.getElementById("button_2");
+    var button_value = document.getElementById("button_value");
+
+    if (document.getElementById("button_0").value == button_value.value){
+      button_0.checked=true;
+      custom_input.value="";
+    }
+    else if (document.getElementById("button_1").value == button_value.value){
+      button_1.checked=true;
+      custom_input.value="";
+    }
+    else if (document.getElementById("button_2").value == button_value.value){
+      button_2.checked=true;
+      custom_input.value="";
+    }
+    else if ((custom_input.value == document.getElementById("button_value").value) && (custom_input.value !== "")){
+      other_input.checked=true;
+    }
+
+    custom_input.onclick = function(){
+      other_input.checked = true;
+    }
+
+    // ----------------------- Button Custom Input ------------------------
+
+    button_0.onclick = function(){
+      custom_input.value = ""
+    }
+    button_1.onclick = function(){
+      custom_input.value = ""
+
+    }
+    button_2.onclick = function(){
+      custom_input.value = ""
+
+    }
+
+    // ----------------------- Uncheck Radio Buttons ------------------------
+    var uncheck = document.createElement("button");
+    var uncheck_button = custom_input.parentNode.insertBefore(uncheck, custom_input.nextSibling);
+    uncheck_button.setAttribute("type", "button");
+    uncheck_button.innerHTML = "UNCHECK ALL"
+    uncheck_button.style.display = "table";
+    uncheck_button.onclick = function(){
+      document.getElementById("button_0").checked = false;
+      document.getElementById("button_1").checked = false;
+      document.getElementById("button_2").checked = false;
+      document.getElementById("other_input").checked = false;
+      custom_input.value="";
+    }
+    // ----------------------- Uncheck Radio Buttons ------------------------
+    </script>
+
+  </body>
+</html>

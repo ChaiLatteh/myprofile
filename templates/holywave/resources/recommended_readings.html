@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Recommended Readings | HolyWave Ministry</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112155877-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-112155877-1');
+    </script>
+
+    <!-- THING WE NEED -->
+    <!-- Page contents stretch according to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+    <link href="/static/css/holywave/futura.css" rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=EB%20Garamond' rel='stylesheet'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+    *{
+      font-family:"Lato";
+    }
+    #back_to_top{
+      opacity:0.7;
+      color:#4a6885;
+      border:1.5px solid #4a6885;
+      display:none;
+      position:fixed;
+      bottom:10px;
+      right:10px;
+      text-align:center;
+      padding-bottom:5px;
+    }
+    #back_to_top:hover{
+      text-decoration:none;
+      opacity:1;
+    }
+    #back_to_top span{
+      padding:0px 10px;
+      display:table;
+      font-size:20px;
+      margin:auto;
+    }
+    #header{
+      height:400px;
+      text-align:center;
+      background:url(/static/images/holywave/resources/recommended_readings/recommended_readings_header.jpg);
+      background-size:cover;
+      background-position:center;
+    }
+    #header h1{
+      color:white;
+      font-family:"Futura";
+      font-size:60px;
+      letter-spacing:9px;
+    }
+
+    #readings_wrapper{
+      margin-bottom:100px;
+      max-width:1200px;
+      padding:0px;
+    }
+
+    #anchor{
+      margin-top:50px;
+      margin-bottom:50px;
+      display:block;
+      text-align:center;
+    }
+    #anchor span, #anchor a{
+      margin:20px 10px 0px 10px;
+      padding-bottom:5px;
+      width:fit-content;
+      display:inline-block;
+      font-size:16px;
+      text-decoration:none !important;
+    }
+
+    #anchor a{
+      transition:0.2s;
+      border-bottom:2px solid transparent;
+    }
+
+    #anchor a:hover{
+      transition:0.2s;
+      border-bottom:2px solid #23527c;
+    }
+
+    #readings_wrapper_inner{
+      display:inline;
+      margin-bottom:100px;
+      overflow:-webkit-paged-x;
+      text-align:center;
+      padding:0px 20px;
+      list-style:none;
+    }
+
+    #readings_wrapper_inner h2{
+      padding-top:20px;
+      outline:none;
+      font-size:22px;
+      font-weight:300;
+      text-align:left;
+    }
+
+    .reading{
+      height:275px;
+      width:20%;
+      margin:0px auto 90px;
+      display:inline-table;
+      position:relative;
+      float:left;
+    }
+    .reading a{
+      text-decoration:none;
+      color:black;
+    }
+    #reading_cover{
+      transition:0.2s ease-in-out;
+      position:absolute;
+      bottom:0;
+      width:100%;
+      padding:0px 15%;
+    }
+
+    .reading::after{
+      content:"";
+      position:absolute;
+      width:100%;
+      bottom:15px;
+      left:0px;
+      border-bottom:1px solid transparent;
+      box-shadow:0px 20px 15px 0px rgba(0,0,0,1);
+    }
+
+    #reading_cover:hover{
+      transition:0.2s ease-in-out;
+      /* transform:scale(1.05); */
+    }
+
+
+    #reading_cover img{
+      transition:0.2s ease-in-out;
+    }
+    #reading_cover img:hover{
+      transition:0.2s ease-in-out;
+      box-shadow: 0px -2px 5px 0px rgba(0,0,0,.3);
+    }
+    #reading_title{
+      text-align:left;
+      position:absolute;
+      width:100%;
+      bottom:-15px;
+      transform:translateY(100%);
+      padding:0px 15%;
+    }
+    #reading_title h4{
+      font-weight:bold;
+    }
+
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 100; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    .modal-content{
+      overflow-y:auto;
+      width:80%;
+      max-width:1150px;
+      min-height:fit-content;
+      height:60%;
+      max-height:766px;
+      background-color: #fefefe;
+      margin: auto;
+      border:none;
+      border-radius:0;
+    }
+
+    .close {
+      font-weight:100;
+      text-shadow:0px 0px 3px black;
+      opacity:0.9;
+      color: white;
+      position:absolute;
+      right:0px;
+      font-size: 38px;
+      margin-right:10px;
+    }
+
+    .close:hover, .close:focus {
+      opacity:1;
+      color:white;
+      text-shadow:0px 0px 4px black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    #modal_reading_cover{
+      padding:50px 0px;
+      display:inline-table;
+      box-sizing:border-box;
+      width:35%;
+      height:100%;
+      /* margin:0px 50px; */
+      float:left;
+      text-align:center;
+    }
+
+    #modal_reading_cover img{
+      width:100%;
+      max-width:300px;
+      box-shadow:4px 4px 4px -2px rgba(0,0,0,.5);
+    }
+
+    #modal_reading_info{
+      display:inline-table;
+      box-sizing:border-box;
+      width:65%;
+      height:100%;
+      padding:50px 50px 50px 0px;
+      text-align:left;
+      vertical-align:top;
+    }
+
+    #modal_reading_info h3, #modal_reading_info h4, #modal_reading_info h5{
+      display:table;
+    }
+    #modal_reading_info h3{
+      font-weight:bold;
+      font-size:22px;
+      margin:20px 0px 5px 0px;
+    }
+    #modal_reading_info h4{
+      font-size:18px;
+      margin:5px 0px;
+    }
+    #modal_reading_info h5{
+      font-size:18px;
+      line-height:23px;
+      margin:25px 0px;
+    }
+
+    #modal_reading_buttons_wrapper{
+      margin-bottom:50px;
+    }
+
+    #reading_pdf_button, #reading_purchase_button{
+      font-size:18px;
+      transition:0.5s;
+      background-color:transparent;
+      color:#19528a;
+      border-radius:0.25em;
+      border:2px solid #19528a;
+      padding:5px 20px;
+      margin:0px 20px 0px 0px;
+    }
+    #reading_pdf_button:hover, #reading_purchase_button:hover{
+      border:2px solid transparent;
+      color:white;
+      background-color:#19528a;
+    }
+
+
+    @media screen and (min-width:1441px){
+    }
+    @media screen and (max-width:1440px){
+      .modal-content{
+        width:90%;
+      }
+
+      #modal_reading_info h3{
+        font-size:20px;
+      }
+      #modal_reading_info h4, #modal_reading_info h5{
+        font-size:16px;
+      }
+      #reading_pdf_button, #reading_purchase_button{
+        font-size:16px;
+      }
+
+    }
+    @media screen and (max-width:1024px){
+      #header h1{
+        font-size:50px;
+      }
+      #anchor span{
+        text-align:center;
+        display:table;
+        margin:auto;
+      }
+      .reading{
+        height:250px;
+        /* width:25%; */
+      }
+
+      .modal-content{
+        height:80%;
+        min-height:initial;
+      }
+
+      #modal_reading_cover{
+        display:table;
+        width:100%;
+        height:70%;
+      }
+
+      #modal_reading_cover img{
+        box-shadow:0px 4px 4px -2px rgba(0,0,0,.5);
+      }
+
+      #modal_reading_info{
+        display:table;
+        width:100%;
+        height:initial;
+        padding:0px 20px;
+      }
+
+      #modal_reading_buttons_wrapper{
+        text-align:center;
+      }
+
+    }
+    @media screen and (max-width:768px){
+      #header h1{
+        letter-spacing:6px;
+        font-size:42px;
+      }
+      .reading{
+        width:33.333%;
+        height:275px;
+        margin:0px auto 150px;
+      }
+
+      .reading::after{
+        bottom:12px;
+        box-shadow:0px 20px 10px 0px rgba(0,0,0,1);
+      }
+
+      .modal-content{
+        width:80%;
+      }
+      #modal_reading_info h3{
+        font-size:18px;
+      }
+      #modal_reading_info h4, #modal_reading_info h5{
+        font-size:14px;
+      }
+      #reading_pdf_button, #reading_purchase_button{
+        font-size:14px;
+      }
+    }
+    @media screen and (max-width:620px){
+      .reading{
+        width:50%;
+        height:350px;
+      }
+    }
+    @media screen and (max-width:500px){
+      .reading{
+        height:275px;
+      }
+    }
+    @media screen and (max-width:425px){
+      #header h1{
+        letter-spacing:6px;
+        font-size:36px;
+      }
+      .reading{
+        height:350px;
+        width:80%;
+        float:none;
+      }
+    }
+    @media screen and (max-width:375px){
+      #header h1{
+        letter-spacing:4px;
+        font-size:34px;
+      }
+      .reading{
+        width:80%;
+        float:none;
+        height:300px;
+      }
+      #modal_reading_cover{
+        padding:0px;
+      }
+    }
+    @media screen and (max-width:320px){
+      #header h1{
+        font-size:32px;
+      }
+      .reading{
+        height:275px;
+      }
+
+    }
+    </style>
+
+
+
+  </head>
+  <body>
+    {% include "holywave/navbar.html" %}
+
+
+    <div id="top" style="display:none;"></div>
+    <a id="back_to_top" href="#top">
+
+    <!-- Content Start -->
+      <span><i class="fa fa-chevron-up"></i></span>
+      TOP
+    </a>
+    <div id="header" class="container-fluid">
+      <div style="display:table; margin:auto; height:100%;">
+        <div style="display:table-cell; vertical-align:middle;">
+          <h1>RECOMMENDED READINGS</h1>
+        </div>
+      </div>
+    </div>
+
+    <div id="readings_wrapper" class="container-fluid">
+
+      <div id="anchor">
+        <span>Jump to:</span>
+        <a href="#christian_living">Christian Living</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#missions">Missions</a>
+        <a href="#prayer">Prayer</a>
+        <a href="#theology">Theology</a>
+        <a href="#wholeness_inner_healing">Wholeness/Inner Healing</a>
+      </div>
+      {% if christian_living_readings_list %}
+        <ul id="readings_wrapper_inner">
+          <h2 id="christian_living">Christian Living</h2>
+          {% for reading in christian_living_readings_list %}
+            {% if reading.display %}
+              <li class="reading">
+                <a style="cursor:pointer;">
+                  <div id="reading_cover">
+                    <img src="https://holywave.s3.amazonaws.com{{reading.reading_cover.url}}" style="width:100%;">
+                  </div>
+                  <div id="reading_title">
+                    <h4>{{reading.title}}</h4>
+                    <h5>{{reading.subtitle}}</h5>
+                  </div>
+                </a>
+              </li>
+              <div class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <div id="modal_reading_cover">
+                    <div style="display:table; margin:auto; height:100%;">
+                      <div style="display:table-cell; vertical-align:middle;">
+                        <img src="https://holywave.s3.amazonaws.com{{reading.reading_cover.url}}">
+                      </div>
+                    </div>
+                  </div>
+                  <div id="modal_reading_info">
+                    <div style="display:table; margin:auto; height:100%;">
+                      <div style="display:table-cell; vertical-align:middle;">
+                        <h3>{{reading.title}}</h3>
+                        <h4 style="margin-bottom:20px;">{{reading.subtitle}}</h4>
+                        <h4>by {{reading.author}}</h4>
+                        <h5>{{reading.summary | safe}}</h5>
+                        <div id="modal_reading_buttons_wrapper">
+                          {% if reading.pdf_link %}
+                            <a href="{{reading.pdf_link}}" target="_blank"><button id="reading_pdf_button">{{reading.pdf_button}}</button></a>
+                          {% endif %}
+                          {% if reading.purchase_link %}
+                            <a href="{{reading.purchase_link}}" target="_blank"><button id="reading_purchase_button">{{reading.purchase_button}}</button></a>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if leadership_readings_list %}
+        <ul id="readings_wrapper_inner">
+          <h2 id="leadership">Leadership</h2>
+          {% for reading in leadership_readings_list %}
+            {% if reading.display %}
+              <li class="reading">
+                <a style="cursor:pointer;">
+                  <div id="reading_cover">
+                    <img src="https://holywave.s3.amazonaws.com{{reading.reading_cover.url}}" style="width:100%;">
+                  </div>
+                  <div id="reading_title">
+                    <h4>{{reading.title}}</h4>
+                    <h5>{{reading.subtitle}}</h5>
+                  </div>
+                </a>
+              </li>
+              <div class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <div id="modal_reading_cover">
+                    <div style="display:table; margin:auto; height:100%;">
+                      <div style="display:table-cell; vertical-align:middle;">
+                        <img src="https://holywave.s3.amazonaws.com{{reading.reading_cover.url}}">
+                      </div>
+                    </div>
+                  </div>
+                  <div id="modal_reading_info">
+                    <div style="display:table; margin:auto; height:100%;">
+                      <div style="display:table-cell; vertical-align:middle;">
+                        <h3>{{reading.title}}</h3>
+                        <h4 style="margin-bottom:20px;">{{reading.subtitle}}</h4>
+                        <h4>by {{reading.author}}</h4>
+                        <h5>{{reading.summary | safe}}</h5>
+                        <div id="modal_reading_buttons_wrapper">
+                          {% if reading.pdf_link %}
+                            <a href="{{reading.pdf_link}}" target="_blank"><button id="reading_pdf_button">{{reading.pdf_button}}</button></a>
+                          {% endif %}
+                          {% if reading.purchase_link %}
+                            <a href="{{reading.purchase_link}}" target="_blank"><button id="reading_purchase_button">{{reading.purchase_button}}</button></a>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if missions_readings_list %}
+        <ul id="readings_wrapper_inner">
+          <h2 id="missions">Missions</h2>
+          {% for reading in missions_readings_list %}
+            {% if reading.display %}
+              <li class="reading">
+                <a style="cursor:pointer;">
+                  <div id="reading_cover">
+                    <img src="https://holywave.s3.amazonaws.com{{reading.reading_cover.url}}" style="width:100%;">
+                  </div>
+                  <div id="reading_title">
+                    <h4>{{reading.title}}</h4>
+                    <h5>{{reading.subtitle}}</h5>
+                  </div>
+                </a>
+              </li>
+              <div class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <div id="modal_reading_cover">
+                    <div style="display:table; margin:auto; height:100%;">
+                      <div style="display:table-cell; vertical-align:middle;">
+                        <img src="https://holywave.s3.amazonaws.com{{reading.reading_cover.url}}">
+                      </div>
+                    </div>
+                  </div>
+                  <div id="modal_reading_info">
+                    <div style="display:table; margin:auto; height:100%;">
+                      <div style="display:table-cell; vertical-align:middle;">
+                        <h3>{{reading.title}}</h3>
+                        <h4 style="margin-bottom:20px;">{{reading.subtitle}}</h4>
+                        <h4>by {{reading.author}}</h4>
+                        <h5>{{reading.summary | safe}}</h5>
+                        <div id="modal_reading_buttons_wrapper">
+                          {% if reading.pdf_link %}
+                            <a href="{{reading.pdf_link}}" target="_blank"><button id="reading_pdf_button">{{reading.pdf_button}}</button></a>
+                          {% endif %}
+                          {% if reading.purchase_link %}
+                            <a href="{{reading.purchase_link}}" target="_blank"><button id="reading_purchase_button">{{reading.purchase_button}}</button></a>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if prayer_readings_list %}
+        <ul id="readings_wrapper_inner">
+          <h2 id="prayer">Prayer</h2>
+          {% for reading in prayer_readings_list %}
+            {% if reading.display %}
+              <li class="reading">
+                <a style="cursor:pointer;">
+                  <div id="reading_cover">
+                    <img src="https://holywave.s3.amazonaws.com{{reading.reading_cover.url}}" style="width:100%;">
+                  </div>
+                  <div id="reading_title">
+                    <h4>{{reading.title}}</h4>
+                    <h5>{{reading.subtitle}}</h5>
+                  </div>
+                </a>
+              </li>
+              <div class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <div id="modal_reading_cover">
+                    <div style="display:table; margin:auto; height:100%;">
+                      <div style="display:table-cell; vertical-align:middle;">
+                        <img src="https://holywave.s3.amazonaws.com{{reading.reading_cover.url}}">
+                      </div>
+                    </div>
+                  </div>
+                  <div id="modal_reading_info">
+                    <div style="display:table; margin:auto; height:100%;">
+                      <div style="display:table-cell; vertical-align:middle;">
+                        <h3>{{reading.title}}</h3>
+                        <h4 style="margin-bottom:20px;">{{reading.subtitle}}</h4>
+                        <h4>by {{reading.author}}</h4>
+                        <h5>{{reading.summary | safe}}</h5>
+                        <div id="modal_reading_buttons_wrapper">
+                          {% if reading.pdf_link %}
+                            <a href="{{reading.pdf_link}}" target="_blank"><button id="reading_pdf_button">{{reading.pdf_button}}</button></a>
+                          {% endif %}
+                          {% if reading.purchase_link %}
+                            <a href="{{reading.purchase_link}}" target="_blank"><button id="reading_purchase_button">{{reading.purchase_button}}</button></a>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if theology_readings_list %}
+        <ul id="readings_wrapper_inner">
+          <h2 id="theology">Theology</h2>
+          {% for reading in theology_readings_list %}
+            {% if reading.display %}
+              <li class="reading">
+                <a style="cursor:pointer;">
+                  <div id="reading_cover">
+                    <img src="https://holywave.s3.amazonaws.com{{reading.reading_cover.url}}" style="width:100%;">
+                  </div>
+                  <div id="reading_title">
+                    <h4>{{reading.title}}</h4>
+                    <h5>{{reading.subtitle}}</h5>
+                  </div>
+                </a>
+              </li>
+              <div class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <div id="modal_reading_cover">
+                    <div style="display:table; margin:auto; height:100%;">
+                      <div style="display:table-cell; vertical-align:middle;">
+                        <img src="https://holywave.s3.amazonaws.com{{reading.reading_cover.url}}">
+                      </div>
+                    </div>
+                  </div>
+                  <div id="modal_reading_info">
+                    <div style="display:table; margin:auto; height:100%;">
+                      <div style="display:table-cell; vertical-align:middle;">
+                        <h3>{{reading.title}}</h3>
+                        <h4 style="margin-bottom:20px;">{{reading.subtitle}}</h4>
+                        <h4>by {{reading.author}}</h4>
+                        <h5>{{reading.summary | safe}}</h5>
+                        <div id="modal_reading_buttons_wrapper">
+                          {% if reading.pdf_link %}
+                            <a href="{{reading.pdf_link}}" target="_blank"><button id="reading_pdf_button">{{reading.pdf_button}}</button></a>
+                          {% endif %}
+                          {% if reading.purchase_link %}
+                            <a href="{{reading.purchase_link}}" target="_blank"><button id="reading_purchase_button">{{reading.purchase_button}}</button></a>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if wholeness_inner_healing_readings_list %}
+        <ul id="readings_wrapper_inner">
+          <h2 id="wholeness_inner_healing">Wholeness/Inner Healing</h2>
+          {% for reading in wholeness_inner_healing_readings_list %}
+            {% if reading.display %}
+              <li class="reading">
+                <a style="cursor:pointer;">
+                  <div id="reading_cover">
+                    <img src="https://holywave.s3.amazonaws.com{{reading.reading_cover.url}}" style="width:100%;">
+                  </div>
+                  <div id="reading_title">
+                    <h4>{{reading.title}}</h4>
+                    <h5>{{reading.subtitle}}</h5>
+                  </div>
+                </a>
+              </li>
+              <div class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <div id="modal_reading_cover">
+                    <div style="display:table; margin:auto; height:100%;">
+                      <div style="display:table-cell; vertical-align:middle;">
+                        <img src="https://holywave.s3.amazonaws.com{{reading.reading_cover.url}}">
+                      </div>
+                    </div>
+                  </div>
+                  <div id="modal_reading_info">
+                    <div style="display:table; margin:auto; height:100%;">
+                      <div style="display:table-cell; vertical-align:middle;">
+                        <h3>{{reading.title}}</h3>
+                        <h4 style="margin-bottom:20px;">{{reading.subtitle}}</h4>
+                        <h4>by {{reading.author}}</h4>
+                        <h5>{{reading.summary | safe}}</h5>
+                        <div id="modal_reading_buttons_wrapper">
+                          {% if reading.pdf_link %}
+                            <a href="{{reading.pdf_link}}" target="_blank"><button id="reading_pdf_button">{{reading.pdf_button}}</button></a>
+                          {% endif %}
+                          {% if reading.purchase_link %}
+                            <a href="{{reading.purchase_link}}" target="_blank"><button id="reading_purchase_button">{{reading.purchase_button}}</button></a>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+    </div>
+
+    <script>
+    var reading=document.getElementsByClassName("reading");
+    var modal=document.getElementsByClassName("modal");
+    var closeButton=document.getElementsByClassName("close");
+    for(var i=0; i<reading.length; i++){
+      reading[i].onclick=function(){
+        this.nextElementSibling.style.display="flex";
+      }
+      closeButton[i].onclick=function(){
+        for(var i=0; i<modal.length; i++){
+          modal[i].style.display="none";
+        }
+      }
+
+      modal[i].onclick=function(){
+        this.style.display="none";
+      }
+
+      modal[i].firstElementChild.onclick=function(event){
+        event.stopPropagation();
+      }
+
+    }
+
+    </script>
+
+    <script>
+    $(document).ready(function(){
+      var back_to_top=document.getElementById("back_to_top");
+      var christian_living=document.getElementById("christian_living");
+      $(window).scroll(function(){
+        if($(window).scrollTop() >= christian_living.getBoundingClientRect().top+500){
+          back_to_top.style.display="block";
+        }
+        else{
+          back_to_top.style.display="none";
+        }
+      })
+    })
+    </script>
+
+    <script>
+    // Select all links with hashes
+    $('a[href*="#"]')
+      // Remove links that don't actually link to anything
+      .not('[href="#"]')
+      .not('[href="#0"]')
+      .click(function(event) {
+        // On-page links
+        if (
+          location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+          &&
+          location.hostname == this.hostname
+        ) {
+          // Figure out element to scroll to
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+          // Does a scroll target exist?
+          if (target.length) {
+            // Only prevent default if animation is actually gonna happen
+            event.preventDefault();
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 500, function() {
+              // Callback after animation
+              // Must change focus!
+              var $target = $(target);
+              $target.focus();
+              if ($target.is(":focus")) { // Checking if the target was focused
+                return false;
+              } else {
+                $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                $target.focus(); // Set focus again
+              };
+            });
+          }
+        }
+      });
+    </script>
+
+    <!-- Content End -->
+
+    {% include "holywave/footer.html" %}
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Modify Leader</title>
+
+    <style>
+    label{
+      display:table;
+      margin-bottom:20px;
+    }
+    </style>
+
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+      <script>
+        alert('{{message}}');
+      </script>
+      {% endfor %}
+    {% endif %}
+
+    <span style="display:none;" id="this_leader_title">{{this_leader.title}}</span>
+    <input id="button_active" type="hidden" value="{{this_leader.active}}">
+
+
+    <form action="/admin/leaders/{{this_leader.id}}/modify_process" method="post">
+      {% csrf_token %}
+
+      <div style="margin-bottom:20px;">
+        Leader Title:
+        <label><input class="title_choice" type="checkbox" name="title" value="1pastors">Pastor</label>
+        <label><input class="title_choice" type="checkbox" name="title" value="2elders">Elder</label>
+        <label><input class="title_choice" type="checkbox" name="title" value="3deacons">Deacon</label>
+        <label><input class="title_choice" type="checkbox" name="title" value="4ministry_leaders">Ministry Leader</label>
+        <label><input class="title_choice" type="checkbox" name="title" value="5oikos_leaders">Oikos Leader</label>
+      </div>
+      <script>
+      this_leader_title=document.getElementById("this_leader_title");
+      title_choice=document.getElementsByClassName("title_choice");
+      for(var i=0; i<title_choice.length; i++){
+        title_choice[i].parentElement.style.marginBottom="10px";
+        if(this_leader_title.innerHTML.includes(title_choice[i].value)){
+          title_choice[i].checked=true;
+        }
+      }
+      </script>
+
+      <!-- <label>Leader Title: <select name="title" required minlength="1">
+        <option value="{{this_leader.title}}">{{this_leader.title}}</option>
+        <option value=""></option>
+        <option value="pastors">Pastor</option>
+        <option value="elders">Elder</option>
+        <option value="deacons">Deacon</option>
+        <option value="ministry_leaders">Ministry Leader</option>
+        <option value="oikos_leaders">Oikos Leader</option>
+      </select></label> -->
+
+      <label>First Name: <input type="text" name="first_name" value="{{this_leader.first_name}}"></label>
+      <label>Last Name: <input type="text" name="last_name" value="{{this_leader.last_name}}"></label>
+      <label>Gender: <select name="gender">
+        <option value="{{this_leader.gender}}">{{this_leader.gender}}</option>
+        <option value=""></option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select></label>
+      <label>Role/Ministry: <input type="text" name="role" value="{{this_leader.role}}"></label>
+      <label>
+        <label style="display:inline-table; margin-right:20px; margin-bottom:0px;"><input id="active" type="radio" name="active" value=True>Active</label>
+        <label style="display:inline-table; margin-bottom:0px;"><input id="inactive" type="radio" name="active" value="False">Inactive</label>
+      </label>
+      <input type="submit" value="Modify">
+      <a href="/admin">Cancel</a>
+    </form>
+
+    <script>
+    if (document.getElementById("button_active").value=="True"){
+      document.getElementById("active").checked=true;
+    }
+    else if (document.getElementById("button_active").value=="False"){
+      document.getElementById("inactive").checked=true;
+    }
+    </script>
+
+
+
+  </body>
+</html>

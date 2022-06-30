@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Modify Menu Item</title>
+
+    <script src="/static/js/tiny_mce/tiny_mce.js"></script>
+    <script src="/static/js/tiny_mce/textareas.js"></script>
+
+
+    <style>
+    label{
+      display:table;
+      margin-bottom:20px;
+    }
+    </style>
+  </head>
+  <body>
+
+    {% if messages %}
+      {% for message in messages %}
+        <p style="color:red;">{{message}}</p>
+      {% endfor %}
+    {% endif %}
+
+    <form action="/admin/menu/{{this_item.id}}/modify_process" method="post">
+      {% csrf_token %}
+      <label>Item Category: <select name="item_category">
+        <option value="{{this_item.category}}">{{this_item.category}}</option>
+        <option value=""></option>
+        <option value="smoothie">Smoothie</option>
+        <option value="special_smoothie">Special Smoothie</option>
+        <option value="special_drink">Special Drink</option>
+        <option value="slush">Slush</option>
+        <option value="milk_tea">Milk Tea</option>
+        <option value="jasmine_tea">Jasmine Tea</option>
+        <option value="frappe">Frappe</option>
+        <option value="milkshake">Milkshake</option>
+        <option value="waffle">Waffle</option>
+        <option value="milk_snow">Milk Snow</option>
+        <option value="acai_pitaya">Acai & Pitaya</option>
+        <option value="cafe">Cafe</option>
+        <option value="hot_tea">Hot Tea</option>
+        <option value="icecream">Ice Cream</option>
+        <option value="taiyaki">Taiyaki</option>
+      </select></label>
+      <label>Item Name: <input type="text" name="item_name" value="{{this_item.name}}"></label>
+      <label>Item Price: <input type="text" name="item_price" value="{{this_item.price}}"></label>
+      <label>Item Description: <textarea name="item_description" rows="4" cols="40">{{this_item.description}}</textarea></label>
+      <input type="submit" value="Modify">
+      <a href="/admin">Cancel</a>
+    </form>
+  </body>
+</html>

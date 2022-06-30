@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sermons | HolyWave Ministry</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112155877-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-112155877-1');
+    </script>
+
+    <!-- THING WE NEED -->
+    <link rel="stylesheet" href="/static/css/holywave/paginator.css">
+    <!-- Page contents stretch according to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href="/static/css/holywave/futura.css" rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=EB%20Garamond' rel='stylesheet'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <style>
+    html, body{
+      height:100%;
+    }
+    *{
+      font-family:"Lato";
+    }
+    #recent_sermon{
+      background: linear-gradient(to bottom, #e1e1e1, #e1e1e1 60%, white 60%, white);
+    }
+    .recent_sermon_wrapper {
+      padding:20px 0px;
+      max-width: 90rem;
+      height:auto;
+      margin-left: auto;
+      margin-right: auto;
+      position:relative;
+      background-size:cover;
+      background-position:center;
+    }
+    #video_container{
+      box-shadow:0px 5px 5px -2px rgba(0,0,0,0.3);
+      position:relative;
+      width:100%;
+      height:0;
+      padding-top:56.25%;
+    }
+
+
+    #recent_sermon_info h3{
+      font-weight:bold;
+      font-size:28px;
+      margin:15px 10px 10px 10px;
+    }
+    #recent_sermon_info h4{
+      color:#505050;
+      font-size:22px;
+      margin:10px;
+    }
+    #recent_sermon_info h5{
+      color:#505050;
+      font-size:16px;
+      margin:10px;
+    }
+
+    #sermon_search_bar{
+      transition:0.25s ease-in-out;
+    }
+
+    #sermon_search_bar:hover, #sermon_search_bar:focus-within{
+      transition:0.25s ease-in-out;
+      box-shadow:0px 1px 4px -1px rgba(0,0,0,.2);
+    }
+
+    .sermons_container_inner{
+      background-color:white;
+      max-width:90rem;
+      margin:auto;
+      text-align:left;
+    }
+
+
+    .sermon{
+      transition:0.25s ease-in-out;
+      border:1px solid #dddddd;
+      background-color:white;
+      height:315px;
+      margin:1%;
+      width:31%;
+      display:inline-block;
+      vertical-align:top;
+    }
+
+    .sermon:hover{
+      transition: 0.25s ease-out;
+      box-shadow:0px 4px 6px -3px rgba(0,0,0,.25);
+
+    }
+
+
+    .sermon_thumbnail{
+      height:200px;
+      width:100%;
+      background-size:cover !important;
+      background-position:center !important;
+    }
+
+
+    .sermon_info{
+      margin-left:12px;
+      margin-right:12px;
+    }
+
+    .sermon a{
+      text-decoration:none !important;
+    }
+    .sermon h3{
+      color:black;
+      font-size:18px;
+      font-weight:bold;
+      /*text-transform:uppercase;*/
+      margin:5px 0px 0px 0px;
+    }
+    .sermon h4{
+      color:black;
+      margin:5px 0px 0px 0px;
+      font-size:14px;
+    }
+    /*.sermon h5{
+      font-size:18px;
+      margin:0px 0px 0px 10px;
+    }*/
+
+
+    #see_all_sermons{
+      transition:0.25s ease-in-out;
+      padding:5px 20px;
+      color:#19528a;
+      border:1px solid #19528a;
+      background-color:white;
+      border-radius:0.25em;
+      margin-bottom:50px;
+    }
+    #see_all_sermons:hover{
+      transition:0.25s ease-in-out;
+      background-color:#19528a;
+      color:white;
+    }
+
+    @media screen and (min-width:1441px){
+      .sermons_container_inner{
+        max-width:90rem;
+      }
+    }
+    @media screen and (max-width:1440px){
+      .sermon{
+        width:31%;
+      }
+    }
+    @media screen and (max-width:1024px){
+    }
+    @media screen and (max-width:768px){
+
+      #video_container{
+        box-shadow:none;
+      }
+
+      #recent_sermon_info h3{
+        font-size:24px;
+      }
+      #recent_sermon_info h4{
+        font-size:20px;
+      }
+      #recent_sermon_info h5{
+        font-size:14px;
+      }
+
+      #recent_sermon{
+        background:white;
+      }
+
+      .sermon{
+        width:47.6%;
+        height:390px;
+      }
+      .sermon_thumbnail{
+        height:275px;
+      }
+      .sermon h3{
+        font-size:18px;
+      }
+      .sermon h4{
+        font-size:14px;
+      }
+    }
+
+    @media screen and (max-width:579px){
+      .sermon{
+        width:98%;
+        height:auto;
+        padding-bottom:10px;
+      }
+      .sermons_container_inner{
+        width:100%;
+      }
+      .sermon_thumbnail{
+        display:none;
+      }
+    }
+
+    @media screen and (max-width:425px){
+      #recent_sermon_info h3{
+        font-size:22px;
+      }
+      #recent_sermon_info h4{
+        font-size:18px;
+      }
+
+    }
+    @media screen and (max-width:375px){
+      #recent_sermon_info h3{
+        font-size:20px;
+      }
+      #recent_sermon_info h4{
+        font-size:16px;
+      }
+      #recent_sermon_info h5{
+        font-size:14px;
+      }
+
+    }
+    @media screen and (max-width:320px){
+
+    }
+
+    </style>
+  </head>
+  <body>
+    {% include "holywave/navbar.html" %}
+
+
+    <!-- Content Start -->
+    <div id="recent_sermon" class="container-fluid" style="margin:0px auto;">
+      <div class="recent_sermon_wrapper">
+        <div id="video_container">
+          <iframe src="{{all_sermons.0.video_url}}" style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+        <div id="recent_sermon_info">
+          <h3>{{all_sermons.0.title}}</h3>
+          <h4>{{all_sermons.0.scripture_passage}}</h4>
+          <h5>{{all_sermons.0.date|date:"F d, Y"}} · {{all_sermons.0.speaker}}</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" style="background-color:white; padding-top:25px;">
+
+      <div class="sermons_container" style="min-height:500px; margin:auto; text-align:center;">
+
+
+        <form style="margin-bottom:25px;" action="/resources/sermons/search" method="post">
+          {% csrf_token %}
+          <div id="sermon_search_bar" style="border:1px solid #dddddd; display:inline-block; padding:5px 10px; text-align:left;"><i style="margin-right:5px; color:#888888;" class="fa fa-search"></i> <input style="width: 200px; border:none; outline:none;" type="text" name="search_box"></div>
+          <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
+        </form>
+
+        <div class="sermons_container_inner">
+          {% if not sermons_list %}
+            <h4>Could not find results for "{{search_result}}".</h4>
+          {% else %}
+            {% for sermon in sermons_list %}
+              <a href="/resources/sermons/{{sermon.date|date:'Ymd'}}-{{sermon.service}}">
+                <div class="sermon">
+                  <!-- <span style="position:absolute; top:0; left:0; width:100%;"> -->
+                  {% if sermon.thumbnail_image %}
+                    <div class="sermon_thumbnail" style="background:url({{sermon.thumbnail_image.url}})"></div>
+                  {% endif %}
+                  <div class="sermon_info">
+                    <h4 style="margin-top:10px;">{{sermon.date|date:"F d, Y"}}</h4>
+                    <h3 style="margin-top:10px;">{{sermon.title}}</h3>
+                    <h4 style="margin-top:10px;">{{sermon.speaker}}</h4>
+                  </div>
+                <!-- </span> -->
+                </div>
+              </a>
+            {% endfor %}
+          {% endif %}
+        </div>
+
+        <ul class="pagination">
+          {% if sermons_list.has_previous %}
+            <li><a href="?page={{sermons_list.previous_page_number}}">&lsaquo;</a></li>
+          {% endif %}
+
+          {% for i in sermons_list.paginator.page_range %}
+            {% if sermons_list.number == i %}
+              <li class="active"><span>{{i}}<span class="sr-only">(current)</span></span></li>
+            {% else %}
+              <li><a href="?page={{i}}">{{i}}</a></li>
+            {% endif %}
+          {% endfor %}
+
+          {% if sermons_list.has_next %}
+            <li><a href="?page={{sermons_list.next_page_number}}">&rsaquo;</a></li>
+          {% endif %}
+        </ul>
+
+        <a href="https://vimeo.com/album/3305519" target="_blank"><button id="see_all_sermons">See All Sermons <i style="margin-left:5px;" class="fa fa-external-link"></i></button></a>
+
+      </div>
+    </div>
+
+
+    <!-- Content End -->
+
+    {% include "holywave/footer.html" %}
+
+  </body>
+</html>

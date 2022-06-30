@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Delete Event</title>
+
+    <style>
+    h2{
+      margin-bottom:10px;
+    }
+    p{
+      margin-top:0px;
+      margin-bottom:25px;
+    }
+    </style>
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        <script>
+          alert('{{message}}')
+        </script>
+      {% endfor %}
+    {% endif %}
+
+    <h1 style="color:red;">Are you sure you would like to delete following event from database?</h1>
+    <h2>Title:</h2>
+    <p>{{this_upcomingevent.title}}</p>
+    <h2>Date(s):</h2>
+    {% if this_upcomingevent.start_date == this_upcomingevent.end_date %}
+      <p>{{this_upcomingevent.start_date}}</p>
+    {% else %}
+      <p>{{this_upcomingevent.start_date}} - {{this_upcomingevent.end_date}}</p>
+    {% endif %}
+    <h3>Time: </h3>
+    <p>{{this_upcomingevent.time|date:'g:i A'}}</p>
+    <h2>Location:</h2>
+    <p>{{this_upcomingevent.location}}</p>
+    <h2>Description:</h2>
+    <p>{{this_upcomingevent.description|safe}}</p>
+
+    <h2>Contact Person:</h2>
+    {% if this_upcomingevent.contact_person %}
+      <p>{{this_upcomingevent.contact_person}}</p>
+    {% else %}
+      <p>N/A</p>
+    {% endif %}
+
+    <h2>Contact Email:</h2>
+    {% if this_upcomingevent.contact_email %}
+      <p>{{this_upcomingevent.contact_email}}</p>
+    {% else %}
+      <p>N/A</p>
+    {% endif %}
+
+    <h2>Button:</h2>
+    {% if this_upcomingevent.button %}
+      <p>{{this_upcomingevent.button}}</p>
+    {% else %}
+      <p>N/A</p>
+    {% endif %}
+
+    <h2>Button Link:</h2>
+    {% if this_upcomingevent.button_link %}
+      <p>{{this_upcomingevent.button_link}}</p>
+    {% else %}
+      <p>N/A</p>
+    {% endif %}
+
+    <form action="/admin/upcomingevents/{{this_upcomingevent.id}}/delete_process" method="post">
+      {% csrf_token %}
+      <input type="submit" value="DELETE">
+      <a href="/admin">Cancel</a>
+    </form>
+  </body>
+</html>

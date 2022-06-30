@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Event Thumbnail</title>
+    <style>
+    input, select{
+      margin-bottom:10px;
+    }
+    </style>
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        <p style="color:red;">{{message}}</p>
+      {% endfor %}
+    {% endif %}
+
+    <form action="/admin/upcomingevents/{{this_upcomingevent.id}}/add_thumbnail_process" method="post" enctype="multipart/form-data">
+      <h1>Add/Modify Event Thumbnail</h1>
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" value="Submit">
+      <a href="/admin">Cancel</a>
+    </form>
+
+  </body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Oikos | HolyWave Ministry</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112155877-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-112155877-1');
+    </script>
+
+    <!-- THING WE NEED -->
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <!-- Page contents stretch according to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href="/static/css/futura.css" rel='stylesheet'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <style>
+    *{
+      font-family:"Lato";
+    }
+    #header{
+      height:400px;
+      text-align:center;
+      background:url(/static/images/holywave/connect/oikos/oikos_header.jpg);
+      background-size:cover;
+      background-position:center;
+    }
+    #header h1{
+      font-family:"Futura";
+      font-size:60px;
+      letter-spacing:9px;
+      color:white;
+    }
+
+    #content{
+      margin-top:50px;
+      max-width:1000px;
+    }
+
+    #content h5{
+      font-size:16px;
+      line-height:20px;
+    }
+
+    #content li{
+      font-size:16px;
+      list-style:none;
+    }
+    #button_container{
+      text-align:center;
+      display:table;
+      margin:auto;
+      margin-top:50px;
+      margin-bottom:55px;
+
+    }
+    #button{
+      text-align:center;
+      font-size:16px;
+      color: #19528a;
+      background-color:white;
+      border:2px solid #19528a;
+      padding:5px 20px;
+      border-radius:0.25em;
+      transition: 0.5s;
+    }
+    #button:hover{
+      color:white;
+      background-color:#19528a;
+      transition:0.5s;
+    }
+
+    @media screen and (min-width:1441px){
+
+    }
+    @media screen and (max-width:1440px){
+      #content{
+        width:90%;
+      }
+    }
+    @media screen and (max-width:1024px){
+      #header h1{
+        font-size:50px;
+      }
+    }
+    @media screen and (max-width:768px){
+      #header h1{
+        font-size:45px;
+      }
+      #content h5, #content li{
+        font-size:14px;
+      }
+    }
+    @media screen and (max-width:425px){
+      #header h1{
+        font-size:36px;
+      }
+    }
+    @media screen and (max-width:375px){
+      #header h1{
+        letter-spacing:6px;
+        font-size:34px;
+      }
+    }
+    @media screen and (max-width:320px){
+      #header h1{
+        font-size:32px;
+      }
+    }
+
+    </style>
+
+  </head>
+  <body>
+    {% include "holywave/navbar.html" %}
+
+
+    <!-- Content Start -->
+    <div id="header" class="container-fluid">
+      <div style="display:table; height:100%; margin:auto;">
+        <div style="display:table-cell; vertical-align:middle;">
+          <h1>OIKOS GATHERINGS</h1>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="content" class="container-fluid">
+      <h5>Oikos is a Greek word meaning "family" and is also what we call our small groups because we believe that the Christian life is best done together, as a family. Joining an Oikos provides the opportunity to get connected with a smaller group of people sharing similar life-stages (i.e. married, single, student, etc.). All Oikoses meet either on Friday nights or Sundays.</h5>
+      <h5>Yearly Ministry Schedule:</h5>
+      <ul>
+        <li>Q1 (Fall): September-December</li>
+        <li>Q2 (Winter): January-March</li>
+        <li>Q3 (Spring): April-June</li>
+        <li>Summer Break: June-August</li>
+      </ul>
+      <h5>Oikos applications open at the start of every ministry year and are accepted on a rolling basis year-round. However, if you apply during one of the quarters, you may not be placed in an Oikos until the following quarter. For example, if you apply in October (Q1), you may be placed in an Oikos starting in January (Q2). Applications are closed during the summer break.</h5>
+      <h5>If you have any questions, please contact us at <a href="mailto:holywave@sarang.com">holywave@sarang.com</a></h5>
+
+      {% if OikosButton.active %}
+        <a id="button_container" href="{{OikosButton.application_link}}" target="_blank"><button id="button">{{OikosButton.button}}</button></a>
+      {% elif not OikosButton.active %}
+        <h5 style="color:#c20000; text-align:center; margin-top:50px; margin-bottom:55px;">{{OikosButton.closed_application_notice}}</h5>
+      {% endif %}
+
+    </div>
+    {% include "holywave/footer.html" %}
+
+  </body>
+</html>

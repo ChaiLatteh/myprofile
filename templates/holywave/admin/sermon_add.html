@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Sermon</title>
+
+    <style>
+    input, select{
+      margin-bottom:10px;
+    }
+    #id_video_url{
+      width:500px;
+    }
+    </style>
+
+
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        <p style="color:red;">{{message}}</p>
+      {% endfor %}
+    {% endif %}
+
+    <form action="/admin/sermons/add_process" method="post" enctype="multipart/form-data">
+      <h1>Add Sermon</h1>
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" value="Publish">
+      <a href="/admin">Cancel</a>
+    </form>
+
+    <script>
+    document.getElementById("id_date").type="date";
+    </script>
+
+  </body>
+</html>

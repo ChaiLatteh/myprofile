@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>I'm New | HolyWave Ministry</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112155877-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-112155877-1');
+    </script>
+
+    <!-- THING WE NEED -->
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <!-- Page contents stretch according to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href="/static/css/futura.css" rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=EB%20Garamond' rel='stylesheet'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <style>
+    html, body{
+      height:100%;
+    }
+    *{
+      font-family:"Lato";
+    }
+    #header{
+      background:url(/static/images/holywave/connect/im_new/im_new_header.jpg);
+      background-size:cover;
+      background-position:center;
+      color:white;
+      height:85%;
+      min-height:420px;
+      text-align:center;
+    }
+    #header h1, #header h3{
+      font-family:"Futura";
+    }
+
+    #header h1{
+      font-size:60px;
+      letter-spacing:8px;
+    }
+    #header h3{
+      font-size:22px;
+      margin-bottom:30px !important;
+    }
+    #header h4{
+      font-size:20px;
+    }
+    #header a{
+      color:#88d6f8;
+      text-decoration:none !important;
+    }
+    #header a:hover{
+      transition:0.1s ease-in-out;
+      color:#2d8ccc;
+    }
+
+    .in{
+      display:none !important;
+    }
+
+    #service_info_button{
+      display:none;
+      border: 1px solid white;
+      border-radius:0.25em;
+      background-color:transparent;
+      margin-bottom:10px;
+    }
+
+    #service_info h4{
+      margin:2px;
+    }
+
+    #service_info_button:hover, #service_info_button:focus, #service_info_button:active{
+      border: 1px solid white;
+      outline:none;
+    }
+
+    #header h5{
+      font-size:16px;
+    }
+
+    #holywave_at_a_glance{
+      padding-top:60px;
+      padding-bottom:60px;
+      text-align:center;
+    }
+
+    #holywave_at_a_glance h1{
+      font-size:36px;
+      letter-spacing:2.5px;
+      margin-bottom:30px;
+    }
+
+    .transparent{
+      opacity:0;
+    }
+    .afterScroll{
+      opacity:1;
+      transition:0.5s ease-in-out;
+    }
+
+    #holywave_at_a_glance a{
+      font-size:36px;
+      display:inline-block;
+      margin-left:50px;
+      margin-right:50px;
+      text-decoration:none !important;
+      color:#2d8ccc;
+    }
+    #holywave_at_a_glance a:hover{
+      transition:0.1s ease-in-out;
+      color:#88d6f8;
+    }
+
+    div:focus{
+      outline:none;
+    }
+
+    #connect{
+      background:radial-gradient(ellipse at bottom, #f5f5f5, white 30%);
+      /* background-color:#383661; */
+      /* color:white; */
+      padding-top:60px;
+      padding-bottom:60px;
+      text-align:center;
+    }
+
+    #equip{
+      background:radial-gradient(ellipse at bottom, #f5f5f5, white 30%);
+
+      /* background-color:white; */
+      padding-top:60px;
+      padding-bottom:60px;
+      text-align:center;
+    }
+
+    #serve{
+      background:radial-gradient(ellipse at bottom, #f5f5f5, white 30%);
+
+      /* background-color:#f2e58f; */
+      /* color:white; */
+      padding-top:60px;
+      padding-bottom:60px;
+      text-align:center;
+    }
+
+    #serve div{
+      width:50%;
+      display:inline-block;
+    }
+
+    #connect div, #equip div{
+      text-align:left;
+      display:inline-block;
+      vertical-align:top;
+      width:25%;
+      margin-left:75px;
+      margin-right:25px;
+    }
+
+    #contact_us{
+      padding-top:60px;
+      padding-bottom:60px;
+      background-color:white;
+    }
+
+    #connect h1, #equip h1, #serve h1, #contact_us h1{
+      font-size:36px;
+      margin-top:0px;
+      margin-bottom:30px;
+    }
+    #connect h2, #equip h2{
+      font-weight:bold;
+      font-size:20px;
+      margin-bottom:10px;
+    }
+    #connect h3, #equip h3, #serve h3{
+      max-width:750px;
+      margin:0px auto 25px auto;
+      font-size:16px;
+      line-height:24px;
+    }
+    #contact_us h3{
+      font-size:16px;
+      line-height:24px;
+      margin-top:0px;
+      margin-bottom:10px;
+    }
+    #contact_us a{
+      color:#2d8ccc;
+      text-decoration:none !important;
+    }
+    #contact_us a:hover{
+      transition:0.1s ease-in-out;
+      color:#88d6f8;
+    }
+    #connect button, #equip button, #serve button{
+      transition:0.25s ease-in-out;
+      font-size:16px;
+      border:2px solid #19528a;
+      color:#19528a;
+      padding:5px 20px;
+      border-radius:0.25em;
+      background-color:transparent;
+    }
+    #connect button:hover, #equip button:hover, #serve button:hover{
+      transition:0.25s ease-in-out;
+      background-color:#19528a;
+      color:white;
+    }
+
+
+
+    @media screen and (min-width:1441px){
+
+    }
+
+    @media screen and (max-width:1440px){
+      #header h1{
+        font-size:54px;
+      }
+      #header h3{
+        font-size:20px;
+      }
+      #header h4{
+        font-size:18px;
+      }
+
+      #connect div, #equip div{
+        width:37%;
+      }
+      #connect h2, #equip h2, #serve h2{
+        font-size:18px;
+      }
+      #serve div{
+        width:75%;
+      }
+
+      #holywave_at_a_glance a{
+        font-size:36px;
+      }
+
+
+    }
+
+    @media screen and (max-width:1024px){
+      #header h1{
+        font-size:45px;
+      }
+
+      #connect div, #equip div{
+        width:75%;
+        margin-left:0px;
+        margin-right:0px;
+      }
+
+      #oikos, #foundations{
+        margin-bottom:25px;
+      }
+
+      #serve div{
+        width:75%;
+      }
+
+      #connect h1, #equip h1, #serve h1{
+        font-size:34px;
+      }
+      #holywave_at_a_glance h1{
+        font-size:34px;
+      }
+      #holywave_at_a_glance a{
+        font-size:34px;
+      }
+
+
+    }
+
+    @media screen and (max-width:768px){
+      #header h1{
+        font-size:40px;
+      }
+      #header h3{
+        font-size:16px;
+      }
+      #header h4{
+        font-size:16px;
+      }
+      #header h5{
+        font-size:14px;
+      }
+
+
+      #connect h1, #equip h1, #serve h1{
+        font-size:32px;
+      }
+
+      #connect h2, #equip h2, #serve h2{
+        font-size:16px;
+      }
+
+      #connect h3, #equip h3, #serve h3, #connect button, #equip button, #serve button{
+        font-size:14px;
+      }
+      #holywave_at_a_glance h1{
+        font-size:32px;
+      }
+      #holywave_at_a_glance a{
+        font-size:32px;
+        margin:0 20% 20px 20%
+      }
+
+
+    }
+
+    @media screen and (max-width:425px){
+      #header h1{
+        font-size:36px;
+        margin-bottom:20px;
+      }
+      #header h3{
+        width:80%;
+        margin:auto;
+        margin-bottom:20px !important;
+        line-height:24px;
+      }
+      #header h4{
+        line-height:24px;
+        margin-top:5px;
+        margin-bottom:5px;
+      }
+
+      #holywave_at_a_glance a{
+        font-size:30px;
+      }
+
+    }
+
+    @media screen and (max-width:375px){
+      #header h1{
+        font-size:32px;
+      }
+      #header h3{
+        font-size:14px;
+        line-height:22px;
+      }
+      #header h4{
+        font-size:14px;
+        display:none;
+      }
+      #header h5{
+        display:none;
+      }
+
+      #service_info_button, #service_info h4{
+        display:inline-block;
+      }
+      .in{
+        display:block !important;
+      }
+
+      #holywave_at_a_glance a{
+        font-size:28px;
+      }
+
+    }
+
+
+    @media screen and (max-width:320px){
+      #header h3{
+        width:90%;
+      }
+
+      #holywave_at_a_glance a{
+        font-size:26px;
+      }
+    }
+
+    </style>
+
+    <script>
+    $(document).ready(function(){
+      var transparent = $(".transparent");
+        $(window).scroll(function(){
+          for (var i=0; i<transparent.length; i++){
+            if ($(window).scrollTop() >= transparent[i].getBoundingClientRect().top-400){
+              transparent[i].classList.add("afterScroll");
+          }
+        }
+      });
+    });
+    </script>
+
+  </head>
+  <body>
+    {% include "holywave/navbar.html" %}
+
+
+    <!-- Content Start -->
+    <div id="header" class="container-fluid">
+      <div style="display:table; margin:auto; height:100%;">
+        <div style="display:table-cell; vertical-align:middle;">
+          <h1>WELCOME TO HOLYWAVE</h1>
+          <h3>HolyWave is the English-speaking ministry of Sa-Rang Community Church</h3>
+
+          <h4>Sunday Service Times: 9:10 AM, 11:10 AM</h4>
+          <h4>Location: 1900 W. Crescent Ave., Anaheim, CA 92801</h4>
+
+
+          <button id="service_info_button" class="btn btn-info" data-toggle="collapse" data-target="#service_info">Service Times and Location</button>
+          <div id="service_info" class="collapse">
+            <h4>Sunday Services: 9:10 AM, 11:10 AM</h4>
+            <h4>1900 W. Crescent Ave., Anaheim, CA 92801</h4>
+            <h4>Click <a href="/holywave/about/visit_us">here</a> for parking instructions</h4>
+          </div>
+
+          <h5>Click <a href="/holywave/about/visit_us">here</a> for parking instructions</h5>
+        </div>
+      </div>
+    </div>
+
+    <div id="holywave_at_a_glance" class="container-fluid">
+      <h1>HOLYWAVE AT A GLANCE</h1>
+      <a href="#connect" class="transparent">CONNECT</a>
+      <a href="#equip" class="transparent">EQUIP</a>
+      <a href="#serve" class="transparent">SERVE</a>
+    </div>
+
+
+
+    <div id="connect" class="container-fluid">
+      <h1>CONNECT</h1>
+      <div id="oikos">
+        <h2>Oikos (Small Group)</h2>
+        <h3>Oikos is a Greek word meaning "family" and is also what we call our small groups because we believe that the Christian life is best done together, as a family. Joining an Oikos provides the opportunity to get connected with a smaller group of people sharing similar life-stages (i.e. married, single, student, etc.). All Oikoses meet either on Friday nights or Sundays.</h3>
+        <a href="/holywave/connect/oikos"><button>Learn More</button></a>
+      </div>
+      <div id="membership">
+        <h2>Membership Course</h2>
+        <h3>Membership is the gateway to accessing our training programs, Foundations I & II, and Discipleship Training (DT) as well as receiving end-of-year tax receipts for financial contributions. But more importantly, it is your commitment to this family that you will walk together with fellow brothers and sisters, no matter the season.</h3>
+        <a href="/holywave/connect/membership"><button>Learn More</button></a>
+      </div>
+    </div>
+
+    <div id="equip" class="container-fluid">
+      <h1>EQUIP</h1>
+      <div id="foundations">
+        <h2>Foundations I & II</h2>
+        <h3>Foundations is a 10-week course that explores the theological foundations of the Christian faith.</h3>
+        <h3>Prerequisite: Membership</h3>
+        <a href="/holywave/equip/foundations"><button>Learn More</button></a>
+      </div>
+      <div id="discipleship">
+        <h2>Discipleship Training</h2>
+        <h3>Discipleship Training (DT) is an intensive 20-week program focused on practical inner healing, self-discovery, and evangelism. All DT students are required to go on a mission trip at the end of the semester.</h3>
+        <h3>Prerequisite: Membership and Foundations I & II</h3>
+        <a href="/holywave/equip/dt"><button>Learn More</button></a>
+      </div>
+    </div>
+
+    <div id="serve" class="container-fluid">
+      <div>
+        <h1>SERVE</h1>
+        <h3>There are several ways you can get involved. From directing traffic on Sundays to feeding the homeless, HolyWave currently offers over 30 different ministries dedicated to serving our community.</h3>
+        <a href="/holywave/connect/get_involved"><button>Learn More</button></a>
+      </div>
+    </div>
+
+    <div id="contact_us" class="container_fluid" style="text-align:center;">
+      <h1>CONTACT US</h1>
+      <h3><a href="mailto:holywave@sarang.com">holywave@sarang.com</a></h3>
+      <h3>714-772-7777 (SRCC Main Office)</h3>
+    </div>
+    <!-- Content End -->
+
+    {% include "holywave/footer.html" %}
+
+
+
+    <script>
+    // Select all links with hashes
+    $('a[href*="#"]')
+      // Remove links that don't actually link to anything
+      .not('[href="#"]')
+      .not('[href="#0"]')
+      .click(function(event) {
+        // On-page links
+        if (
+          location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+          &&
+          location.hostname == this.hostname
+        ) {
+          // Figure out element to scroll to
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+          // Does a scroll target exist?
+          if (target.length) {
+            // Only prevent default if animation is actually gonna happen
+            event.preventDefault();
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 500, function() {
+              // Callback after animation
+              // Must change focus!
+              var $target = $(target);
+              $target.focus();
+              if ($target.is(":focus")) { // Checking if the target was focused
+                return false;
+              } else {
+                $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                $target.focus(); // Set focus again
+              };
+            });
+          }
+        }
+      });
+    </script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Leadership | HolyWave Ministry</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112155877-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-112155877-1');
+    </script>
+
+    <!-- THING WE NEED -->
+    <link rel="stylesheet" href="/static/css/paginator.css">
+    <!-- Page contents stretch according to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href="/static/css/holywave/futura.css" rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=EB%20Garamond' rel='stylesheet'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+    *{
+      font-family:"Lato";
+    }
+
+    .glyphicon{
+      font-family:"Glyphicons Halflings" !important;
+    }
+
+    #header{
+      background:url(/static/images/holywave/about/leadership/leadership_header.jpg);
+      background-position:center;
+      background-size:cover;
+      height:400px;
+      text-align:center;
+      position:relative;
+    }
+
+    #header h1{
+      font-family:"Futura";
+      color:white;
+      font-size:60px;
+      letter-spacing:9px;
+    }
+
+    /*#leader_filter, #leader_filter option{
+      padding:10px 20px;
+    }*/
+
+    #filter_by_title{
+      margin:auto;
+      margin-top:25px;
+      margin-bottom:25px;
+      width:300px;
+    }
+
+    #filter_by_title button{
+      text-align:left;
+      color:black;
+      width:100%;
+      margin:0px;
+      padding:10px 20px;
+      background-color:transparent;
+      border-radius:0;
+      border:1px solid #dddddd;
+    }
+
+
+
+    #filter_by_title form input{
+      text-align:left;
+      margin:auto;
+      display:block;
+      padding:5px 20px;
+      background-color:transparent;
+      border:none;
+    }
+
+    #filter_by_title form input:hover{
+      transition:0.1s ease-in-out;
+      background-color:#C1E7F7;
+    }
+
+    #filter_dropdown{
+      padding:10px 0px;
+      width:300px;
+      background-color:white;
+      border-radius:0;
+      /* display:none; */
+      border:1px solid #dddddd;
+      border-top:none;
+      /* max-height:0; */
+      /* overflow:hidden;
+      position:absolute; */
+    }
+
+    #filter_dropdown input{
+      width:100%;
+    }
+
+    #leaders_container_inner{
+      background-color:white;
+      width:90%;
+      margin:auto;
+      text-align:left;
+    }
+
+    .leader{
+      border: 1px solid #dddddd;
+      height:auto;
+      padding-bottom:15px;
+      margin:1%;
+      width:22.7%;
+      display:inline-block;
+      vertical-align:top;
+      text-align:left;
+    }
+    .leader_image{
+      height:200px;
+      width:100%;
+      background-size:cover !important;
+      background-position:center !important;
+    }
+
+    .leader h3{
+      font-weight:bold;
+      margin:10px;
+    }
+    .leader h5{
+      margin:0px 10px 0px 10px;
+    }
+
+
+
+
+    @media screen and (min-width:1441px){
+      #leaders_container_inner{
+        max-width:1400px;
+        padding:0px 15px;
+      }
+      .leader h3{
+        font-size:22px;
+      }
+      .leader h5{
+        font-size:16px;
+      }
+    }
+    @media screen and (max-width:1440px){
+      #leaders_container_inner{
+        width:85%;
+      }
+      .leader h3{
+        font-size:20px;
+      }
+      .leader h5{
+        font-size:16px;
+      }
+    }
+    @media screen and (max-width:1024px){
+      #header h1{
+        font-size:50px;
+      }
+
+      .leader{
+        width:31%;
+      }
+    }
+    @media screen and (max-width:768px){
+      #header h1{
+        font-size:45px;
+      }
+      .leader{
+        width:47.5%;
+      }
+      .leader_image{
+        height:275px;
+      }
+      .leader h3{
+        font-size:18px;
+      }
+      .leader h5{
+        font-size:14px;
+      }
+    }
+    @media screen and (max-width:425px){
+      #header h1{
+        font-size:36px;
+      }
+      #filter_by_title, #filter_dropdown{
+        width:250px;
+      }
+
+      .leader{
+        width:100%;
+        margin-bottom:15px;
+      }
+    }
+    @media screen and (max-width:375px){
+      #header h1{
+        font-size:34px;
+      }
+    }
+    @media screen and (max-width:320px){
+      #header h1{
+        font-size:32px;
+      }
+    }
+
+
+
+
+
+
+    </style>
+
+  </head>
+  <body>
+    {% include "holywave/navbar.html" %}
+
+    <!-- Content Start -->
+    <div id="header" class="container-fluid">
+      <div style="display:table; height:100%; margin:auto;">
+        <div style="display:table-cell; vertical-align:middle;">
+          <h1>HOLYWAVE LEADERSHIP</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" style="min-height:500px; padding-bottom:50px; text-align:center;">
+      <div class="dropdown" id="filter_by_title">
+        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">{{filter_type}}<span id="filter_symbol" style="float:right; top:4px; color:#333333;" class="glyphicon glyphicon-menu-down"></span></button>
+        <div class="dropdown-menu" id="filter_dropdown" style="text-align:left;">
+          <form action="/holywave/about/leadership_filter" method="post">
+            {% csrf_token %}
+            <input type="submit" name="title" value="All Leaders">
+            <input type="submit" name="title" value="Pastors">
+            <input type="submit" name="title" value="Elders">
+            <input type="submit" name="title" value="Deacons">
+            <input type="submit" name="title" value="Ministry Leaders">
+            <input type="submit" name="title" value="Oikos Leaders (2018-2019)">
+          </form>
+
+          <!-- <li><a href="/about/leadership">All Leaders</a></li>
+          <li><a href="/about/leadership">Pastors</a> </li> -->
+
+        </div>
+      </div>
+      <script>
+      var filter_by_title=document.getElementById("filter_by_title");
+      var filter_symbol=document.getElementById("filter_symbol");
+      filter_by_title.onclick = function(){
+        if (filter_by_title.className.split(" ").indexOf("open")>-1){
+          filter_symbol.className="glyphicon glyphicon-menu-down";
+        }
+        else{
+          filter_symbol.className="glyphicon glyphicon-menu-up";
+        }
+        window.onclick = function(){
+          if (filter_by_title.className.split(" ").indexOf("open")>-1){
+            filter_symbol.className="glyphicon glyphicon-menu-up";
+          }
+          else{
+            filter_symbol.className="glyphicon glyphicon-menu-down";
+          }
+        }
+      }
+
+      </script>
+
+
+      <div class="leaders_container" style="min-height:500px; margin:auto; text-align:center;">
+        <div id="leaders_container_inner">
+          {% for leader in leaders_list %}
+            <div class="leader">
+              {% if leader.image %}
+                <div class="leader_image" style="background:url(https://holywave.s3.amazonaws.com{{leader.image.url}});"></div>
+              {% elif leader.gender == 'male' %}
+                <div class="leader_image" style="background:url(/static/images/holywave/about/leadership/placeholder-male.jpg)"></div>
+              {% elif leader.gender == 'female' %}
+                <div class="leader_image" style="background:url(/static/images/holywave/about/leadership/placeholder-female.jpg);"></div>
+              {% endif %}
+              <h3>{{leader.first_name}} {{leader.last_name}}</h3>
+              <h5>{{leader.role}}</h5>
+            </div>
+          {% endfor %}
+
+
+        </div>
+      </div>
+
+      <!-- <ul class="pagination">
+        {% if leaders_list.has_previous %}
+          <li><a href="?page={{leaders_list.previous_page_number}}">&lsaquo;</a></li>
+        {% endif %}
+
+        {% for i in leaders_list.paginator.page_range %}
+          {% if leaders_list.number == i %}
+            <li class="active"><span>{{i}}<span class="sr-only">(current)</span></span></li>
+          {% else %}
+            <li><a href="?page={{i}}">{{i}}</a></li>
+          {% endif %}
+        {% endfor %}
+
+        {% if leaders_list.has_next %}
+          <li><a href="?page={{leaders_list.next_page_number}}">&rsaquo;</a></li>
+        {% endif %}
+      </ul> -->
+
+
+
+
+
+    </div>
+
+    <!-- Content End -->
+
+    {% include "holywave/footer.html" %}
+
+
+  </body>

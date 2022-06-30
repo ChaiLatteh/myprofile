@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Button</title>
+
+    <style>
+    label{
+      display:table;
+      margin-bottom:20px;
+    }
+    </style>
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        <p style="color:red;">{{message}}</p>
+      {% endfor %}
+    {% endif %}
+
+    <form action="/admin/buttons/add_process" method="post">
+      <h1>Add Button</h1>
+      {% csrf_token %}
+      <label>Button Name: <input type="text" name="name"></label>
+      <label>Button: <input type="text" name="button" value="Apply Here"></label>
+      <label>Application Link: <input type="text" name="application_link" value=""></label>
+      <label> Application Status:
+        <label onclick="disappear()" style="display:inline-block; margin-right:20px;"><input id="active" type="radio" name="active" value=True>Open</label>
+        <label onclick="appear()" style="display:inline-block;"><input id="inactive" type="radio" name="active" value="False" checked="checked">Closed</label>
+      </label>
+      <label id="closed_application_notice">Closed Application Notice: <input type="text" name="closed_application_notice" value="Applications are currently unavailable."></label>
+
+      <input type="submit" value="Add">
+      <a href="/admin">Cancel</a>
+    </form>
+
+
+    <script>
+    if (document.getElementById("active").checked = true){
+      document.getElementById("closed_application_notice").style.display="none";
+    }
+    else{
+      document.getElementById("closed_application_notice").style.display="block";
+    }
+
+    function disappear(){
+      document.getElementById("closed_application_notice").style.display="none";
+    }
+
+    function appear(){
+      document.getElementById("closed_application_notice").style.display="block";
+    }
+
+
+    </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Foundations | HolyWave Ministry</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112155877-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-112155877-1');
+    </script>
+
+    <!-- Page contents stretch according to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href="/static/css/holywave/futura.css" rel='stylesheet'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+    *{
+      font-family:"Lato";
+    }
+    #header{
+      height:400px;
+      text-align:center;
+      background:url(/static/images/holywave/equip/foundations/foundations_header.jpg);
+      background-size:cover;
+      background-position:center;
+    }
+    #header h1{
+      font-family:"Futura";
+      font-size:60px;
+      letter-spacing:9px;
+      color:white;
+    }
+
+    #content{
+      margin-top:50px;
+      max-width:1000px;
+    }
+
+    #content h5{
+      font-size:16px;
+      line-height:20px;
+    }
+
+    #content li{
+      font-size:16px;
+      list-style:none;
+    }
+    #button_container{
+      text-align:center;
+      display:table;
+      margin:auto;
+      margin-top:50px;
+      margin-bottom:55px;
+
+    }
+    #button{
+      text-align:center;
+      font-size:16px;
+      color: #19528a;
+      background-color:white;
+      border:2px solid #19528a;
+      padding:5px 20px;
+      border-radius:0.25em;
+      transition: 0.5s;
+    }
+    #button:hover{
+      color:white;
+      background-color:#19528a;
+      transition:0.5s;
+    }
+
+    @media screen and (min-width:1441px){
+
+    }
+    @media screen and (max-width:1440px){
+      #content{
+        width:90%;
+      }
+    }
+    @media screen and (max-width:1024px){
+      #header h1{
+        font-size:50px;
+      }
+    }
+    @media screen and (max-width:768px){
+      #header h1{
+        font-size:45px;
+      }
+      #content h5, #content li{
+        font-size:14px;
+      }
+    }
+    @media screen and (max-width:425px){
+      #header h1{
+        font-size:36px;
+      }
+    }
+    @media screen and (max-width:375px){
+      #header h1{
+        letter-spacing:6px;
+        font-size:34px;
+      }
+    }
+    @media screen and (max-width:320px){
+      #header h1{
+        font-size:32px;
+      }
+    }
+
+    </style>
+
+  </head>
+  <body>
+    {% include "holywave/navbar.html" %}
+
+    <!-- Content Start -->
+    <div id="header" class="container-fluid">
+      <div style="display:table; height:100%; margin:auto;">
+        <div style="display:table-cell; vertical-align:middle;">
+          <h1>FOUNDATIONS</h1>
+        </div>
+      </div>
+    </div>
+
+    <div id="content" class="container-fluid">
+      <h5>Foundations is a 10-week course that explores the foundational teachings of the Christian faith. The course is split into two 5-week sections:</h5>
+      <ul>
+        <li>Part I (5 weeks): The Revelation of God</li>
+        <li>Part II (5 weeks): God's Work of Salvation</li>
+      </ul>
+      <h5>Foundations is offered twice a year, once in the Fall term (Sept-Nov) and once in the Spring term (Apr-June). Each week, the class runs for 2 hours on Sunday afternoons. The course will also require you to devote some time each week for assigned readings and reflection exercises.</h5>
+      <h5>This course is open for any member of Sa-Rang Community Church and is a required course for anyone who wants to go through HolyWave’s Discipleship Training program. If you want to get more rooted and grounded in your faith, this may be the right course for you.</h5>
+
+      <h5>For any questions, contact Pastor Jonas Lee at <a href="mailto:jonasyhlee@gmail.com">jonasyhlee@gmail.com</a></h5>
+
+      {% if FoundationsButton.active %}
+        <a id="button_container" href="{{FoundationsButton.application_link}}" target="_blank"><button id="button">{{FoundationsButton.button}}</button></a>
+      {% elif not FoundationsButton.active %}
+        <h5 style="color:#c20000; text-align:center; margin-top:50px; margin-bottom:55px;">{{FoundationsButton.closed_application_notice}}</h5>
+      {% endif %}
+
+    </div>
+
+    <!-- Content End -->
+
+    {% include "holywave/footer.html" %}
+
+
+  </body>
+</html>

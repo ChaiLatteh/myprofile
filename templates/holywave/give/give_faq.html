@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Give FAQ | HolyWave Ministry</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112155877-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-112155877-1');
+    </script>
+
+    <!-- THING WE NEED -->
+    <link rel="stylesheet" href="/static/css/holywave/navbar.css">
+    <link rel="stylesheet" href="/static/css/holywave/footer.css">
+    <!-- Page contents stretch according to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href="/static/css/holywave/futura.css" rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=EB%20Garamond' rel='stylesheet'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+    *{
+      font-family:"Lato";
+    }
+    #header{
+      background:url(/static/images/holywave/give/give_header.jpg);
+      background-size:cover;
+      background-position:center;
+      height:400px;
+      text-align:center;
+    }
+    #header h1{
+      font-family:"Futura";
+      color:white;
+      font-size:60px;
+      letter-spacing:9px;
+    }
+
+    #give_button_wrapper{
+      display:inline-table;
+      margin-left:20px;
+      margin-right:20px;
+      margin-top:10px;
+    }
+    #give_button_wrapper button{
+      transition:0.25s ease-in-out;
+      font-size:16px;
+      background-color:transparent;
+      color:white;
+      padding:5px 20px;
+      border:1px solid white;
+      border-radius:0.25em;
+    }
+    #give_button_wrapper button:hover{
+      transition:0.25s ease-in-out;
+      background-color:white;
+      color:#19528a;
+    }
+
+    #contact_us_email{
+      transition:0.2s ease-in-out;
+      color:#2d8ccc;
+    }
+    #contact_us_email:hover{
+      transition:0.2s ease-in-out;
+      color:#88D6F8;
+      text-decoration:none;
+    }
+
+    #questions{
+      padding:50px 65px;
+      width:1240px;
+      margin:auto;
+      text-align:center;
+    }
+
+    #questions a{
+      text-decoration:none;
+      color:black;
+    }
+
+    #answer a{
+      color:#337ab7;
+      display:inline-block;
+      font-size:inherit;
+    }
+
+    .panel-header{
+      transition:0.25s ease-in-out;
+      font-size:18px;
+      background-color:#fafafa;
+      margin-top:15px;
+      text-align:left;
+      display:block;
+      border:1px solid #ececec;
+      padding:15px 20px;
+      font-weight:bold;
+    }
+
+    .panel-header:hover{
+      transition:0.25s ease-in-out;
+      color:#4a6885 !important;
+    }
+    .panel-header[aria-expanded="true"]{
+      color:#4a6885 !important;
+    }
+
+    .panel-body-wrapper{
+      text-align:left;
+      display:block;
+      /* border:1px solid #ececec; */
+      padding:5px 15px;
+    }
+    .panel-body{
+      /* margin-bottom:20px; */
+      text-align:left;
+      display:block;
+      border-bottom:1px solid #ececec;
+      margin:0px;
+      padding:15px 10px;
+    }
+
+    .panel-body a{
+      font-size:16px;
+      display:block;
+    }
+
+    .panel-body a:hover{
+      color:#4a6885 !important;
+    }
+
+    .panel-body div h5 a{
+      transition:0.2s ease-in-out;
+      font-size:16px;
+      display:inline-block;
+      color: #2d8ccc !important;
+    }
+
+    .panel-body div h5 a:hover{
+      transition:0.2s ease-in-out;
+      color:#88D6F8 !important;
+    }
+
+    .panel-body a[aria-expanded="true"]{
+      color:#4a6885 !important;
+      font-weight:bold;
+    }
+
+    .panel-body h5{
+      font-size:16px;
+      margin-top:10px;
+      margin-bottom:0px;
+      line-height:21px;
+    }
+
+    #panel-header_expand_collapse{
+      float:right;
+      font-weight:normal;
+      font-size:10px;
+      margin-top:3px;
+    }
+    #panel-header_expand_collapse span{
+      font-weight:bold;
+      font-size:12px;
+      margin-left:5px;
+    }
+    #panel-body_expand_collapse{
+      float:right;
+      font-weight:bold;
+      font-size:12px;
+      margin-left:5px;
+    }
+
+    @media screen and (min-width:1441px){
+
+    }
+    @media screen and (max-width:1440px){
+      #questions{
+        width:80%;
+        padding:50px 0px;
+      }
+    }
+    @media screen and (max-width:1024px){
+      #header h1{
+        font-size:50px;
+      }
+      #questions{
+        width:85%;
+      }
+    }
+    @media screen and (max-width:768px){
+      #header h1{
+        font-size:45px;
+      }
+      .panel-header{
+        font-size:16px;
+      }
+      .panel-body a, .panel-body h5{
+        font-size:14px;
+      }
+    }
+    @media screen and (max-width:425px){
+      #header h1{
+        font-size:36px;
+      }
+
+    }
+    @media screen and (max-width:375px){
+      #header h1{
+        font-size:34px;
+      }
+      #questions{
+        width:90%;
+      }
+
+    }
+    @media screen and (max-width:320px){
+      #header h1{
+        font-size:32px;
+      }
+    }
+
+    </style>
+
+  </head>
+  <body>
+    {% include "holywave/navbar.html" %}
+
+    <!-- Content Start -->
+    <div id="header" class="container-fluid">
+      <div style="display:table; margin:auto; height:100%;">
+        <div style="display:table-cell; vertical-align:middle;">
+          <h1>GIVE FAQ</h1>
+          <a id="give_button_wrapper" href="/holywave/give"><button>Return to Give</button></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <h5 style="margin-top:65px; margin-bottom:0px; text-align:center; font-style:italic;">Don’t see your question? Contact us at <a id="contact_us_email" href="mailto:holywave@sarang.com">holywave@sarang.com</a></h5>
+
+    </div>
+
+
+    <div id="questions" class="container-fluid" style="min-height:500px;">
+      <a class="panel-header" data-toggle="collapse" href="#ToC_1">Getting Started<span id="panel-header_expand_collapse">Expand<span>&#43;</span></span></a>
+      <div class="collapse" id="ToC_1">
+        <div class="panel-body-wrapper">
+          <div class="panel-body">
+            <a class="plus_minus" data-toggle="collapse" href="#ToC_1-A">What is Subsplash?<span id="panel-body_expand_collapse">&#43;</span></a>
+            <div class="collapse" id="ToC_1-A">
+              <h5 id="answer">Subsplash is a mobile SaaS company specializing in software development for church engagement. HolyWave has partnered with Subsplash to develop our mobile app and online giving platforms.</h5>
+            </div>
+          </div>
+          <div class="panel-body">
+            <a class="plus_minus" data-toggle="collapse" href="#ToC_1-B">Do I have to create a Subsplash Giving account?<span id="panel-body_expand_collapse">&#43;</span></a>
+            <div class="collapse" id="ToC_1-B">
+              <h5 id="answer">Subsplash is working towards providing a way to give as “Guests” soon. However, if you are a regular donor, we highly encourage you to create an account as that will allow us to send you financial giving statements at the end of the year for tax purposes.</h5>
+            </div>
+          </div>
+          <div class="panel-body">
+            <a class="plus_minus" data-toggle="collapse" href="#ToC_1-C">How do I create an account?<span id="panel-body_expand_collapse">&#43;</span></a>
+            <div class="collapse" id="ToC_1-C">
+              <h5 id="answer">You can create an account through the mobile app or on the website. Tap the profile icon on the sidebar menu in the app or on the website (www.holywave.org/give). Follow the prompts to create your account - it’s that simple! If you already have a Giving account, look for the avatar in the sidebar (app) or the top right hand corner (website).</h5>
+            </div>
+          </div>
+          <div class="panel-body">
+            <a class="plus_minus" data-toggle="collapse" href="#ToC_1-D">I don’t see a section to add my Sa-Rang membership number. Does that mean my online giving won’t get recorded with my other offerings?<span id="panel-body_expand_collapse">&#43;</span></a>
+            <div class="collapse" id="ToC_1-D">
+              <h5 id="answer">Short answer, yes, your Online Giving will not be aggregated into your SRCC records for financial giving. However, for end-of-year tax purposes you will instead receive two separate statements at the end of the year: one for any physical donations made through our offering envelopes, and one from Subsplash for any donations made online.</h5>
+            </div>
+          </div>
+          <div class="panel-body">
+            <a class="plus_minus" data-toggle="collapse" href="#ToC_1-E">What kind of payment methods can I use?<span id="panel-body_expand_collapse">&#43;</span></a>
+            <div class="collapse" id="ToC_1-E">
+              <h5 id="answer">Once you create an account, you can securely link and store credit cards, debit cards, or bank accounts (eChecks) to make your transactions.</h5>
+            </div>
+          </div>
+          <div class="panel-body">
+            <a class="plus_minus" data-toggle="collapse" href="#ToC_1-F">I don’t see the Fund I want to designate my gift to?<span id="panel-body_expand_collapse">&#43;</span></a>
+            <div class="collapse" id="ToC_1-F">
+              <h5 id="answer">As we continue to roll out Online Giving alongside our existing financial system at Sa-Rang Community Church, we will not be listing all ministries as a designated fund option. If you would like to designate your gift to a ministry that is not listed, please use a physical offering envelope and write your designation.</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of ToC 1 -->
+      <a class="panel-header" data-toggle="collapse" href="#ToC_2">Statements, Activity, Refunds<span id="panel-header_expand_collapse">Expand<span>&#43;</span></span></a>
+      <div class="collapse" id="ToC_2">
+        <div class="panel-body-wrapper">
+          <div class="panel-body">
+            <a class="plus_minus" data-toggle="collapse" href="#ToC_2-A">Can I get a receipt?<span id="panel-body_expand_collapse">&#43;</span></a>
+            <div class="collapse" id="ToC_2-A">
+              <h5 id="answer">Receipts, refund notices, upcoming recurring payment notices, and card expiration notes are all sent automatically. In the event that your email address becomes non-deliverable, we will be notified and will then reach out to you to update your email address.</h5>
+            </div>
+          </div>
+          <div class="panel-body">
+            <a class="plus_minus" data-toggle="collapse" href="#ToC_2-B">How do I cancel my transaction?<span id="panel-body_expand_collapse">&#43;</span></a>
+            <div class="collapse" id="ToC_2-B">
+              <h5 id="answer">Transactions cannot be voided because all transactions are processed immediately. If you would like to re-do your transaction, please contact us at <a href="mailto:holywave@sarang.com">holywave@sarang.com</a> and we will issue a refund.</h5>
+            </div>
+          </div>
+          <div class="panel-body">
+            <a class="plus_minus" data-toggle="collapse" href="#ToC_2-C">Can you issue a partial refund?<span id="panel-body_expand_collapse">&#43;</span></a>
+            <div class="collapse" id="ToC_2-C">
+              <h5 id="answer">No, refunds must be issued for the whole amount. If you would like a partial refund, we can refund the full amount and you can create a new transaction for the correct amount. This limitation is in place to protect HolyWave from exposure to chargeback risk.</h5>
+            </div>
+          </div>
+          <div class="panel-body">
+            <a class="plus_minus" data-toggle="collapse" href="#ToC_2-D">My card was declined. What do I do?<span id="panel-body_expand_collapse">&#43;</span></a>
+            <div class="collapse" id="ToC_2-D">
+              <h5 id="answer">Subsplash does not decline charges, rather, they request approval from the bank that issued the card. If your card is declined, please contact your bank to determine the issue.</h5>
+            </div>
+          </div>
+          <div class="panel-body">
+            <a class="plus_minus" data-toggle="collapse" href="#ToC_2-E">When will I receive my tax statements?<span id="panel-body_expand_collapse">&#43;</span></a>
+            <div class="collapse" id="ToC_2-E">
+              <h5 id="answer">Sa-Rang Community Church opens financial giving request forms annually towards the end of December. Your Subsplash statement will be prepared around the same time and will be available at the same time your SRCC giving statements are ready.</h5>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- End of ToC 2 -->
+      <a class="panel-header" data-toggle="collapse" href="#ToC_3">General FAQ<span id="panel-header_expand_collapse">Expand<span>&#43;</span></span></a>
+        <div class="collapse" id="ToC_3">
+          <div class="panel-body-wrapper">
+            <div class="panel-body">
+              <a class="plus_minus" data-toggle="collapse" href="#ToC_3-A">How much time does it take for a transaction to go from “pending” to “processed”?<span id="panel-body_expand_collapse">&#43;</span></a>
+              <div class="collapse" id="ToC_3-A">
+                <h5 id="answer">Credit card transactions usually go to processed in less than one minute. ACH transactions typically take two business days to receive confirmation from your bank. In rare cases, ACH transactions may take up to one week or longer.</h5>
+              </div>
+            </div>
+            <!-- <div class="panel-body">
+              <a class="plus_minus" data-toggle="collapse" href="#ToC_3-B">Is there another way to give online?<span id="panel-body_expand_collapse">&#43;</span></a>
+              <div class="collapse" id="ToC_3-B">
+                <h5 id="answer">Yes! You can also text-to-give. Text HOLYWAVE to 206-859-9405 to get started.</h5>
+              </div>
+            </div> -->
+            <div class="panel-body">
+              <a class="plus_minus" data-toggle="collapse" href="#ToC_3-C">Are there any fees to use Online Giving?<span id="panel-body_expand_collapse">&#43;</span></a>
+              <div class="collapse" id="ToC_3-C">
+                <h5 id="answer">There are no additional fees to pay as a donor. However, please note that a 2.3% transaction fee will be deducted from every card transaction (1% for eChecks)</h5>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+    </div>
+
+    <!-- Content End -->
+
+
+    {% include "holywave/footer.html" %}
+    <script>
+    var expand_collapse = document.getElementsByClassName("panel-header");
+    var plus_minus = document.getElementsByClassName("plus_minus");
+
+    for (var i=0; i<expand_collapse.length; i++){
+      expand_collapse[i].onclick = function(){
+        if (this.getAttribute("aria-expanded")=="true"){
+          this.firstChild.nextElementSibling.innerHTML="Expand<span style='font-weight:bold; font-size:12px; margin-left:5px;'>&#43;</span>";
+        }
+        else{
+          this.firstChild.nextElementSibling.innerHTML="Collapse<span style='font-weight:bold; font-size:12px; margin-left:5px;'>&#215;</span>";
+        }
+
+      }
+    }
+
+    for (var i=0; i<plus_minus.length; i++){
+      plus_minus[i].onclick = function(){
+        if (this.getAttribute("aria-expanded")=="true"){
+          this.firstChild.nextElementSibling.innerHTML="&#43";
+        }
+        else{
+          this.firstChild.nextElementSibling.innerHTML="&#8722;";
+        }
+      }
+    }
+    </script>
+  </body>
+</html>

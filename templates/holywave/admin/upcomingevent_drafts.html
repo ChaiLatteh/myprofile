@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Admin Panel</title>
+
+    <!-- Page contents stretch according to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+      html{
+        margin-bottom:100px;
+      }
+      #home{
+        position:fixed;
+        top:5px;
+        right:60px;
+      }
+      #logout{
+        position:fixed;
+        top:5px;
+        right:5px;
+      }
+
+      .section{
+        margin-left:10px;
+        margin-top:75px;
+      }
+
+      div:focus{
+        outline:none;
+      }
+
+      table, tr, th, td{
+        border-collapse:collapse;
+        border:1px solid black;
+        padding:5px;
+      }
+      th{
+        background-color:silver;
+      }
+      .admin_panel_button{
+        padding:5px 10px;
+        margin-bottom:10px;
+      }
+      a{
+        color:blue;
+      }
+
+      @media screen and (max-width:500px){
+        #home{
+          top:55px;
+        }
+        #logout{
+          top:55px;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        <p style="color:red;">{{message}}</p>
+      {% endfor %}
+    {% endif %}
+
+
+    <a id="home" href="/">Home</a>
+    <a id="logout" href="/logout">Logout</a>
+
+
+    <div class="section" id="upcomingevents">
+      <h1 style="color:brown;">UPCOMING EVENT DRAFTS</h1>
+      <a href="/admin"><button class="admin_panel_button">Back to Admin Panel</button></a>
+      <a href="/admin/drafts/preview" target="_blank" style="margin-left:50px; color:red;"><button class="admin_panel_button">PREVIEW</button></a>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID #</th>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Time</th>
+            <th>Location</th>
+            <th>Description</th>
+            <!-- <th>Thumbnail</th> -->
+            <th>Event Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for upcomingevent in upcomingevents_list %}
+            <tr>
+              <td>{{upcomingevent.id}}</td>
+              <td>{{upcomingevent.title}}</td>
+              <td>{{upcomingevent.start_date|date:"Y-m-d"}}</td>
+              <td>{{upcomingevent.end_date|date:"Y-m-d"}}</td>
+              <td>{{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</td>
+              <td>{{upcomingevent.location}}</td>
+              <td>{{upcomingevent.description|safe}}</td>
+
+
+              {% if upcomingevent.image %}
+                <td style="text-align:center;">
+                  <img style="width:100px; height:100px; display:table;" src="{{upcomingevent.image.url}}" alt=""></img>
+                  <a href="/admin/upcomingevents/drafts/{{upcomingevent.id}}/add_picture"><button style="margin:5px;">Change</button></a>
+                </td>
+              {% else %}
+                <td style="text-align:center">
+                  N/A
+                  <a href="/admin/upcomingevents/drafts/{{upcomingevent.id}}/add_picture"><button style="margin:5px auto; display:table;">Add</button></a>
+                </td>
+              {% endif %}
+
+              <td>
+                <form action="/admin/upcomingevents/drafts/{{upcomingevent.id}}/push_live" method="post">
+                  {% csrf_token %}
+                  <input type="submit" value="PUSH LIVE" style="color:red; font-weight:bold;">
+                </form>
+              </td>
+
+              <td><a href="/admin/upcomingevents/drafts/{{upcomingevent.id}}/modify"><button>Modify</button></a></td>
+              <td><a class="delete" href="/admin/upcomingevents/drafts/{{upcomingevent.id}}/delete"><button>Delete</button></a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <!-- End of Upcoming Event Drafts -->
+
+
+    <div class="section" id="upcomingclasses">
+      <h1 style="color:brown;">UPCOMING CLASS DRAFTS</h1>
+      <a href="/admin"><button class="admin_panel_button">Back to Admin Panel</button></a>
+      <a href="/admin/drafts/preview" style="margin-left:50px; color:red;"><button class="admin_panel_button">PREVIEW</button></a>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID #</th>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Time</th>
+            <th>Location</th>
+            <th>Description</th>
+            <th>Class Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for upcomingclass in upcomingclasses_list %}
+            <tr>
+              <td>{{upcomingclass.id}}</td>
+              <td>{{upcomingclass.title}}</td>
+              <td>{{upcomingclass.start_date|date:"Y-m-d"}}</td>
+              <td>{{upcomingclass.end_date|date:"Y-m-d"}}</td>
+              <td>{{upcomingclass.time|date:"g:i A"}}</td>
+              <td>{{upcomingclass.location}}</td>
+              <td>{{upcomingclass.description|safe}}</td>
+
+              {% if upcomingclass.image %}
+                <td style="text-align:center;">
+                  <img style="width:100px; height:100px; display:table;" src="{{upcomingclass.image.url}}" alt=""></img>
+                  <a href="/admin/upcomingclasses/{{upcomingclass.id}}/add_picture"><button style="margin:5px;">Change</button></a>
+                </td>
+              {% else %}
+                <td style="text-align:center">
+                  N/A
+                  <a href="/admin/upcomingclasses/{{upcomingclass.id}}/add_picture"><button style="margin:5px auto; display:table;">Add</button></a>
+                </td>
+              {% endif %}
+
+              <td>
+                <form action="/admin/upcomingclasses/drafts/{{upcomingclass.id}}/push_live" method="post">
+                  {% csrf_token %}
+                  <input type="submit" value="PUSH LIVE" style="color:red; font-weight:bold;">
+                </form>
+              </td>
+              <td><a href="/admin/upcomingclasses/drafts/{{upcomingclass.id}}/modify"><button>Modify</button></a></td>
+              <td><a class="delete" href="/admin/upcomingclasses/drafts/{{upcomingclass.id}}/delete"><button>Delete</button></a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+    <script>
+    var delete_button = document.getElementsByClassName("delete");
+    for (var i=0; i<delete_button.length; i++){
+      delete_button[i].onclick = function(){
+        delete_confirm = confirm("Are you sure??");
+        if (delete_confirm == false){
+          return false;
+        }
+      }
+    }
+    </script>
+
+    <script>
+    // Select all links with hashes
+    $('a[href*="#"]')
+      // Remove links that don't actually link to anything
+      .not('[href="#"]')
+      .not('[href="#0"]')
+      .click(function(event) {
+        // On-page links
+        if (
+          location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+          &&
+          location.hostname == this.hostname
+        ) {
+          // Figure out element to scroll to
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+          // Does a scroll target exist?
+          if (target.length) {
+            // Only prevent default if animation is actually gonna happen
+            event.preventDefault();
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 500, function() {
+              // Callback after animation
+              // Must change focus!
+              var $target = $(target);
+              $target.focus();
+              if ($target.is(":focus")) { // Checking if the target was focused
+                return false;
+              } else {
+                $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                $target.focus(); // Set focus again
+              };
+            });
+          }
+        }
+      });
+    </script>
+
+  </body>
+</html>

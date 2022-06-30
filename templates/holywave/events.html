@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Events</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href="/static/css/futura.css" rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=EB%20Garamond' rel='stylesheet'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+    html, body{
+      height:100%;
+    }
+    *{
+      font-family:"Lato";
+    }
+    #upcomingevents{
+      margin-bottom:50px;
+      outline:none;
+    }
+
+
+    #upcomingevents h1{
+      font-size:36px;
+      letter-spacing:2.5px;
+      padding:15px;
+      margin-top:50px;
+      margin-bottom:25px;
+    }
+
+    #upcomingevents_container{
+      margin:auto;
+      text-align:center;
+    }
+
+    #upcomingevents_container_inner{
+      width:90%;
+      margin:auto;
+      text-align:left;
+    }
+
+
+    .upcomingevent{
+      transition:0.25s ease-in-out;
+      cursor:pointer;
+      border: 1px solid #dddddd;
+      height:380px;
+      margin:1%;
+      width:22.8%;
+      display:inline-block;
+      vertical-align:top;
+      text-align:left;
+    }
+
+    .upcomingevent:hover{
+      box-shadow:0px 4px 6px -3px rgba(0,0,0,.25);
+      transition:0.25s ease-in-out;
+    }
+
+
+    .upcomingevent_thumbnail{
+      height:200px;
+      width:100%;
+      background-size:cover !important;
+      background-position:center !important;
+    }
+
+
+
+    .upcomingevent h3{
+      font-size:22px;
+      font-weight:bold;
+      margin:10px;
+    }
+    .upcomingevent h4{
+      font-size:16px;
+      margin:10px;
+    }
+
+    .upcomingevent h5{
+      margin:20px 0px 0px 10px;
+      color:#2d8ccc;
+      font-size:16px;
+    }
+
+
+
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 100; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    .modal-content{
+      overflow-y:auto;
+      width:75%;
+      max-width:850px;
+      max-height:95%;
+      background-color: #fefefe;
+      margin: auto;
+      border: 1px solid #888;
+      border-radius:0;
+    }
+
+    .modal-content h3{
+      font-size:22px;
+      font-weight:bold;
+    }
+    .modal-content h4{
+      font-size:20px;
+    }
+    .modal-content p{
+      font-size:18px;
+      margin-top:22px;
+      margin-bottom:22px;
+    }
+
+    .modal img{
+      height:50%;
+      width:100%;
+    }
+
+    .close {
+      font-weight:100;
+      text-shadow:0px 0px 2px black;
+      opacity:0.9;
+      color: white;
+      float: right;
+      font-size: 38px;
+      margin-right:10px;
+    }
+
+    .close:hover, .close:focus {
+      opacity:1;
+      color:white;
+      text-shadow:0px 0px 3px black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .event_register_button{
+      font-size:18px;
+      transition:0.5s ease-in-out;
+      border-radius:0.25em;
+      border:2px solid #19528a;
+      outline:none;
+      background-color:transparent;
+      padding:5px 20px !important;
+      color:#19528a;
+    }
+
+    #event_contact{
+      margin-top:0px;
+      margin-bottom:20px;
+    }
+    #event_contact a{
+      color:#2d8ccc;
+    }
+
+    .event_register_button:hover{
+      border:2px solid transparent;
+      color:white;
+      background-color:#19528a;
+    }
+
+    @media screen and (min-width:1441px){
+      #upcomingevents_container_inner{
+        max-width:1400px;
+        padding:0px 15px;
+      }
+
+      .upcomingevent h3{
+        font-size:22px;
+      }
+      .upcomingevent h5{
+        font-size:14px;
+      }
+    }
+    @media screen and (max-width:1440px){
+      .upcomingevent{
+        width:31%;
+      }
+
+      .upcomingevent h3{
+        font-size:20px;
+      }
+      .upcomingevent h5{
+        font-size:12px;
+      }
+
+      .modal-content h3{
+        font-size:20px;
+      }
+      .modal-content h4{
+        font-size:18px;
+      }
+      .modal-content p{
+        font-size:16px;
+      }
+      .event_register_button{
+        font-size:16px;
+      }
+    }
+    @media screen and (max-width:1024px){
+      #upcomingevents h1{
+        font-size:34px;
+      }
+
+    }
+    @media screen and (max-width:768px){
+      #upcomingevents h1{
+        font-size: 32px;
+      }
+
+      .upcomingevent{
+        width:47.6%;
+      }
+      .upcomingevent_thumbnail{
+        height:275px;
+      }
+      .upcomingevent h3{
+        font-size:18px;
+      }
+      .upcomingevent h4{
+        font-size:14px;
+      }
+
+      .modal-content{
+        width:80%;
+      }
+      .modal-content h3{
+        font-size:18px;
+      }
+      .modal-content h4{
+        font-size:16px;
+      }
+      .modal-content p{
+        font-size:14px;
+      }
+      .event_register_button{
+        font-size:14px;
+      }
+    }
+
+    @media screen and (max-width:425px){
+      #upcomingevents h1{
+        font-size:30px;
+      }
+      .upcomingevent{
+        width:100%;
+        margin-bottom:15px;
+      }
+
+
+    }
+
+    @media screen and (max-width:375px){
+      #upcomingevents h1{
+        font-size:28px;
+      }
+    }
+
+    @media screen and (max-width:320px){
+      #upcomingevents h1{
+        font-size:26px;
+      }
+    }
+
+
+
+    </style>
+  </head>
+  <body>
+
+    <div id="upcomingevents" class="container-fluid" style="min-height:500px; text-align:center;">
+      <h1>UPCOMING EVENTS</h1>
+      <div id="upcomingevents_container">
+        <div id="upcomingevents_container_inner">
+
+          {% for upcomingevent in upcomingevents_list %}
+            <div class="upcomingevent">
+              <div style="background-image:url({{upcomingevent.image.url}}); width:100%; height:200px; background-size:cover; background-position:center;"></div>
+              <h3>{{upcomingevent.title}}</h3>
+              {% if upcomingevent.start_date == upcomingevent.end_date %}
+                {% if not upcomingevent.start_time %}
+                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}}</h4>
+                {% elif upcomingevent.start_time == upcomingevent.end_time %}
+                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                {% elif upcomingevent.start_time != upcomingevent.end_time and not upcomingevent.end_time %}
+                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                {% elif upcomingevent.start_time != upcomingevent.end_time %}
+                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</h4>
+                {% endif %}
+              {% elif upcomingevent.start_date != upcomingevent.end_date %}
+                {% if not upcomingevent.start_time %}
+                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} - {{upcomingevent.end_date|date:"F j (D.)"}}</h4>
+                {% elif upcomingevent.start_time == upcomingevent.end_time %}
+                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} - {{upcomingevent.end_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                {% elif upcomingevent.start_time != upcomingevent.end_time and not upcomingevent.end_time %}
+                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} - {{upcomingevent.end_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                {% elif upcomingevent.start_time != upcomingevent.end_time %}
+                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} - {{upcomingevent.end_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</h4>
+                {% endif %}
+              {% endif %}
+
+              <h4>{{upcomingevent.location}}</h4>
+              <h5>More details &#8594;</h5>
+            </div>
+            <div class="modal" style="text-align:left;">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <div style="background-image:url({{upcomingevent.image.url}}); height:200px; width:100%; background-size:cover; background-repeat: no-repeat; background-position:center;"></div>
+                <div style="margin:30px 20px 30px 20px;">
+                  <h3>{{upcomingevent.title}}</h3>
+
+                  {% if upcomingevent.start_date == upcomingevent.end_date %}
+                    {% if not upcomingevent.start_time %}
+                      <h4>{{upcomingevent.start_date|date:"M. d (D.)"}}</h4>
+                    {% elif upcomingevent.start_time == upcomingevent.end_time %}
+                      <h4>{{upcomingevent.start_date|date:"M. d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                    {% elif upcomingevent.start_time != upcomingevent.end_time and not upcomingevent.end_time %}
+                      <h4>{{upcomingevent.start_date|date:"M. d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                    {% elif upcomingevent.start_time != upcomingevent.end_time %}
+                      <h4>{{upcomingevent.start_date|date:"M. d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</h4>
+                    {% endif %}
+                  {% elif upcomingevent.start_date != upcomingevent.end_date %}
+                    {% if not upcomingevent.start_time %}
+                      <h4>{{upcomingevent.start_date|date:"M. d (D.)"}} - {{upcomingevent.end_date|date:"M. d (D.)"}}</h4>
+                    {% elif upcomingevent.start_time == upcomingevent.end_time %}
+                      <h4>{{upcomingevent.start_date|date:"M. d (D.)"}} - {{upcomingevent.end_date|date:"M. d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                    {% elif upcomingevent.start_time != upcomingevent.end_time and not upcomingevent.end_time %}
+                      <h4>{{upcomingevent.start_date|date:"M. d (D.)"}} - {{upcomingevent.end_date|date:"M. d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                    {% elif upcomingevent.start_time != upcomingevent.end_time %}
+                      <h4>{{upcomingevent.start_date|date:"M. d (D.)"}} - {{upcomingevent.end_date|date:"M. d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</h4>
+                    {% endif %}
+                  {% endif %}
+
+
+                  <h4>{{upcomingevent.location}}</h4>
+                  <p>{{upcomingevent.description|safe}}</p>
+                  {% if upcomingevent.contact_person and upcomingevent.contact_email %}
+                    <p id="event_contact">Contact: {{upcomingevent.contact_person}}, <a href="mailto:{{upcomingevent.contact_email}}">{{upcomingevent.contact_email}}</a></p>
+                  {% elif upcomingevent.contact_person and not upcomingevent.contact_email %}
+                    <p id="event_contact">Contact: {{upcomingevent.contact_person}}</p>
+                  {% elif not upcomingevent.contact_person and upcomingevent.contact_email %}
+                    <p id="event_contact">Contact: <a href="mailto:{{upcomingevent.contact_email}}">{{upcomingevent.contact_email}}</a></p>
+                  {% endif %}
+
+                  {% if upcomingevent.button %}
+                    <div style="width:100%; text-align:center;">
+                      <a href="{{upcomingevent.button_link}}" target="_blank"><button class="event_register_button">{{upcomingevent.button}}</button></a>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <script>
+    var upcomingEvent=document.getElementsByClassName("upcomingevent");
+    var modal=document.getElementsByClassName("modal");
+    var closeButton=document.getElementsByClassName("close");
+    for(var i=0; i<modal.length; i++){
+
+      if (upcomingEvent[i]){
+        upcomingEvent[i].onclick=function(){
+          for(var i=0; i<upcomingEvent.length; i++){
+            this.nextElementSibling.style.display="flex";
+          }
+        }
+      }
+
+
+      closeButton[i].onclick=function(){
+        for(var i=0; i<modal.length; i++){
+          modal[i].style.display="none";
+        }
+      }
+
+
+      modal[i].onclick=function(){
+        this.style.display="none";
+      }
+
+      modal[i].firstElementChild.onclick=function(event){
+        event.stopPropagation();
+      }
+
+      // window.onclick=function(event){
+      //   for(var i=0; i<modal.length; i++){
+      //     if(event.target==modal[i]){
+      //       modal[i].style.display="none";
+      //     }
+      //   }
+      // }
+
+    }
+    </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Our Story | HolyWave Ministry</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112155877-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-112155877-1');
+    </script>
+
+    <!-- THING WE NEED -->
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <!-- Page contents stretch according to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href="/static/css/futura.css" rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=EB%20Garamond' rel='stylesheet'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/holywave/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+    *{
+      font-family:"Lato";
+    }
+    img{
+      height:100%;
+      width:100%;
+    }
+    #header{
+      height:400px;
+      text-align:center;
+      background:url(/static/images/holywave/about/our_story/our_story_header.jpg);
+      background-size:cover;
+      background-position:center;
+    }
+    #header h1{
+      margin:0px;
+      color:white;
+      font-family:"Futura";
+      font-size:60px;
+      letter-spacing:9px;
+    }
+    #tagline{
+      font-size:22px;
+      letter-spacing:1px;
+      line-height:30px;
+    }
+
+    .placeholder_container{
+      text-align:center;
+      margin:auto;
+      width:4px;
+      height:90px;
+      display:none;
+    }
+
+
+    #content h1{
+      margin:0px auto;
+      font-size:20px;
+      letter-spacing:2px;
+    }
+    #content h3{
+      max-width:850px;
+      margin:auto;
+      margin-top:20px;
+      font-size:16px;
+      line-height:24px;
+    }
+
+    .transparent{
+      opacity:0;
+    }
+    .afterScroll{
+      opacity:1;
+      transition: 0.5s ease-in-out;
+    }
+
+    #timeline_line_container{
+      position:relative;
+      width:4px;
+      margin:auto;
+    }
+
+    #event_one_point, #event_one{
+      top:60px;
+    }
+    #event_one_picture{
+      top:60px;
+      background:url(/static/images/holywave/about/our_story/the_foundation.jpg);
+    }
+
+    #event_two_point, #event_two{
+      top:520px;
+    }
+
+    #event_two_picture{
+      top:520px;
+      background:url(/static/images/holywave/about/our_story/the_vision.jpg);
+    }
+
+    #event_three_point, #event_three{
+      top:1000px;
+    }
+    #event_three_picture{
+      top:1000px;
+      background:url(/static/images/holywave/about/our_story/the_growth.jpg);
+    }
+
+    .point_general{
+      border-radius:50%;
+      position:absolute;
+      height:20px;
+      width:20px;
+      left:-7.5px;
+      border:3px solid #4a6885;
+      background-color:white;
+      z-index:1;
+    }
+    .event_general_left{
+      position:absolute;
+      width:500px;
+      text-align:right;
+      right:40px;
+    }
+    .event_general_right{
+      position:absolute;
+      width:500px;
+      text-align:left;
+      left:40px;
+    }
+    .event_picture_general_left{
+      background-size:cover !important;
+      background-position:center !important;
+      background-repeat:no-repeat !important;
+      position:absolute;
+      width:500px;
+      height:300px;
+      text-align:right;
+      right:40px;
+      box-shadow: 0px 5px 5px -3px rgba(0,0,0,.5);
+    }
+    .event_picture_general_right{
+      background-size:cover !important;
+      background-position:center !important;
+      background-repeat:no-repeat !important;
+      position:absolute;
+      width:500px;
+      height:300px;
+      text-align:left;
+      left:40px;
+      box-shadow: 0px 5px 5px -3px rgba(0,0,0,.5);
+
+    }
+    #timeline h1{
+      font-size:20px;
+      margin:0px;
+      letter-spacing:2px;
+    }
+    #timeline h3{
+      font-size:16px;
+      line-height:24px;
+    }
+
+    .gallery_image{
+      transition:0.25s ease-in-out;
+      cursor:pointer;
+      width:25%;
+      display:inline-block;
+      vertical-align:top;
+      float:left;
+      overflow:hidden;
+    }
+
+    .gallery_image:hover{
+      opacity:0.95;
+      transition:0.25s ease-in-out;
+    }
+    .gallery_image img{
+      transition:0.5s ease-in-out;
+      vertical-align:top;
+    }
+    .gallery_image img:hover{
+      transform:scale(1.05);
+      transition:0.5s ease-in-out;
+    }
+
+
+    .modal{
+      display:none;
+      position:fixed;
+      z-index:100;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+      overflow:auto;
+      background-color:rgb(0,0,0);
+      background-color:rgba(0,0,0,0.4);
+    }
+
+    .modal-content{
+      overflow-y:auto;
+      background-color:#fefefe;
+      margin:auto;
+      width:75%;
+      max-width:1000px;
+    }
+    .close{
+      font-weight:100;
+      text-shadow:0px 0px 2px black;
+      position:absolute;
+      opacity:0.9;
+      right:0px;
+      color: white;
+      font-size:38px;
+      margin-right:10px;
+    }
+    .close:hover, .close:focus{
+      opacity:1;
+      color:white;
+      text-shadow:0px 0px 3px black;
+    }
+    .prev, .next{
+      text-shadow:0px 0px 2px black;
+      cursor:pointer;
+      position:absolute;
+      top:50%;
+      width:auto;
+      padding:16px;
+      transform:translate(0, -50%);
+      color:white;
+      font-weight:bold;
+      font-size:20px;
+      user-select:none;
+      transition:0.5s ease-in-out;
+    }
+    .prev{
+      left:0;
+    }
+    .next{
+      right:0;
+    }
+    .prev:hover, .next:hover{
+      color:white;
+      background-color:rgba(0,0,0,0.8);
+      text-decoration:none;
+    }
+
+    @media screen and (min-width:1441px){
+    }
+
+    @media screen and (max-width:1440px){
+    }
+
+
+    @media screen and (max-width:1150px){
+      #header h1{
+        font-size:50px;
+      }
+      .event_general_left, .event_general_right, .event_picture_general_left, .event_picture_general_right{
+        width:450px;
+      }
+    }
+
+
+    @media screen and (max-width:1023px){
+      .placeholder_container{
+        display:block;
+      }
+
+      #tagline{
+        max-width:450px;
+      }
+
+      #timeline_line_container{
+        width:100%;
+      }
+
+      .event_general_left, .event_general_right, .event_picture_general_left, .event_picture_general_right{
+        right:initial;
+        position:static;
+        text-align:center;
+        margin:auto;
+      }
+      .event_picture_general_left, .event_picture_general_right{
+        width:500px;
+        height:300px;
+        margin-bottom:30px;
+      }
+      .event_general_left, .event_general_right{
+        width:500px;
+        margin-bottom:50px;
+      }
+
+      .event_general_left h1, .event_general_left h3, .event_general_right h1, .event_general_right h3{
+        text-align:left;
+      }
+      #timeline_line, .point_general{
+        display:none;
+      }
+      #event_three{
+        margin-bottom:25px;
+      }
+
+
+    }
+
+    @media screen and (max-width:768px){
+      #header h1{
+        font-size:45px;
+      }
+      #tagline{
+        font-size:20px;
+      }
+      #timeline h1, #content h1{
+        font-size:18px;
+      }
+      #timeline h3, #content h3{
+        font-size:14px;
+      }
+
+      .event_picture_general_left, .event_picture_general_right, .event_general_left, .event_general_right{
+        width:95%;
+        max-width:500px;
+      }
+      #content h3{
+        max-width:550px;
+      }
+
+
+
+
+    }
+
+    @media screen and (max-width:425px){
+      #header h1{
+        font-size:36px;
+      }
+      .gallery_image{
+        width:50%;
+      }
+      .modal-content{
+        width:95%;
+      }
+    }
+
+    @media screen and (max-width:375px){
+      #header h1{
+        font-size:34px;
+      }
+    }
+
+    @media screen and (max-width:320px){
+      #header h1{
+        font-size:32px;
+      }
+    }
+    </style>
+
+
+    <script>
+    $(document).ready(function(){
+      var transparent = $(".transparent");
+        $(window).scroll(function(){
+          for (var i=0; i<transparent.length; i++){
+            if ($(window).scrollTop() >= transparent[i].getBoundingClientRect().top-250){
+              transparent[i].classList.add("afterScroll");
+              transparent[i].style.marginTop=transparent[i].style.marginTop+"10px";
+          }
+        }
+      });
+    });
+    </script>
+  </head>
+  <body>
+
+    {% include "holywave/navbar.html" %}
+
+
+    <!-- Content Start -->
+    <div id="header" class="container-fluid">
+      <div style="display:table; height:100%; margin:auto;">
+        <div style="display:table-cell; vertical-align:middle;">
+          <h1>OUR STORY</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" style="height:300px; background-color:white; text-align:center;">
+      <div style="display:table; height:100%; margin:auto;">
+        <div style="display:table-cell; vertical-align:middle;">
+          <h1 id="tagline">HolyWave is the English-speaking ministry of Sa-Rang Community Church.</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="placeholder_container transparent" style="background:linear-gradient(to bottom, transparent, #4a6885);"></div>
+
+    <div id="timeline" class="container-fluid" style="text-align:center;">
+      <div id="timeline_line_container">
+        <div id="timeline_line" style="width:4px; height:1500px; position:relative; background:linear-gradient(to bottom, transparent, #4a6885 5%, #4a6885 95%, transparent);"></div>
+
+        <div id="event_one_point" class="point_general"></div>
+        <div id="event_one_picture" class="event_picture_general_left"></div>
+        <div id="event_one" class="event_general_right">
+          <h1>THE FOUNDATION</h1>
+          <h3>In 1988, God called a team of twelve led by Pastor Jung Hyun Oh of Sarang Church (Seoul, South Korea) to plant a church in Southern California for a growing Korean community in Orange County. On March 20, 1988, Sa-Rang Community Church (SRCC) was officially founded in the hall of a small piano store in Norwalk, CA.</h3>
+        </div>
+
+        <!-- <div class="event_picture_general_right transparent" style="top:400px; background:url(/static/images/holywave/about/our_story/1990-eed.jpg)"></div>
+
+        <div class="event_picture_general_left transparent" style="top:600px; background:url(/static/images/holywave/about/our_story/4th-anniversary.jpg)"></div>
+
+        <div class="event_picture_general_right transparent" style="top:900px; background:url(/static/images/holywave/about/our_story/miracle-complex-2.jpg)"></div>
+
+        <div class="event_picture_general_left transparent" style="top:1190px; background:url(/static/images/holywave/about/our_story/miracle-complex-10.jpg)"></div> -->
+
+
+
+
+        <div id="event_two_point" class="point_general transparent"></div>
+        <div id="event_two_picture" class="event_picture_general_right transparent"></div>
+        <div id="event_two" class="event_general_left transparent">
+          <h1>THE VISION</h1>
+          <h3>In 2002, Pastor Jung Hyun Oh received the call to return to South Korea and SRCC welcomed Pastor Daniel Kim who had the heart and God-given vision to raise up the next generation. He dreamed of seeing the next generation take ownership of and get involved in the now well-established SRCC campus in Anaheim, CA. Pastor Daniel therefore saw the need to establish a designated space and identity for the second generation of Korean-American children who were now growing up into adults within the church. In 2007, HolyWave was born, a ministry within Sa-Rang Community Church envisioned to not only provide a haven for second generation Korean-Americans, but to welcome the local community.</h3>
+        </div>
+
+
+        <div id="event_three_point" class="point_general transparent"></div>
+        <div id="event_three_picture" class="event_picture_general_left transparent"></div>
+        <div id="event_three" class="event_general_right transparent">
+          <h1>THE GROWTH</h1>
+          <h3>Though many leaders had come and gone, HolyWave continued to grow by God’s grace. Through HolyWave, SRCC formed newfound relationships with the local community, working closely with underprivileged students and families in the Anaheim School District every year to this day. In 2015, HolyWave transitioned over to SRCC’s satellite campus, Kingdom Dream Center, to allow more opportunities for members to take ownership of the church.</h3>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="placeholder_container transparent" style="background:linear-gradient(to top, transparent, #4a6885); margin-top:0px; margin-bottom:10px;"></div>
+
+
+
+    <div id="content" class="container-fluid transparent" style="text-align:center; margin-bottom:50px;">
+      <h1>PRESENT DAY</h1>
+      <h3>Having started as an unknown 50-member “English Ministry,” HolyWave now stands over 700 strong, welcoming the prodigal sons and daughters into our own imperfect family. True to the initial vision of being a second-generation community dedicated to taking ownership and getting involved with our church and community, HolyWave now continues to grow, more importantly, as a training and sending base for Christ’s disciples to impact the world. A product of our parents’ sacrificial love and dedication, HolyWave is a testimony of God’s grace and mission for the world.</h3>
+    </div>
+
+
+
+    <div class="container-fluid" style="padding:0px; text-align:center; margin:auto; width:100%;">
+      <div class="gallery_image" onclick="openModal();currentSlide(1);" style="background:url(/static/images/holywave/about/our_story/history-gallery1.jpg)">
+        <img src="/static/images/holywave/about/our_story/history-gallery1.jpg" style="width:100%;">
+      </div>
+
+      <div class="gallery_image" onclick="openModal();currentSlide(2);">
+        <img src="/static/images/holywave/about/our_story/history-gallery2.jpg" alt="">
+      </div>
+
+      <div class="gallery_image" onclick="openModal();currentSlide(3);">
+        <img src="/static/images/holywave/about/our_story/history-gallery3.jpg" alt="">
+      </div>
+
+      <div class="gallery_image" onclick="openModal();currentSlide(4);">
+        <img src="/static/images/holywave/about/our_story/history-gallery4.jpg" alt="">
+      </div>
+
+      <div class="gallery_image" onclick="openModal();currentSlide(5);">
+        <img src="/static/images/holywave/about/our_story/history-gallery5.jpg" alt="">
+      </div>
+
+      <div class="gallery_image" onclick="openModal();currentSlide(6);">
+        <img src="/static/images/holywave/about/our_story/history-gallery6.jpg" alt="">
+      </div>
+
+      <div class="gallery_image" onclick="openModal();currentSlide(7);">
+        <img src="/static/images/holywave/about/our_story/history-gallery7.jpg" alt="">
+      </div>
+
+      <div class="gallery_image" onclick="openModal();currentSlide(8);">
+        <img src="/static/images/holywave/about/our_story/history-gallery8.jpg" alt="">
+      </div>
+
+      <div class="gallery_image" onclick="openModal();currentSlide(9);">
+        <img src="/static/images/holywave/about/our_story/history-gallery9.jpg" alt="">
+      </div>
+
+      <div class="gallery_image" onclick="openModal();currentSlide(10);">
+        <img src="/static/images/holywave/about/our_story/history-gallery10.jpg" alt="">
+      </div>
+
+      <div class="gallery_image" onclick="openModal();currentSlide(11);">
+        <img src="/static/images/holywave/about/our_story/history-gallery11.jpg" alt="">
+      </div>
+
+      <div class="gallery_image" onclick="openModal();currentSlide(12);">
+        <img src="/static/images/holywave/about/our_story/history-gallery12.jpg" alt="">
+      </div>
+
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+
+          <div class="slides">
+            <img src="/static/images/holywave/about/our_story/history-gallery1.jpg">
+          </div>
+
+          <div class="slides">
+            <img src="/static/images/holywave/about/our_story/history-gallery2.jpg">
+          </div>
+
+          <div class="slides">
+            <img src="/static/images/holywave/about/our_story/history-gallery3.jpg">
+          </div>
+
+          <div class="slides">
+            <img src="/static/images/holywave/about/our_story/history-gallery4.jpg">
+          </div>
+
+          <div class="slides">
+            <img src="/static/images/holywave/about/our_story/history-gallery5.jpg">
+          </div>
+
+          <div class="slides">
+            <img src="/static/images/holywave/about/our_story/history-gallery6.jpg">
+          </div>
+
+          <div class="slides">
+            <img src="/static/images/holywave/about/our_story/history-gallery7.jpg">
+          </div>
+
+          <div class="slides">
+            <img src="/static/images/holywave/about/our_story/history-gallery8.jpg">
+          </div>
+
+          <div class="slides">
+            <img src="/static/images/holywave/about/our_story/history-gallery9.jpg">
+          </div>
+
+          <div class="slides">
+            <img src="/static/images/holywave/about/our_story/history-gallery10.jpg">
+          </div>
+
+          <div class="slides">
+            <img src="/static/images/holywave/about/our_story/history-gallery11.jpg">
+          </div>
+
+          <div class="slides">
+            <img src="/static/images/holywave/about/our_story/history-gallery12.jpg">
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        </div>
+      </div>
+
+
+
+
+
+      <script>
+      var modal = document.getElementById("modal");
+      var slides = document.getElementsByClassName("slides");
+
+      function openModal(){
+        modal.style.display="flex";
+      }
+      function closeModal(){
+        modal.style.display="none";
+      }
+
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n){
+        showSlides(slideIndex += n);
+      }
+      function currentSlide(n){
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n){
+        if (n > slides.length){
+          slideIndex=1;
+        }
+        if (n < 1){
+          slideIndex=slides.length;
+        }
+        for (var i=0; i<slides.length; i++){
+          slides[i].style.display="none";
+        }
+        slides[slideIndex-1].style.display="flex";
+      }
+
+      modal.onclick=function(){
+        this.style.display="none";
+      }
+
+      modal.firstElementChild.onclick=function(event){
+        event.stopPropagation();
+      }
+
+
+
+      </script>
+
+
+
+    </div>
+
+    <!-- Content End -->
+
+    {% include "holywave/footer.html" %}
+
+
+  </body>

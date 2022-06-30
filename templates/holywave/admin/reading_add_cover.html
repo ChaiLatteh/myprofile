@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Reading Cover</title>
+    <style>
+    input, select{
+      margin-bottom:10px;
+    }
+    </style>
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        <p style="color:red;">{{message}}</p>
+      {% endfor %}
+    {% endif %}
+
+    <form action="/admin/readings/{{this_reading.id}}/add_cover_process" method="post" enctype="multipart/form-data">
+      <h1>Add/Modify Reading Cover</h1>
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" value="Submit">
+      <a href="/admin">Cancel</a>
+    </form>
+
+  </body>
+</html>

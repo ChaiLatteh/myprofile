@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Modify Reading</title>
+
+    <script src="/static/js/tiny_mce/tiny_mce.js"></script>
+    <script src="/static/js/tiny_mce/textareas.js"></script>
+
+    <style>
+    label{
+      display:table;
+      margin-bottom:20px;
+    }
+    </style>
+
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        <script>
+          alert('{{message}}');
+        </script>
+      {% endfor %}
+    {% endif %}
+
+    <input id="reading_display" type="hidden" value="{{this_reading.display}}">
+
+    <form action="/admin/readings/{{this_reading.id}}/modify_process" method="post">
+      {% csrf_token %}
+      <label>Category: <select name="category">
+        <option value="{{this_reading.category}}">{{this_reading.category}}</option>
+        <option value=""></option>
+        <option value="christian_living">Christian Living</option>
+        <option value="leadership">Leadership</option>
+        <option value="missions">Missions</option>
+        <option value="prayer">Prayer</option>
+        <option value="theology">Theology</option>
+        <option value="wholeness_inner_healing">Wholeness/Inner Healing</option>
+      </select></label>
+      <label>Title: <input type="text" name="title" value="{{this_reading.title}}"></label>
+      <label>Subtitle: <input type="text" name="subtitle" value="{{this_reading.subtitle}}"></label>
+      <label>Author: <input type="text" name="author" value="{{this_reading.author}}"></label>
+      <label>Summary: <textarea name="summary" rows="8" cols="80">{{this_reading.summary}}</textarea></label>
+      <label>PDF Link: <input type="text" name="pdf_link" value="{{this_reading.pdf_link}}"></label>
+      <label>PDF Button: <input type="text" name="pdf_button" value="{{this_reading.pdf_button}}"></label>
+      <label>Purchase Link: <input type="text" name="purchase_link" value="{{this_reading.purchase_link}}"></label>
+      <label>Purchase Button: <input type="text" name="purchase_button" value="{{this_reading.purchase_button}}"></label>
+      <label>
+        <label style="display:inline-table; margin-right:20px; margin-bottom:0px;"><input id="show" type="radio" name="display" value=True>Show</label>
+        <label style="display:inline-table; margin-bottom:0px;"><input id="hide" type="radio" name="display" value="False">Hide</label>
+      </label>
+      <input type="submit" value="Modify">
+      <a href="/admin">Cancel</a>
+    </form>
+
+
+    <script>
+    if (document.getElementById("reading_display").value=="True"){
+      document.getElementById("show").checked=true;
+    }
+    else if (document.getElementById("reading_display").value=="False"){
+      document.getElementById("hide").checked=true;
+    }
+    </script>
+
+
+  </body>
+</html>

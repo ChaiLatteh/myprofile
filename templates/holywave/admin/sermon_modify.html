@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Modify Sermon</title>
+    <style>
+    input, select{
+      margin-bottom:15px;
+    }
+    </style>
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+      <script>
+        alert('{{message}}')
+      </script>
+      {% endfor %}
+    {% endif %}
+
+    <form action="/admin/sermons/{{this_sermon.id}}/modify_process" method="post">
+      {% csrf_token %}
+      Title: <input type="text" name="title" value="{{this_sermon.title}}">
+      <br>
+      Speaker: <input type="text" name="speaker" value="{{this_sermon.speaker}}">
+      <br>
+      Scripture Passage: <input type="text" name="scripture_passage" value="{{this_sermon.scripture_passage}}">
+      <br>
+      Date: <input type="date" name="date" value="{{this_sermon.date|date:'Y-m-d'}}">
+      <br>
+      Video URL: <input type="text" name="video_url" value="{{this_sermon.video_url}}">
+      <br>
+      Service: <select name="service">
+        <option value="{{this_sermon.service}}">{{this_sermon.service}}</option>
+        <option value=""></option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
+      <br>
+      <input type="submit" value="Modify">
+      <a href="/admin">Cancel</a>
+    </form>
+
+  </body>
+</html>

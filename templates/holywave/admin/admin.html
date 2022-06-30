@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Admin Panel</title>
+
+    <!-- Page contents stretch according to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+      html{
+        margin-bottom:100px;
+      }
+      #home{
+        position:fixed;
+        top:5px;
+        right:60px;
+      }
+      #logout{
+        position:fixed;
+        top:5px;
+        right:5px;
+      }
+      #sections_table{
+        position:fixed;
+        top:10px;
+        left:10px;
+        background-color:white;
+        color:black;
+      }
+      #sections_table td{
+        cursor:pointer;
+        padding:5px 10px !important;
+        transition:0.5s;
+        border-color:#19528a;
+      }
+      .section{
+        display:none;
+        margin-left:10px;
+        margin-top:75px;
+      }
+      #expand_collapse_archives{
+        margin-top:50px;
+        margin-left:10px;
+      }
+      #archives{
+        margin-left:10px;
+      }
+      div:focus{
+        outline:none;
+      }
+
+      table, tr, th, td{
+        border-collapse:collapse;
+        border:1px solid black;
+        padding:5px;
+      }
+      th{
+        background-color:silver;
+      }
+      .add_button{
+        padding:5px 10px;
+        margin-bottom:10px;
+      }
+      .draft_button{
+        padding:5px 10px;
+        margin-left:50px;
+        margin-bottom:10px;
+        color:brown;
+      }
+      a{
+        color:blue;
+      }
+
+      @media screen and (max-width:768px){
+        #sections_table td{
+          font-size:10px;
+          width:50px;
+          padding:5px !important;
+        }
+      }
+      @media screen and (max-width:500px){
+        #home{
+          top:55px;
+        }
+        #logout{
+          top:55px;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+      <script>
+        alert('{{message}}')
+      </script>
+      {% endfor %}
+    {% endif %}
+
+
+    <!-- Navbar Start -->
+    <!-- <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="nav navbar-nav">
+            <li><a href="#leaders">Leaders</a></li>
+            <li><a href="#upcomingevents">Upcoming Events</a></li>
+            <li><a href="#upcomingclasses">Upcoming Classes</a></li>
+            <li><a href="#sermons">Sermons</a></li>
+            <li><a href="#ministries">Ministries</a></li>
+            <li><a href="#readings">Readings</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Home</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav> -->
+    <!-- Navbar End -->
+
+    <a id="home" href="/">Home</a>
+    <a id="logout" href="/logout">Logout</a>
+
+    <table id="sections_table">
+      <thead>
+        <tr>
+          <td class="section_toggle" id="leaders_toggle">Leaders</td>
+          <td class="section_toggle" id="upcomingevents_toggle">Upcoming Events</td>
+          <td class="section_toggle" id="upcomingclasses_toggle">Upcoming Classes</td>
+          <td class="section_toggle" id="sermons_toggle">Sermons</td>
+          <td class="section_toggle" id="ministries_toggle">Ministries</td>
+          <td class="section_toggle" id="readings_toggle">Readings</td>
+          <td class="section_toggle" id="buttons_toggle">Buttons</td>
+        </tr>
+      </thead>
+    </table>
+
+    <div class="section" id="leaders">
+      <h1>LEADERS</h1>
+      <a href="/admin/leaders/add"><button class="add_button">Add Leader</button></a>
+      <table>
+        <thead>
+          <tr>
+            <th>ID #</th>
+            <th>Title(s)</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Role/Ministry</th>
+            <th>Image</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for leader in leaders_list %}
+            <tr>
+              <td>{{leader.id}}</td>
+              <td>{{leader.title}}</td>
+              <td>{{leader.first_name}}</td>
+              <td>{{leader.last_name}}</td>
+              <td>{{leader.gender}}</td>
+              <td>{{leader.role}}</td>
+              {% if leader.image %}
+                <td style="text-align:center;">
+                  <img style="width:100px; height:100px; display:table;" src="{{leader.image.url}}" alt=""></img>
+                  <a href="/admin/leaders/{{leader.id}}/add_picture"><button style="margin:5px;">Change</button></a>
+                </td>
+              {% else %}
+                <td style="text-align:center;">
+                  N/A
+                  <br>
+                  <a href="/admin/leaders/{{leader.id}}/add_picture"><button style="margin:5px;">Add</button></a>
+                </td>
+              {% endif %}
+              {% if leader.active %}
+                <td style="color:#246100;">ACTIVE</td>
+              {% elif not leader.active %}
+                <td style="color:red;">INACTIVE</td>
+              {% endif %}
+              <td><a href="/admin/leaders/{{leader.id}}/modify"><button>Modify</button></a></td>
+              <td><a href="/admin/leaders/{{leader.id}}/delete_confirm"><button>Delete</button></a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section" id="upcomingevents">
+      <h1>UPCOMING EVENTS</h1>
+      <a href="/admin/upcomingevents/add"><button class="add_button">Add Upcoming Event</button></a>
+      <a href="/admin/drafts"><button class="draft_button">Upcoming Drafts</button></a>
+      <table>
+        <thead>
+          <tr>
+            <th>ID #</th>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Time</th>
+            <th>Location</th>
+            <th>Description</th>
+            <!-- <th>Thumbnail</th> -->
+            <th>Event Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for upcomingevent in upcomingevents_list %}
+            <!-- {% if upcomingevent.start_date == upcomingevent.end_date %}
+            <h1>{{upcomingevent.start_date|date:"M. d (D.)"}}</h1>
+            {% else %}
+            <h1>{{upcomingevent.start_date|date:"M. d (D.)"}} - {{upcomingevent.end_date|date:"M. d (D.)"}}</h1>
+            {% endif %} -->
+            <tr>
+              <td>{{upcomingevent.id}}</td>
+              <td>{{upcomingevent.title}}</td>
+              <td>{{upcomingevent.start_date|date:"Y-m-d"}}</td>
+              <td>{{upcomingevent.end_date|date:"Y-m-d"}}</td>
+              <td>{{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</td>
+              <!-- <td>{{upcomingevent.date|date:"l, F d, Y"}}</td> -->
+              <td>{{upcomingevent.location}}</td>
+              <td>{{upcomingevent.description|safe}}</td>
+              <!-- {% if upcomingevent.thumbnail_image %}
+                <td style="text-align:center;">
+                  <img style="width:100px; height:100px; display:table;" src="{{upcomingevent.thumbnail_image.url}}" alt=""></img>
+                  <a href="/admin/upcomingevents/{{upcomingevent.id}}/add_thumbnail"><button style="margin:5px;">Change</button></a>
+                </td>
+              {% else %}
+                <td style="text-align:center;">
+                  N/A
+                  <a href="/admin/upcomingevents/{{upcomingevent.id}}/add_thumbnail"><button style="margin:5px;">Add</button></a>
+                </td>
+              {% endif %} -->
+
+              {% if upcomingevent.image %}
+                <td style="text-align:center;">
+                  <img style="width:100px; height:100px; display:table;" src="{{upcomingevent.image.url}}" alt=""></img>
+                  <a href="/admin/upcomingevents/{{upcomingevent.id}}/add_picture"><button style="margin:5px;">Change</button></a>
+                </td>
+              {% else %}
+                <td style="text-align:center">
+                  N/A
+                  <a href="/admin/upcomingevents/{{upcomingevent.id}}/add_picture"><button style="margin:5px;">Add</button></a>
+                </td>
+              {% endif %}
+
+              <td><a href="/admin/upcomingevents/{{upcomingevent.id}}/modify"><button>Modify</button></a></td>
+              <td><a href="/admin/upcomingevents/{{upcomingevent.id}}/delete_confirm"><button>Delete</button></a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section" id="upcomingclasses">
+      <h1>UPCOMING CLASSES</h1>
+      <a href="/admin/upcomingclasses/add"><button class="add_button">Add Upcoming Class</button></a>
+      <a href="/admin/drafts"><button class="draft_button">Upcoming Drafts</button></a>
+      <table>
+        <thead>
+          <tr>
+            <th>ID #</th>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Time</th>
+            <th>Location</th>
+            <th>Description</th>
+            <!-- <th>Thumbnail</th> -->
+            <th>Class Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for upcomingclass in upcomingclasses_list %}
+            <!-- {% if upcomingclass.start_date == upcomingclass.end_date %}
+            <h1>{{upcomingclass.start_date|date:"M. d (D.)"}}</h1>
+            {% else %}
+            <h1>{{upcomingclass.start_date|date:"M. d (D.)"}} - {{upcomingclass.end_date|date:"M. d (D.)"}}</h1>
+            {% endif %} -->
+            <tr>
+              <td>{{upcomingclass.id}}</td>
+              <td>{{upcomingclass.title}}</td>
+              <td>{{upcomingclass.start_date|date:"Y-m-d"}}</td>
+              <td>{{upcomingclass.end_date|date:"Y-m-d"}}</td>
+              <td>{{upcomingclass.time|date:"g:i A"}}</td>
+              <!-- <td>{{upcomingclass.date|date:"l, F d, Y"}}</td> -->
+              <td>{{upcomingclass.location}}</td>
+              <td>{{upcomingclass.description|safe}}</td>
+              <!-- {% if upcomingclass.thumbnail_image %}
+                <td style="text-align:center;">
+                  <img style="width:100px; height:100px; display:table;" src="{{upcomingclass.thumbnail_image.url}}" alt=""></img>
+                  <a href="/admin/upcomingclasses/{{upcomingclass.id}}/add_thumbnail"><button style="margin:5px;">Change</button></a>
+                </td>
+              {% else %}
+                <td style="text-align:center;">
+                  N/A
+                  <a href="/admin/upcomingclasses/{{upcomingclass.id}}/add_thumbnail"><button style="margin:5px;">Add</button></a>
+                </td>
+              {% endif %} -->
+
+              {% if upcomingclass.image %}
+                <td style="text-align:center;">
+                  <img style="width:100px; height:100px; display:table;" src="{{upcomingclass.image.url}}" alt=""></img>
+                  <a href="/admin/upcomingclasses/{{upcomingclass.id}}/add_picture"><button style="margin:5px;">Change</button></a>
+                </td>
+              {% else %}
+                <td style="text-align:center">
+                  N/A
+                  <a href="/admin/upcomingclasses/{{upcomingclass.id}}/add_picture"><button style="margin:5px;">Add</button></a>
+                </td>
+              {% endif %}
+
+              <td><a href="/admin/upcomingclasses/{{upcomingclass.id}}/modify"><button>Modify</button></a></td>
+              <td><a href="/admin/upcomingclasses/{{upcomingclass.id}}/delete_confirm"><button>Delete</button></a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section" id="sermons">
+      <h1>SERMONS</h1>
+      <a href="/admin/sermons/add"><button class="add_button">Add Sermon</button></a>
+      <table>
+        <thead>
+          <tr>
+            <th>ID #</th>
+            <th>Title</th>
+            <th>Speaker</th>
+            <th>Scripture Passage</th>
+            <th>Date</th>
+            <th>Service</th>
+            <th>Sermon VIDEO URL</th>
+            <th>Thumbnail</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for sermon in sermons_list %}
+            <tr>
+              <td>{{sermon.id}}</td>
+              <td>{{sermon.title}}</td>
+              <td>{{sermon.speaker}}</td>
+              <td>{{sermon.scripture_passage}}</td>
+              <td>{{sermon.date|date:"Y-m-d"}}</td>
+              <td>{{sermon.service}}</td>
+              <td>{{sermon.video_url}}</td>
+              {% if sermon.thumbnail_image %}
+                <td style="text-align:center;">
+                  <img style="width:100px; height:100px; display:table;" src="{{sermon.thumbnail_image.url}}" alt=""></img>
+                  <a href="/admin/sermons/{{sermon.id}}/add_thumbnail"><button style="margin:5px;">Change</button></a>
+                </td>
+              {% else %}
+                <td>
+                  N/A
+                  <a href="/admin/sermos/{{sermon.id}}/add_thumbnail"><button style="margin:5px;">Add</button></a>
+                </td>
+              {% endif %}
+
+              <td><a href="/admin/sermons/{{sermon.id}}/modify"><button>Modify</button></a></td>
+              <td><a href="/admin/sermons/{{sermon.id}}/delete_confirm"><button>Delete</button></a></td>
+
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="section" id="ministries">
+      <h1>MINISTRIES</h1>
+      <a href="/admin/ministries/add"><button class="add_button">Add Ministry</button></a>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Ministry Category</th>
+            <th>Ministry Name</th>
+            <th>Description</th>
+            <th>Contact</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ministry in ministries_list %}
+          <tr>
+            <td>{{ministry.id}}</td>
+            <td>{{ministry.ministry_category.ministry_category}}</td>
+            <td>{{ministry.ministry_name}}</td>
+            <td>{{ministry.description | safe}}</td>
+            {% if ministry.contact_person and ministry.contact_email %}
+              <td>{{ministry.contact_person}} - {{ministry.contact_email}}</td>
+            {% elif ministry.contact_person and not ministry.contact_email %}
+              <td>{{ministry.contact_person}}</td>
+            {% elif minsitry.contact_email and not ministry.contact_person %}
+              <td>{{ministry.contact_email}}</td>
+            {% elif ministry.contact_extra %}
+              <td>{{ministry.contact_extra|safe}}</td>
+            {% endif %}
+            <td><a href="/admin/ministries/{{ministry.id}}/modify"><button>Modify</button></a></td>
+            <td><a href="/admin/ministries/{{ministry.id}}/delete_confirm"><button>Delete</button></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section" id="readings">
+      <h1>READINGS</h1>
+      <a href="/admin/readings/add"><button class="add_button">Add Reading</button></a>
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Title & Subtitle</th>
+            <th>Author</th>
+            <th>Summary</th>
+            <th>Links/Buttons</th>
+            <th>Cover</th>
+            <th>Display</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if readings_list %}
+          {% for reading in readings_list %}
+          <tr>
+            <td>{{reading.category}}</td>
+            <td><b>{{reading.title}}</b><br>{{reading.subtitle}}</td>
+            <td>{{reading.author}}</td>
+            <td>{{reading.summary | safe}}</td>
+            {% if reading.pdf_link and reading.purchase_link %}
+              <td><a href="{{reading.pdf_link}}" target="_blank">PDF Link</a><br><a href="{{reading.purchase_link}}" target="_blank">Purchase Link</a></td>
+            {% elif reading.pdf_link %}
+              <td><a href="{{reading.pdf_link}}" target="_blank">PDF Link</a></td>
+            {% elif reading.purchase_link %}
+              <td><a href="{{reading.purchase_link}}" target="_blank">Purchase Link</a></td>
+            {% endif %}
+
+            {% if reading.reading_cover %}
+              <td style="text-align:center;">
+                <img src="{{reading.reading_cover.url}}" style="width:100px; height:100px; display:table;"></img>
+                <a href="/admin/readings/{{reading.id}}/add_cover"><button style="margin:5px;">Change</button></a>
+              </td>
+            {% else %}
+              <td style="text-align:center;">
+                NA
+                <br>
+                <a href="/admin/readings/{{reading.id}}/add_cover"><button style="margin:5px;">Add</button></a>
+              </td>
+            {% endif %}
+            {% if reading.display %}
+              <td style="color:#246100;">SHOW</td>
+            {% elif not reading.display %}
+              <td style="color:red;">HIDE</td>
+            {% endif %}
+            <td><a href="/admin/readings/{{reading.id}}/modify"><button>Modify</button></a></td>
+            <td><a href="/admin/readings/{{reading.id}}/delete_confirm"><button>Delete</button></a></td>
+          </tr>
+          {% endfor %}
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section" id="buttons">
+      <h1>BUTTONS</h1>
+      <a href="/admin/buttons/add"><button class="add_button">Add Button</button></a>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Button Name</th>
+            <th>Button Character</th>
+            <th>Application Link</th>
+            <th>Application Status</th>
+            <th>Closed Application Notice</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for button in buttons_list %}
+          <tr>
+            <td>{{button.id}}</td>
+            <td>{{button.name}}</td>
+            <td>{{button.button}}</td>
+            <td>{{button.application_link}}</td>
+            <td>
+              {% if button.active %}
+                Open
+              {% elif not button.active %}
+                Closed
+              {% endif %}
+            </td>
+            <td>{{button.closed_application_notice}}</td>
+            <td><a href="/admin/buttons/{{button.id}}/modify"><button>Modify</button></a></td>
+            <!-- <td><a href="/admin/buttons/{{button.id}}/delete_confirm"><button>Delete</button></a></td> -->
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <button id="expand_collapse_archives">Expand/Collapse Archives</button>
+    <div id="archives" style="display:none;">
+      <h1>ARCHIVES</h1>
+      <table>
+        <h3>Past Upcoming Events</h3>
+        <thead>
+          <tr>
+            <th>ID #</th>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Time</th>
+            <th>Location</th>
+            <th>Description</th>
+            <th>Event Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for upcomingevent in past_upcomingevents_list %}
+            <tr>
+              <td>{{upcomingevent.id}}</td>
+              <td>{{upcomingevent.title}}</td>
+              <td>{{upcomingevent.start_date|date:"Y-m-d"}}</td>
+              <td>{{upcomingevent.end_date|date:"Y-m-d"}}</td>
+              <td>{{upcomingevent.time|date:"g:i A"}}</td>
+              <td>{{upcomingevent.location}}</td>
+              <td>{{upcomingevent.description}}</td>
+
+              {% if upcomingevent.image %}
+                <td style="text-align:center;">
+                  <img style="width:100px; height:100px; display:table;" src="{{upcomingevent.image.url}}" alt=""></img>
+                </td>
+              {% else %}
+                <td style="text-align:center">
+                  N/A
+                </td>
+              {% endif %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <table>
+        <h3>Past/Ongoing Upcoming Classes</h3>
+        <thead>
+          <tr>
+            <th>ID #</th>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Time</th>
+            <th>Location</th>
+            <th>Description</th>
+            <th>Class Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for upcomingclass in past_upcomingclasses_list %}
+
+            <tr>
+              <td>{{upcomingclass.id}}</td>
+              <td>{{upcomingclass.title}}</td>
+              <td>{{upcomingclass.start_date|date:"Y-m-d"}}</td>
+              <td>{{upcomingclass.end_date|date:"Y-m-d"}}</td>
+              <td>{{upcomingclass.time|date:"g:i A"}}</td>
+              <td>{{upcomingclass.location}}</td>
+              <td>{{upcomingclass.description}}</td>
+
+              {% if upcomingclass.image %}
+                <td style="text-align:center;">
+                  <img style="width:100px; height:100px; display:table;" src="{{upcomingclass.image.url}}" alt=""></img>
+                </td>
+              {% else %}
+                <td style="text-align:center">
+                  N/A
+                </td>
+              {% endif %}
+
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+
+    document.getElementById("expand_collapse_archives").onclick = function(){
+      if(document.getElementById("archives").style.display=="none"){
+        document.getElementById("archives").style.display="table";
+      }
+      else if(document.getElementById("archives").style.display=="table"){
+        document.getElementById("archives").style.display="none";
+      }
+    }
+    </script>
+
+    <script>
+    var sections = document.getElementsByClassName("section");
+    var section_toggles = document.getElementsByClassName("section_toggle");
+
+
+    function hideSections(){
+      for (var i=0; i<sections.length; i++){
+        sections[i].style.display="none";
+      }
+    }
+
+    function unboldSectionToggles(){
+      for(var i=0; i<section_toggles.length; i++){
+        section_toggles[i].style.backgroundColor="initial";
+      }
+    }
+
+    if (sessionStorage.getItem("section") == null){
+      document.getElementById("leaders_toggle").style.backgroundColor="skyblue";
+      document.getElementById("leaders").style.display="block";
+    }
+
+    if (sessionStorage.getItem("section") == "leaders"){
+      document.getElementById("leaders_toggle").style.backgroundColor="skyblue";
+      document.getElementById("leaders").style.display="block";
+    }
+    else if (sessionStorage.getItem("section") == "upcomingevents"){
+      document.getElementById("upcomingevents_toggle").style.backgroundColor="skyblue";
+      document.getElementById("upcomingevents").style.display="block";
+    }
+    else if (sessionStorage.getItem("section") == "upcomingclasses"){
+      document.getElementById("upcomingclasses_toggle").style.backgroundColor="skyblue";
+      document.getElementById("upcomingclasses").style.display="block";
+    }
+    else if (sessionStorage.getItem("section") == "sermons"){
+      document.getElementById("sermons_toggle").style.backgroundColor="skyblue";
+      document.getElementById("sermons").style.display="block";
+    }
+    else if (sessionStorage.getItem("section") == "ministries"){
+      document.getElementById("ministries_toggle").style.backgroundColor="skyblue";
+      document.getElementById("ministries").style.display="block";
+    }
+    else if (sessionStorage.getItem("section") == "readings"){
+      document.getElementById("readings_toggle").style.backgroundColor="skyblue";
+      document.getElementById("readings").style.display="block";
+    }
+    else if (sessionStorage.getItem("section") == "buttons"){
+      document.getElementById("buttons_toggle").style.backgroundColor="skyblue";
+      document.getElementById("buttons").style.display="block";
+    }
+
+
+
+    document.getElementById("leaders_toggle").onclick = function(){
+      sessionStorage.setItem("section", "leaders")
+      unboldSectionToggles()
+      this.style.backgroundColor="skyblue";
+      hideSections();
+      document.getElementById("leaders").style.display="block";
+    }
+
+    document.getElementById("upcomingevents_toggle").onclick=function(){
+      sessionStorage.setItem("section", "upcomingevents")
+      unboldSectionToggles()
+      this.style.backgroundColor="skyblue";
+      hideSections();
+      document.getElementById("upcomingevents").style.display="block";
+    }
+
+    document.getElementById("upcomingclasses_toggle").onclick=function(){
+      sessionStorage.setItem("section", "upcomingclasses")
+      unboldSectionToggles()
+      this.style.backgroundColor="skyblue";
+      hideSections();
+      document.getElementById("upcomingclasses").style.display="block";
+    }
+
+    document.getElementById("sermons_toggle").onclick=function(){
+      sessionStorage.setItem("section", "sermons")
+      unboldSectionToggles()
+      this.style.backgroundColor="skyblue";
+      hideSections();
+      document.getElementById("sermons").style.display="block";
+    }
+
+    document.getElementById("ministries_toggle").onclick=function(){
+      sessionStorage.setItem("section", "ministries")
+      unboldSectionToggles()
+      this.style.backgroundColor="skyblue";
+      hideSections();
+      document.getElementById("ministries").style.display="block";
+    }
+
+    document.getElementById("readings_toggle").onclick=function(){
+      sessionStorage.setItem("section", "readings")
+      unboldSectionToggles()
+      this.style.backgroundColor="skyblue";
+      hideSections();
+      document.getElementById("readings").style.display="block";
+    }
+
+    document.getElementById("buttons_toggle").onclick=function(){
+      sessionStorage.setItem("section", "buttons")
+      unboldSectionToggles()
+      this.style.backgroundColor="skyblue";
+      hideSections();
+      document.getElementById("buttons").style.display="block";
+    }
+
+    </script>
+
+
+    <script>
+    // Select all links with hashes
+    $('a[href*="#"]')
+      // Remove links that don't actually link to anything
+      .not('[href="#"]')
+      .not('[href="#0"]')
+      .click(function(event) {
+        // On-page links
+        if (
+          location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+          &&
+          location.hostname == this.hostname
+        ) {
+          // Figure out element to scroll to
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+          // Does a scroll target exist?
+          if (target.length) {
+            // Only prevent default if animation is actually gonna happen
+            event.preventDefault();
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 500, function() {
+              // Callback after animation
+              // Must change focus!
+              var $target = $(target);
+              $target.focus();
+              if ($target.is(":focus")) { // Checking if the target was focused
+                return false;
+              } else {
+                $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                $target.focus(); // Set focus again
+              };
+            });
+          }
+        }
+      });
+    </script>
+
+  </body>
+</html>

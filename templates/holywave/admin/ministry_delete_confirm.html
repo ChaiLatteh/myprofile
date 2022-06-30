@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Delete Ministry</title>
+
+    <style>
+    h2{
+      margin-bottom:10px;
+    }
+    p{
+      margin-top:0px;
+      margin-bottom:25px;
+    }
+    </style>
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        <script>
+          alert('{{message}}')
+        </script>
+      {% endfor %}
+    {% endif %}
+
+    <h1 style="color:red;">Are you sure you would like to delete following ministry from database?</h1>
+    <h2>Ministry Category:</h2>
+    <p>{{this_ministry.ministry_category.ministry_category}}</p>
+    <h2>Ministry Name:</h2>
+    <p>{{this_ministry.ministry_name}}</p>
+    <h2>Description:</h2>
+    <p>{{this_ministry.description}}</p>
+    <h2>Contact Person:</h2>
+    <p>{{this_ministry.contact_person}}</p>
+    <h2>Contact Email:</h2>
+    <p>{{this_ministry.contact_email}}</p>
+
+    <form action="/admin/ministries/{{this_ministry.id}}/delete_process" method="post">
+      {% csrf_token %}
+      <input type="submit" value="DELETE">
+      <a href="/admin">Cancel</a>
+    </form>
+  </body>
+</html>

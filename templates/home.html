@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chai Jang | Fullstack Web Developer</title>
+
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Adamina' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Devicons -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <!-- Page contents stretch according to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <style>
+    html, body{
+      height:100%;
+    }
+    *{
+      font-family:"Lato";
+      font-size:18px;
+    }
+    div{
+      outline:none;
+    }
+    #intro{
+      min-height:600px;
+      height:100%;
+      padding-top:50px;
+      padding-bottom:50px;
+      text-align:center;
+      background-size:cover;
+      background-image:url(/static/images/beach.jpeg);
+      background-attachment: fixed;
+    }
+    #text_scroll{
+      color:white;
+      font-weight:bolder;
+      font-size:50px;
+    }
+    #aboutme{
+      background-color:#1a1a1a;
+      color:white;
+      padding-top:50px;
+      padding-bottom:50px;
+      text-align:center;
+    }
+    #aboutme h1{
+      margin-bottom:50px;
+    }
+    #mystory{
+      text-align:center;
+      /* background-color:yellow; */
+    }
+    #story_wrapper{
+      max-width:1440px;
+    }
+    #resume{
+      color:#FED766;
+      border:2px solid #FED766;
+      border-radius:5em;
+      padding:5px 25px;
+      background-color:#1a1a1a;
+      height:auto;
+      transition:0.5s;
+    }
+    #resume:hover{
+      transition:0.5s;
+      border:2px solid #1a1a1a;
+      color:#1a1a1a;
+      background-color:#FED766;
+    }
+    #skills{
+      background-color:white;
+      padding-top:50px;
+      padding-bottom:50px;
+      text-align:center;
+    }
+    #skills h1{
+      margin-bottom:50px;
+    }
+    #skills h3{
+      font-weight:bolder;
+    }
+    #projects{
+      background-color:orange;
+      padding-top:50px;
+      padding-bottom:50px;
+      text-align:center;
+    }
+    #projects_wrapper{
+      max-width:1400px;
+      text-align:center;
+      margin:auto;
+    }
+    #projects h1{
+      margin-bottom:50px;
+    }
+    #project{
+      margin-bottom:50px;
+    }
+    #project_info{
+      text-align:left;
+      display:inline-block;
+      width:40%;
+      margin-right:5%;
+    }
+    #project_info h2{
+      text-align:center;
+      font-weight:bolder;
+      color:black;
+    }
+    #project_image{
+      display:inline-table;
+      width:40%;
+      margin-left:5%;
+    }
+    #project_image img{
+      width:100%;
+    }
+    #devicon{
+      font-size:5em;
+    }
+    #contacts_wrapper{
+      max-width:800px;
+      margin:auto;
+    }
+    #contacts_wrapper a{
+      display:inline-table;
+      width:180px;
+    }
+    #contact a{
+      -webkit-transition: all .3s ease-in-out;
+      transition: all .3s ease-in-out;
+      color:silver;
+      text-decoration:none;
+    }
+    #contact a:hover{
+      color:white;
+    }
+    /*.navbar-nav a:hover{
+      color:blue !important;
+    }*/
+    </style>
+
+
+
+  </head>
+  <body>
+    <!-- Navbar Start -->
+    <!-- <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Chai Jang</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#aboutme">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">My Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav> -->
+
+
+    <!-- Navbar End -->
+
+    <!-- Content Start -->
+    <div id="intro">
+      <div style="display:table; margin:0 auto; height:100%;">
+        <div style="display:table-cell; text-align:center; vertical-align:middle;">
+          <h2 id="text_scroll"></h2>
+          <script>
+            var letters = ["H", "e", "y", ",", " ", "I", "'", "m", " ", "C", "h", "a", "i", ".", " ", "I", " ", "a", "m", " ", "a", " ", "f", "u", "l", "l", "s", "t", "a", "c", "k", " ", "w", "e", "b", " ", "d", "e", "v", "e", "l", "o", "p", "e", "r", "."]
+            hello = document.getElementById("text_scroll");
+            letterCounter = 0;
+            function updateText(){
+              if(letterCounter<letters.length){
+                hello.innerHTML = hello.innerHTML + letters[letterCounter++];
+              }
+            }
+            setInterval(updateText, 100);
+          </script>
+
+        </div>
+      </div>
+    </div>
+    <!-- About Me Start -->
+    <div id="aboutme">
+      <div>
+        <h1>ABOUT ME</h1>
+        <p style="margin-bottom:100px;">
+          I am a recent coding bootcamp graduate living in Orange County, California, looking for a workplace.
+          <br>
+          I'm always open to and willing to explore and learn new technology!
+        </p>
+
+        <a href="https://docs.google.com/document/d/1AOYwt0f8w_z11o7tcK6bTRSMGvg_oirB5LBcQmkRJYg/edit?usp=sharing" target="_blank"><button id="resume" name="button">VIEW MY RESUME!</button></a>
+      </div>
+    </div>
+
+
+    <div id="mystory">
+      <div class="container">
+        <h1>My Story</h1>
+        <div id="stories_wrapper">
+          {% for story in stories %}
+          <div class="story" style="margin-bottom:50px; text-align:left; display:flex;">
+            <!-- left align -->
+            <div class="story_left" style="vertical-align:top; width:25%; display:inline-block; margin:0px 10px; padding-left:5%;">
+              {% if story.image %}
+              <img style="width:100%; background:white; height:167px;" src="{{story.image.url}}">
+              {% else %}
+              <img style="width:100%; height:167px;" src="/static/images/placeholder_image1.png" alt="">
+              {% endif %}
+            </div>
+            <!-- right align -->
+            <div class="story_right" style="display:inline-block; margin:0px 10px; width:75%;">
+              <h3 class="story_title">{{story.title}}</h3>
+              {% if story.role %}
+              <h4 class="story_role">{{story.role}}, {{story.period}}</h4>
+              {% else %}
+              <h4 class="story_role">{{story.period}}</h4>
+              {% endif %}
+              <h5 class="story_location">{{story.location}}</h5>
+              <p class="story_description">{{story.description | safe}}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div id="skills" class="container">
+      <h1>SKILLS</h1>
+      <div class="row">
+        <div class="col-sm-6" style="margin-bottom:25px;">
+          <h3>Languages</h3>
+          <i id="devicon" class="devicon-python-plain-wordmark colored"></i>
+          <i id="devicon" class="devicon-javascript-plain colored"></i>
+          <i id="devicon" class="devicon-html5-plain-wordmark colored"></i>
+          <i id="devicon" class="devicon-css3-plain-wordmark colored"></i>
+          <!-- <i id="devicon" class="devicon-ruby-plain-wordmark colored"></i> -->
+        </div>
+        <div class="col-sm-6" style="margin-bottom:25px;">
+          <h3>Frameworks</h3>
+          <i id="devicon" class="devicon-django-plain-wordmark colored"></i>
+          <i id="devicon" class="devicon-bootstrap-plain-wordmark colored"></i>
+          <!-- <i id="devicon" class="devicon-nodejs-plain-wordmark colored"></i>
+          <i id="devicon" class="devicon-angularjs-plain-wordmark colored"></i>
+          <i id="devicon" class="devicon-rails-plain-wordmark colored"></i> -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6" style="margin-bottom:25px;">
+          <h3>Databases</h3>
+          <!-- <i id="devicon" class="devicon-mysql-plain-wordmark colored"></i> -->
+          <i id="devicon" class="devicon-postgresql-plain-wordmark colored"></i>
+          <i id="devicon" class="devicon-mongodb-plain-wordmark colored"></i>
+        </div>
+        <div class="col-sm-6" style="margin-bottom:25px;">
+          <h3>Etc.</h3>
+          <i id="devicon" class="devicon-amazonwebservices-plain-wordmark colored"></i>
+          <i id="devicon" class="devicon-github-plain-wordmark colored"></i>
+          <i id="devicon" class="devicon-jquery-plain-wordmark colored"></i>
+        </div>
+      </div>
+    </div>
+
+      <div id="projects" class="container-fluid">
+        <h1>MY PROJECTS</h1>
+        <div id="projects_wrapper">
+          <div id="project">
+            <div id="project_info">
+              <h2>HolyWave</h2>
+              <h3>Launched on January, 2018</h3>
+              <ul>
+                <li>Python (Django)</li>
+                <li>Currently being used as a LIVE church website</li>
+                <li>Continuous development of new features and bugfixes (if any)</li>
+                <li>Responsive (size scales according to screen size)</li>
+                <li>Customized admin pannel for admins to easily input, modify, or delete data</li>
+              </ul>
+            </div>
+            <div id="project_image">
+              <a href="http://www.holywave.org" target="_blank">
+                <img id="projectOne" src="/static/images/holywave0.png">
+              </a>
+              <a href="http://www.holywave.org" target="_blank">http://www.holywave.org</a>
+            </div>
+
+          </div>
+
+          <div id="project">
+            <div id="project_info">
+              <h2>Ninja Gold Alpha</h2>
+              <h3>Launched on June, 2017</h3>
+              <ul>
+                <li>NodeJS, AngularJS, and MongoDB</li>
+                <li>Simple clicking game with login and registration</li>
+                <li>Real-time score update</li>
+                <li>Sound Effects</li>
+              </ul>
+            </div>
+            <div id="project_image">
+              <a href="http://34.212.177.125/login" target="_blank">
+                <img id="projectTwo" src="/static/images/ninjagoldalpha0.png" srcOne="/static/images/ninjagoldalpha0.png" srcTwo="/static/images/ninjagoldalpha1.png" alt="ninjagoldalpha.png">
+              </a>
+              <a href="http://34.212.177.125" target="_blank">http://34.212.177.125</a>
+            </div>
+          </div>
+
+          <div id="project">
+            <div id="project_info">
+              <h2>Stay En Motion</h2>
+              <h3>Launched on September, 2017</h3>
+              <ul>
+                <li>Python (Django)</li>
+                <li>Project made for fun</li>
+                <li>Account settings, such as profile picture, bookmarked posts, etc.</li>
+                <li>User-uploaded images stored in Amazon S3 Bucket</li>
+                <li>API (Yelp)</li>
+                <li style="color:red;">Incompatible with mobile (small screens)</li>
+              </ul>
+            </div>
+            <div id="project_image">
+              <a href="http://stayenmotion.com" target="_blank">
+                <img id="projectThree" src="/static/images/stayenmotion0.png" srcOne="/static/images/stayenmotion0.png" srcTwo="/static/images/stayenmotion1.png" alt="stayenmotion.png">
+              </a>
+              <a href="http://www.stayenmotion.com" target="_blank">http://www.stayenmotion.com</a>
+            </div>
+          </div>
+
+        </div>
+        <!-- End of projects wrapper -->
+        <script>
+          counter=0;
+          function updateProjects(){
+            if(counter==0){
+              $('#projectTwo').attr('src', $('#projectTwo').attr('srcTwo'));
+              $('#projectTwo').show();
+              $('#projectThree').attr('src', $('#projectThree').attr('srcTwo'));
+              $('#projectThree').show();
+              counter++;
+            }
+            else{
+              $('#projectTwo').attr('src', $('#projectTwo').attr('srcOne'));
+              $('#projectTwo').show();
+              $('#projectThree').attr('src', $('#projectThree').attr('srcOne'));
+              $('#projectThree').show();
+              counter--;
+            }
+          }
+          setInterval(updateProjects, 5000);
+        </script>
+      </div>
+      <!-- End of Project -->
+
+
+      <div id="hobby" style="padding-top:50px; padding-bottom:50px; text-align:center; background-color:silver;">
+        <h1>What else do I love?</h1>
+        <p>games</p>
+        <p>counseling</p>
+        <p>playing music</p>
+        <p>outdoor activities (sports)</p>
+      </div>
+
+
+      <div id="contact" style="padding-top:50px; padding-bottom:100px; text-align:center; background-color:#042c62; color:white;">
+        <h1>Let's get in touch!</h1>
+        <div id="contacts_wrapper">
+
+          <a href="mailto:wkdcodns100@gmail.com">
+            <i class="fa fa-envelope fa-3x" style="border-radius:50px;"></i>
+            <br>
+            wkdcodns100@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/chai-jang-598724146/" target="_blank">
+            <i class="fa fa-linkedin-square fa-3x"></i>
+            <br>
+            LinkedIN
+          </a>
+          <a onclick="alert('Please send message before adding me as a friend. I usually decline friend requests from strangers.')" href="http://www.facebook.com/ChaiLatteh" target="_blank">
+            <i class="fa fa-facebook-official fa-3x"></i>
+            <br>
+            Facebook
+          </a>
+
+
+        </div>
+
+      </div>
+    </div>
+      <!-- Content End -->
+
+      <script>
+          // Select all links with hashes
+          $('a[href*="#"]')
+            // Remove links that don't actually link to anything
+            .not('[href="#"]')
+            .not('[href="#0"]')
+            .click(function(event) {
+              // On-page links
+              if (
+                location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                &&
+                location.hostname == this.hostname
+              ) {
+                // Figure out element to scroll to
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                // Does a scroll target exist?
+                if (target.length) {
+                  // Only prevent default if animation is actually gonna happen
+                  event.preventDefault();
+                  $('html, body').animate({
+                    scrollTop: target.offset().top
+                  }, 500, function() {
+                    // Callback after animation
+                    // Must change focus!
+                    var $target = $(target);
+                    $target.focus();
+                    if ($target.is(":focus")) { // Checking if the target was focused
+                      return false;
+                    } else {
+                      $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                      $target.focus(); // Set focus again
+                    };
+                  });
+                }
+              }
+            });
+          </script>
+
+
+
+
+  </body>
+</html>
