@@ -83,6 +83,15 @@
       color:#1a1a1a;
       background-color:#FED766;
     }
+    h3, h4, h5{
+      font-weight:bold;
+    }
+    h4{
+      color:darkgreen;
+    }
+    h5{
+      font-size:16px;
+    }
     #skills{
       background-color:white;
       padding-top:50px;
@@ -151,9 +160,42 @@
     #contact a:hover{
       color:white;
     }
-    /*.navbar-nav a:hover{
-      color:blue !important;
-    }*/
+    @media screen and (max-width:767px){
+      #aboutme p{
+        text-align:left;
+      }
+
+      #mystory .container{
+        max-width:90%;
+        text-align:center !important;
+      }
+      .story{
+        display:block !important;
+      }
+      .story_left{
+        width:100% !important;
+        padding:0 !important;
+        margin:0 !important;
+      }
+      .story_right{
+        width:100% !important;
+      }
+      .story_left img{
+        height:auto !important;
+        max-height:438px !important;
+        border-radius:25%;
+        /* border:solid 1px; */
+      }
+    }
+    @media screen and (max-width:479px){
+      h2{
+        font-size:30px !important;
+      }
+      p{
+        font-size:15px;
+      }
+    }
+
     </style>
 
 
@@ -187,7 +229,8 @@
 
     <!-- Content Start -->
     <div id="intro">
-      <div style="display:table; margin:0 auto; height:100%;">
+      <h1 style="color:red; font-weight:bold;">* PAGE STILL UNDER CONSTRUCTION</h1>
+      <div class="container" style="display:table; margin:0 auto; height:100%;">
         <div style="display:table-cell; text-align:center; vertical-align:middle;">
           <h2 id="text_scroll"></h2>
           <script>
@@ -207,7 +250,7 @@
     </div>
     <!-- About Me Start -->
     <div id="aboutme">
-      <div>
+      <div class="container">
         <h1>ABOUT ME</h1>
         <p style="margin-bottom:100px;">
           I am a recent coding bootcamp graduate living in Orange County, California, looking for a workplace.
@@ -227,7 +270,7 @@
           {% for story in stories %}
           <div class="story" style="margin-bottom:50px; text-align:left; display:flex;">
             <!-- left align -->
-            <div class="story_left" style="vertical-align:top; width:25%; display:inline-block; margin:0px 10px; padding-left:5%;">
+            <div class="story_left" style="vertical-align:top; text-align:center; width:25%; display:inline-block; height:fit-content; margin:0px 10px;">
               {% if story.image %}
               <img style="width:100%; background:white; height:167px;" src="{{story.image.url}}">
               {% else %}
