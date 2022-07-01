@@ -19,7 +19,7 @@ nav img{
 }
 
 nav li a{
-  font-family:"Futura";
+  font-family:"Futura" !important;
   cursor:pointer;
 }
 
@@ -29,7 +29,7 @@ nav .container-fluid{
 }
 
 nav .navbar-brand, nav .dropdown-toggle, nav .dropdown-menu li a{
-  font-family:"Futura" !important;
+  font-family:"Futura";
 }
 .navbar-collapse{
   text-align:left;
