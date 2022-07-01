@@ -858,30 +858,30 @@
           {% for upcomingevent in upcomingevents_list %}
             <div class="upcomingevent">
               {% if upcomingevent.image %}
-                <div class="thumbnail" style="background-image:url({{upcomingevent.image.url}});"></div>
+                <div class="thumbnail" style="background-image:url(https://holywave.s3.amazonaws.com{{upcomingevent.image.url}});"></div>
               {% else %}
                 <div class="thumbnail" style="background-image:url(/static/images/blank.png)"></div>
               {% endif %}
               <h3>{{upcomingevent.title}}</h3>
               {% if upcomingevent.start_date == upcomingevent.end_date %}
                 {% if not upcomingevent.start_time %}
-                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}}</h4>
+                  <h4>{{upcomingevent.start_date|date:"F j, Y (D.)"}}</h4>
                 {% elif upcomingevent.start_time == upcomingevent.end_time %}
-                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                  <h4>{{upcomingevent.start_date|date:"F j, Y (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
                 {% elif upcomingevent.start_time != upcomingevent.end_time and not upcomingevent.end_time %}
-                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                  <h4>{{upcomingevent.start_date|date:"F j, Y (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
                 {% elif upcomingevent.start_time != upcomingevent.end_time %}
-                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</h4>
+                  <h4>{{upcomingevent.start_date|date:"F j, Y (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</h4>
                 {% endif %}
               {% elif upcomingevent.start_date != upcomingevent.end_date %}
                 {% if not upcomingevent.start_time %}
-                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} - {{upcomingevent.end_date|date:"F j (D.)"}}</h4>
+                  <h4>{{upcomingevent.start_date|date:"F j, Y (D.)"}} - {{upcomingevent.end_date|date:"F j, Y (D.)"}}</h4>
                 {% elif upcomingevent.start_time == upcomingevent.end_time %}
-                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} - {{upcomingevent.end_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                  <h4>{{upcomingevent.start_date|date:"F j, Y (D.)"}} - {{upcomingevent.end_date|date:"F j, Y (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
                 {% elif upcomingevent.start_time != upcomingevent.end_time and not upcomingevent.end_time %}
-                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} - {{upcomingevent.end_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                  <h4>{{upcomingevent.start_date|date:"F j, Y (D.)"}} - {{upcomingevent.end_date|date:"F j, Y (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
                 {% elif upcomingevent.start_time != upcomingevent.end_time %}
-                  <h4>{{upcomingevent.start_date|date:"F j (D.)"}} - {{upcomingevent.end_date|date:"F j (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</h4>
+                  <h4>{{upcomingevent.start_date|date:"F j, Y (D.)"}} - {{upcomingevent.end_date|date:"F j, Y (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</h4>
                 {% endif %}
               {% endif %}
 
@@ -892,7 +892,7 @@
               <div class="modal-content">
                 <span class="close">&times;</span>
                 {% if upcomingevent.image %}
-                  <div class="thumbnail" style="background-image:url({{upcomingevent.image.url}});"></div>
+                  <div class="thumbnail" style="background-image:url(https://holywave.s3.amazonaws.com{{upcomingevent.image.url}});"></div>
                 {% else %}
                   <div class="thumbnail" style="background-image:url(/static/images/blank.png);"></div>
                 {% endif %}
@@ -901,23 +901,23 @@
 
                   {% if upcomingevent.start_date == upcomingevent.end_date %}
                     {% if not upcomingevent.start_time %}
-                      <h4>{{upcomingevent.start_date|date:"F d (D.)"}}</h4>
+                      <h4>{{upcomingevent.start_date|date:"F d, Y (D.)"}}</h4>
                     {% elif upcomingevent.start_time == upcomingevent.end_time %}
-                      <h4>{{upcomingevent.start_date|date:"F d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                      <h4>{{upcomingevent.start_date|date:"F d, Y (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
                     {% elif upcomingevent.start_time != upcomingevent.end_time and not upcomingevent.end_time %}
-                      <h4>{{upcomingevent.start_date|date:"F d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                      <h4>{{upcomingevent.start_date|date:"F d, Y (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
                     {% elif upcomingevent.start_time != upcomingevent.end_time %}
-                      <h4>{{upcomingevent.start_date|date:"F d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</h4>
+                      <h4>{{upcomingevent.start_date|date:"F d, Y (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</h4>
                     {% endif %}
                   {% elif upcomingevent.start_date != upcomingevent.end_date %}
                     {% if not upcomingevent.start_time %}
-                      <h4>{{upcomingevent.start_date|date:"F d (D.)"}} - {{upcomingevent.end_date|date:"F d (D.)"}}</h4>
+                      <h4>{{upcomingevent.start_date|date:"F d, Y (D.)"}} - {{upcomingevent.end_date|date:"F d, Y (D.)"}}</h4>
                     {% elif upcomingevent.start_time == upcomingevent.end_time %}
-                      <h4>{{upcomingevent.start_date|date:"F d (D.)"}} - {{upcomingevent.end_date|date:"F d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                      <h4>{{upcomingevent.start_date|date:"F d, Y (D.)"}} - {{upcomingevent.end_date|date:"F d, Y (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
                     {% elif upcomingevent.start_time != upcomingevent.end_time and not upcomingevent.end_time %}
-                      <h4>{{upcomingevent.start_date|date:"F d (D.)"}} - {{upcomingevent.end_date|date:"F d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
+                      <h4>{{upcomingevent.start_date|date:"F d, Y (D.)"}} - {{upcomingevent.end_date|date:"F d, Y (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}}</h4>
                     {% elif upcomingevent.start_time != upcomingevent.end_time %}
-                      <h4>{{upcomingevent.start_date|date:"F d (D.)"}} - {{upcomingevent.end_date|date:"F d (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</h4>
+                      <h4>{{upcomingevent.start_date|date:"F d, Y (D.)"}} - {{upcomingevent.end_date|date:"F d, Y (D.)"}} · {{upcomingevent.start_time|date:"g:i A"}} - {{upcomingevent.end_time|date:"g:i A"}}</h4>
                     {% endif %}
                   {% endif %}
 
@@ -959,30 +959,30 @@
           {% for upcomingclass in upcomingclasses_list %}
             <div class="upcomingclass">
               {% if upcomingclass.image %}
-                <div class="thumbnail" style="background-image:url({{upcomingclass.image.url}});"></div>
+                <div class="thumbnail" style="background-image:url(https://holywave.s3.amazonaws.com{{upcomingclass.image.url}});"></div>
               {% else %}
                 <div class="thumbnail" style="background-image:url(/static/images/blank.png)"></div>
               {% endif %}
               <h3>{{upcomingclass.title}}</h3>
               {% if upcomingclass.start_date == upcomingclass.end_date %}
                 {% if not upcomingclass.start_time %}
-                  <h4>{{upcomingclass.start_date|date:"F j (D.)"}}</h4>
+                  <h4>{{upcomingclass.start_date|date:"F j, Y (D.)"}}</h4>
                 {% elif upcomingclass.start_time == upcomingclass.end_time %}
-                  <h4>{{upcomingclass.start_date|date:"F j (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}}</h4>
+                  <h4>{{upcomingclass.start_date|date:"F j, Y (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}}</h4>
                 {% elif upcomingclass.start_time != upcomingclass.end_time and not upcomingclass.end_time %}
-                  <h4>{{upcomingclass.start_date|date:"F j (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}}</h4>
+                  <h4>{{upcomingclass.start_date|date:"F j, Y (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}}</h4>
                 {% elif upcomingclass.start_time != upcomingclass.end_time %}
-                  <h4>{{upcomingclass.start_date|date:"F j (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}} - {{upcomingclass.end_time|date:"g:i A"}}</h4>
+                  <h4>{{upcomingclass.start_date|date:"F j, Y (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}} - {{upcomingclass.end_time|date:"g:i A"}}</h4>
                 {% endif %}
               {% elif upcomingclass.start_date != upcomingclass.end_date %}
                 {% if not upcomingclass.start_time %}
-                  <h4>{{upcomingclass.start_date|date:"F j (D.)"}} - {{upcomingclass.end_date|date:"F j (D.)"}}</h4>
+                  <h4>{{upcomingclass.start_date|date:"F j, Y (D.)"}} - {{upcomingclass.end_date|date:"F j, Y (D.)"}}</h4>
                 {% elif upcomingclass.start_time == upcomingclass.end_time %}
-                  <h4>{{upcomingclass.start_date|date:"F j (D.)"}} - {{upcomingclass.end_date|date:"F j (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}}</h4>
+                  <h4>{{upcomingclass.start_date|date:"F j, Y (D.)"}} - {{upcomingclass.end_date|date:"F j, Y (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}}</h4>
                 {% elif upcomingclass.start_time != upcomingclass.end_time and not upcomingclass.end_time %}
-                  <h4>{{upcomingclass.start_date|date:"F j (D.)"}} - {{upcomingclass.end_date|date:"F j (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}}</h4>
+                  <h4>{{upcomingclass.start_date|date:"F j, Y (D.)"}} - {{upcomingclass.end_date|date:"F j, Y (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}}</h4>
                 {% elif upcomingclass.start_time != upcomingclass.end_time %}
-                  <h4>{{upcomingclass.start_date|date:"F j (D.)"}} - {{upcomingclass.end_date|date:"F j (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}} - {{upcomingclass.end_time|date:"g:i A"}}</h4>
+                  <h4>{{upcomingclass.start_date|date:"F j, Y (D.)"}} - {{upcomingclass.end_date|date:"F j, Y (D.)"}}<br>{{upcomingclass.start_time|date:"g:i A"}} - {{upcomingclass.end_time|date:"g:i A"}}</h4>
                 {% endif %}
               {% endif %}
 
@@ -993,7 +993,7 @@
               <div class="modal-content">
                 <span class="close">&times;</span>
                 {% if upcomingclass.image %}
-                  <div class="thumbnail" style="background-image:url({{upcomingclass.image.url}});"></div>
+                  <div class="thumbnail" style="background-image:url(https://holywave.s3.amazonaws.com{{upcomingclass.image.url}});"></div>
                 {% else %}
                   <div class="thumbnail" style="background-image:url(/static/images/blank.png);"></div>
                 {% endif %}
@@ -1002,23 +1002,23 @@
 
                   {% if upcomingclass.start_date == upcomingclass.end_date %}
                     {% if not upcomingclass.start_time %}
-                      <h4>{{upcomingclass.start_date|date:"F d (D.)"}}</h4>
+                      <h4>{{upcomingclass.start_date|date:"F d, Y (D.)"}}</h4>
                     {% elif upcomingclass.start_time == upcomingclass.end_time %}
-                      <h4>{{upcomingclass.start_date|date:"F d (D.)"}} · {{upcomingclass.start_time|date:"g:i A"}}</h4>
+                      <h4>{{upcomingclass.start_date|date:"F d, Y (D.)"}} · {{upcomingclass.start_time|date:"g:i A"}}</h4>
                     {% elif upcomingclass.start_time != upcomingclass.end_time and not upcomingclass.end_time %}
-                      <h4>{{upcomingclass.start_date|date:"F d (D.)"}} · {{upcomingclass.start_time|date:"g:i A"}}</h4>
+                      <h4>{{upcomingclass.start_date|date:"F d, Y (D.)"}} · {{upcomingclass.start_time|date:"g:i A"}}</h4>
                     {% elif upcomingclass.start_time != upcomingclass.end_time %}
-                      <h4>{{upcomingclass.start_date|date:"F d (D.)"}} · {{upcomingclass.start_time|date:"g:i A"}} - {{upcomingclass.end_time|date:"g:i A"}}</h4>
+                      <h4>{{upcomingclass.start_date|date:"F d, Y (D.)"}} · {{upcomingclass.start_time|date:"g:i A"}} - {{upcomingclass.end_time|date:"g:i A"}}</h4>
                     {% endif %}
                   {% elif upcomingclass.start_date != upcomingclass.end_date %}
                     {% if not upcomingclass.start_time %}
-                      <h4>{{upcomingclass.start_date|date:"F d (D.)"}} - {{upcomingclass.end_date|date:"F d (D.)"}}</h4>
+                      <h4>{{upcomingclass.start_date|date:"F d, Y (D.)"}} - {{upcomingclass.end_date|date:"F d, Y (D.)"}}</h4>
                     {% elif upcomingclass.start_time == upcomingclass.end_time %}
-                      <h4>{{upcomingclass.start_date|date:"F d (D.)"}} - {{upcomingclass.end_date|date:"F d (D.)"}} · {{upcomingclass.start_time|date:"g:i A"}}</h4>
+                      <h4>{{upcomingclass.start_date|date:"F d, Y (D.)"}} - {{upcomingclass.end_date|date:"F d, Y (D.)"}} · {{upcomingclass.start_time|date:"g:i A"}}</h4>
                     {% elif upcomingclass.start_time != upcomingclass.end_time and not upcomingclass.end_time %}
-                      <h4>{{upcomingclass.start_date|date:"F d (D.)"}} - {{upcomingclass.end_date|date:"F d (D.)"}} · {{upcomingclass.start_time|date:"g:i A"}}</h4>
+                      <h4>{{upcomingclass.start_date|date:"F d, Y (D.)"}} - {{upcomingclass.end_date|date:"F d, Y (D.)"}} · {{upcomingclass.start_time|date:"g:i A"}}</h4>
                     {% elif upcomingclass.start_time != upcomingclass.end_time %}
-                      <h4>{{upcomingclass.start_date|date:"F d (D.)"}} - {{upcomingclass.end_date|date:"F d (D.)"}} | {{upcomingclass.start_time|date:"g:i A"}} - {{upcomingclass.end_time|date:"g:i A"}}</h4>
+                      <h4>{{upcomingclass.start_date|date:"F d, Y (D.)"}} - {{upcomingclass.end_date|date:"F d, Y (D.)"}} | {{upcomingclass.start_time|date:"g:i A"}} - {{upcomingclass.end_time|date:"g:i A"}}</h4>
                     {% endif %}
                   {% endif %}
 

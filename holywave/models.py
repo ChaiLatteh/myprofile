@@ -34,8 +34,8 @@ class UpcomingEvent(models.Model):
 
     contact_person=models.CharField(max_length=255)
     contact_email=models.CharField(max_length=255)
-    button=models.CharField(max_length=255)
-    button_link=models.CharField(max_length=255)
+    button=models.CharField(max_length=255, null=True, blank=True)
+    button_link=models.CharField(max_length=255, null=True, blank=True)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
 
@@ -55,8 +55,8 @@ class UpcomingClass(models.Model):
 
     contact_person=models.CharField(max_length=255)
     contact_email=models.CharField(max_length=255)
-    button=models.CharField(max_length=255)
-    button_link=models.CharField(max_length=255)
+    button=models.CharField(max_length=255, null=True, blank=True)
+    button_link=models.CharField(max_length=255, null=True, blank=True)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
 
@@ -64,25 +64,25 @@ class UpcomingClass(models.Model):
         return self.title
 
 class UpcomingEventDraft(models.Model):
-        title=models.CharField(max_length=255)
-        start_date=models.DateField()
-        end_date=models.DateField()
-        start_time=models.TimeField(null=True, blank=True)
-        end_time=models.TimeField(null=True, blank=True)
-        location=models.CharField(max_length=255)
-        description=tinymce_models.HTMLField()
-        # thumbnail_image=models.ImageField(upload_to="upcomingevent_thumbnail", null=True, blank=False)
-        image=models.ImageField(upload_to="upcomingevent_picture", null=True, blank=False)
+    title=models.CharField(max_length=255)
+    start_date=models.DateField()
+    end_date=models.DateField()
+    start_time=models.TimeField(null=True, blank=True)
+    end_time=models.TimeField(null=True, blank=True)
+    location=models.CharField(max_length=255)
+    description=tinymce_models.HTMLField()
+    # thumbnail_image=models.ImageField(upload_to="upcomingevent_thumbnail", null=True, blank=False)
+    image=models.ImageField(upload_to="upcomingevent_picture", null=True, blank=False)
 
-        contact_person=models.CharField(max_length=255)
-        contact_email=models.CharField(max_length=255)
-        button=models.CharField(max_length=255)
-        button_link=models.CharField(max_length=255)
-        created_at=models.DateTimeField(auto_now_add=True)
-        updated_at=models.DateTimeField(auto_now=True)
+    contact_person=models.CharField(max_length=255)
+    contact_email=models.CharField(max_length=255)
+    button=models.CharField(max_length=255, null=True, blank=True)
+    button_link=models.CharField(max_length=255, null=True, blank=True)
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
 
-        def __str__(self):
-            return self.title
+    def __str__(self):
+        return self.title
 
 class UpcomingClassDraft(models.Model):
     title=models.CharField(max_length=255)
@@ -97,8 +97,8 @@ class UpcomingClassDraft(models.Model):
 
     contact_person=models.CharField(max_length=255)
     contact_email=models.CharField(max_length=255)
-    button=models.CharField(max_length=255)
-    button_link=models.CharField(max_length=255)
+    button=models.CharField(max_length=255, null=True, blank=True)
+    button_link=models.CharField(max_length=255, null=True, blank=True)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
 

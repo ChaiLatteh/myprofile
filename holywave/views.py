@@ -1,10 +1,32 @@
 from django.shortcuts import render, redirect
 
+from django.core.paginator import Paginator
+import collections
+from datetime import datetime, date
 from .models import Leader, UpcomingEvent, UpcomingClass, UpcomingEventDraft, UpcomingClassDraft, Sermon, MinistryCategory, Ministry, Reading, Button
 
 # Create your views here.
 def home(request):
-    return render(request, 'holywave/home.html')
+    upcomingevents_list = []
+    upcomingclasses_list = []
+    for upcomingevent in UpcomingEvent.objects.all().order_by("start_date", 'end_date'):
+        if upcomingevent.end_date >= datetime.today().date():
+            upcomingevents_list.append(upcomingevent)
+    for upcomingclass in UpcomingClass.objects.all().order_by("start_date", 'end_date'):
+        if upcomingclass.end_date >= datetime.today().date():
+            upcomingclasses_list.append(upcomingclass)
+
+
+
+    data = {
+    "upcomingevents_list":upcomingevents_list,
+    "upcomingclasses_list":upcomingclasses_list,
+    }
+    print (data)
+
+
+
+    return render(request, 'holywave/home.html', data)
 
 def about(request):
     return render(request, 'holywave/about/about.html')
@@ -232,13 +254,93 @@ def resources(request):
     return render(request, 'holywave/resources/resources.html')
 
 def sermons(request):
-    return render(request, 'holywave/resources/sermons.html')
+    all_sermons = Sermon.objects.all().order_by("-date")
+
+
+    page = request.GET.get('page', 1)
+    paginator = Paginator(all_sermons, 6)
+
+    try:
+        sermons_list = paginator.page(page)
+    except PageNotAnInteger:
+        sermons_list = paginator.page(1)
+    except EmptyPage:
+        sermons_list = paginator.page(paginator.num_pages)
+
+
+    data = {
+    'all_sermons':Sermon.objects.all().order_by("-date"),
+    'sermons_list':sermons_list,
+    }
+
+    return render(request, 'holywave/resources/sermons.html', data)
 
 def sermons_search(request):
-    return render(request, 'holywave/resources/sermons_search.html')
+    if request.POST.get('search_box', None) == None:
+        search_query = request.session['sermon_search']
 
-def sermons_watch(request):
-    return render(request, 'holywave/resources/sermons_watch.html')
+    else:
+        search_query = request.POST.get('search_box', None)
+        request.session['sermon_search'] = search_query
+        request.session.set_expiry(0)
+
+    search_list = []
+    for sermon in Sermon.objects.filter(title__icontains=search_query):
+        search_list.append(sermon)
+    for sermon in Sermon.objects.filter(speaker__icontains=search_query):
+        search_list.append(sermon)
+    for sermon in Sermon.objects.filter(date__icontains=search_query):
+        search_list.append(sermon)
+
+    search_list = [item for item, count in collections.Counter(search_list).items() if count > 0]
+
+    search_list.sort(key=lambda r: r.date, reverse=True)
+
+
+    page = request.GET.get('page', 1)
+    paginator = Paginator(search_list, 6)
+
+    try:
+        sermons_list = paginator.page(page)
+    except PageNotAnInteger:
+        sermons_list = paginator.page(1)
+    except EmptyPage:
+        sermons_list = paginator.page(paginator.num_pages)
+
+
+    data = {
+    'all_sermons':Sermon.objects.all().order_by("-date"),
+    'sermons_list':sermons_list,
+    'search_result':search_query,
+    }
+
+    if len(search_list)==len(Sermon.objects.all()):
+        return redirect('/holywave/resources/sermons')
+    else:
+        return render(request, 'holywave/resources/sermons_search.html', data)
+
+def sermons_watch(request, sermon_date, sermon_service):
+    all_sermons = Sermon.objects.all().order_by("-date")
+
+    page = request.GET.get('page', 1)
+    paginator = Paginator(all_sermons, 6)
+
+    try:
+        sermons_list = paginator.page(page)
+    except PageNotAnInteger:
+        sermons_list = paginator.page(1)
+    except EmptyPage:
+        sermons_list = paginator.page(paginator.num_pages)
+
+
+    sermon_date = str(sermon_date)
+    sermon_date = sermon_date[:4]+"-"+sermon_date[4:]
+    sermon_date = sermon_date[:7]+"-"+sermon_date[7:]
+    data={
+    "this_sermon":Sermon.objects.get(date=sermon_date, service=sermon_service),
+    'sermons_list':sermons_list,
+    }
+    return render(request, 'holywave/resources/sermons_watch.html', data)
 
 def recommended_readings(request):
     all_readings_list=[]

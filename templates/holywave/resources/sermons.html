@@ -275,7 +275,7 @@
       <div class="sermons_container" style="min-height:500px; margin:auto; text-align:center;">
 
 
-        <form style="margin-bottom:25px;" action="/resources/sermons/search" method="post">
+        <form style="margin-bottom:25px;" action="/holywave/resources/sermons/search" method="post">
           {% csrf_token %}
           <div id="sermon_search_bar" style="border:1px solid #dddddd; display:inline-block; padding:5px 10px; text-align:left;"><i style="margin-right:5px; color:#888888;" class="fa fa-search"></i> <input style="width: 200px; border:none; outline:none;" type="text" name="search_box"></div>
           <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
@@ -283,11 +283,11 @@
 
         <div class="sermons_container_inner">
           {% for sermon in sermons_list %}
-            <a href="/resources/sermons/{{sermon.date|date:'Ymd'}}-{{sermon.service}}">
+            <a href="/holywave/resources/sermons/{{sermon.date|date:'Ymd'}}-{{sermon.service}}">
               <div class="sermon">
                 <!-- <span style="position:absolute; top:0; left:0; width:100%;"> -->
                 {% if sermon.thumbnail_image %}
-                  <div class="sermon_thumbnail" style="background:url({{sermon.thumbnail_image.url}})"></div>
+                  <div class="sermon_thumbnail" style="background:url(https://holywave.s3.amazonaws.com{{sermon.thumbnail_image.url}})"></div>
                 {% endif %}
                 <div class="sermon_info">
                   <h4 style="margin-top:10px;">{{sermon.date|date:"F d, Y"}}</h4>

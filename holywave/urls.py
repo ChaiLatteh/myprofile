@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 
 from . import views
 
@@ -29,7 +29,7 @@ urlpatterns = [
     path('resources', views.resources, name="resources"),
     path('resources/sermons', views.sermons, name="sermons"),
     path('resources/sermons/search', views.sermons_search, name="sermons_search"),
-    # path('resources/sermons/(?P<sermon_date>\w+)-(?P<sermon_service>\w+)', views.sermons_watch, name="sermons_watch"),
+    path('resources/sermons/<int:sermon_date>-<int:sermon_service>', views.sermons_watch, name="sermons_watch"),
     path('resources/recommended_readings', views.recommended_readings, name="recommended_readings"),
 
     path('give', views.give, name="give"),
