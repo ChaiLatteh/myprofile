@@ -290,7 +290,7 @@
                 <div class="sermon">
                   <!-- <span style="position:absolute; top:0; left:0; width:100%;"> -->
                   {% if sermon.thumbnail_image %}
-                    <div class="sermon_thumbnail" style="background:url({{sermon.thumbnail_image.url}})"></div>
+                    <div class="sermon_thumbnail" style="background:url(https://holywave.s3.amazonaws.com{{sermon.thumbnail_image.url}})"></div>
                   {% endif %}
                   <div class="sermon_info">
                     <h4 style="margin-top:10px;">{{sermon.date|date:"F d, Y"}}</h4>

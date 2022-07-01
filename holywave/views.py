@@ -22,7 +22,6 @@ def home(request):
     "upcomingevents_list":upcomingevents_list,
     "upcomingclasses_list":upcomingclasses_list,
     }
-    print (data)
 
 
 
