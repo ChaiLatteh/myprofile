@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', include('home.urls')),
+    path('tinymce', include('tinymce.urls')),
     path('crave/', include('crave.urls')),
     path('holywave/', include('holywave.urls')),
     path('admin/', admin.site.urls),
