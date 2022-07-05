@@ -47,8 +47,15 @@
       background-attachment:fixed;
       background-position:center;
     }
+    #intro ul{
+      padding:0px;
+    }
+    #intro li{
+      padding:10px;
+    }
     #text_scroll{
       color:white;
+      text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black;
       font-weight:bolder;
       font-size:50px;
     }
@@ -63,8 +70,8 @@
       margin-bottom:50px;
     }
     #mystory{
+      padding-top:50px;
       text-align:center;
-      /* background-color:yellow; */
     }
     #story_wrapper{
       max-width:1440px;
@@ -94,16 +101,18 @@
       font-size:16px;
     }
     #skills{
-      background-color:white;
+      background-color:lightgrey;
       padding-top:50px;
       padding-bottom:50px;
       text-align:center;
     }
-    #skills h1{
-      margin-bottom:50px;
+    #skills_wrapper{
+      display:flex;
+      flex-wrap:wrap;
     }
-    #skills h3{
-      font-weight:bolder;
+    #skills .skill{
+      width:25%;
+      padding-bottom:50px;
     }
     #projects{
       background-color:orange;
@@ -144,26 +153,72 @@
     #devicon{
       font-size:5em;
     }
-    #contacts_wrapper{
-      max-width:800px;
-      margin:auto;
-    }
-    #contacts_wrapper a{
-      display:inline-table;
-      width:180px;
-    }
-    #contact a{
-      -webkit-transition: all .3s ease-in-out;
-      transition: all .3s ease-in-out;
-      color:silver;
-      text-decoration:none;
-    }
-    #contact a:hover{
+    #contact{
+      padding:50px 0px;
+      text-align:center;
+      background-color:#042c62;
       color:white;
+    }
+    #contact_container{
+      text-align:center;
+      max-width:800px;
+      width:100%;
+    }
+    #contact_container #formspree{
+      text-align:center;
+      font-size:18px;
+    }
+    #contact label{
+      display:table;
+      width:100%;
+    }
+    #contact input{
+      border:none;
+      padding:5px;
+      background-color:#f5f5f5;
+      height:40px;
+      width:100%;
+    }
+    #contact textarea{
+      border:none;
+      padding:5px;
+      background-color:#f5f5f5;
+      width:100%;
+    }
+    #contact_container #submit_button{
+      width:250px;
+      text-align:center;
+      height:initial;
+      display:inline-table;
+      color:white;
+      background-color:rgba(38, 117, 92, 0.6);
+      border:none;
+      border-radius:2.5em;
+      padding:20px;
+    }
+    @media screen and (min-width:1440px){
+      .navbar .container-fluid{
+        margin:auto;
+        max-width:1440px;
+      }
+      #intro .container{
+        width:1400px;
+      }
+    }
+    @media screen and (min-width:1600px){
+      .navbar .container-fluid{
+        max-width:1600px;
+      }
+      #intro .container{
+        width:1500px;
+      }
     }
     @media screen and (max-width:767px){
       #intro{
         background-attachment:initial;
+      }
+      #intro ul{
+        display:none;
       }
       #aboutme p{
         text-align:left;
@@ -187,8 +242,6 @@
       .story_left img{
         height:auto !important;
         max-height:438px !important;
-        border-radius:25%;
-        /* border:solid 1px; */
       }
     }
     @media screen and (max-width:479px){
@@ -207,7 +260,7 @@
   </head>
   <body>
     <!-- Navbar Start -->
-    <!-- <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -220,21 +273,27 @@
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#aboutme">About Me</a></li>
+            <li><a href="#mystory">My Story</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">My Projects</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
       </div>
-    </nav> -->
-
-
+    </nav>
     <!-- Navbar End -->
-
     <!-- Content Start -->
     <div id="intro">
-      <h1 style="color:red; font-weight:bold;">* PAGE STILL UNDER CONSTRUCTION</h1>
-      <div class="container" style="display:table; margin:0 auto; height:100%;">
+      <h1 style="color:red; font-weight:bolder;">SITE UNDER CONSTRUCTION</h1>
+      <div class="container" style="display:table; height:100%; position:relative;">
+        <div style="position:absolute; left:0; bottom:120px;">
+          <div style="position:fixed;">
+            <ul style="list-style:none;">
+              <li><img src="https://img.icons8.com/ios-glyphs/30/EBEBEB/github.png"/></li>
+              <li><img src="https://img.icons8.com/ios-glyphs/30/EBEBEB/instagram-new.png"/></li>
+              <li><img src="https://img.icons8.com/ios-glyphs/30/EBEBEB/linkedin.png"/></li>
+            </ul>
+          </div>
+        </div>
         <div style="display:table-cell; text-align:center; vertical-align:middle;">
           <h2 id="text_scroll"></h2>
           <script>
@@ -259,7 +318,7 @@
         <p style="margin-bottom:100px;">
           I am a recent coding bootcamp graduate living in Orange County, California, looking for a workplace.
           <br>
-          I'm always open to and willing to explore and learn new technology!
+          I'm open to explore and learn new technology!
         </p>
 
         <a href="https://docs.google.com/document/d/1AOYwt0f8w_z11o7tcK6bTRSMGvg_oirB5LBcQmkRJYg/edit?usp=sharing" target="_blank"><button id="resume" name="button">VIEW MY RESUME!</button></a>
@@ -298,43 +357,62 @@
       </div>
     </div>
 
-    <div id="skills" class="container">
-      <h1>SKILLS</h1>
-      <div class="row">
-        <div class="col-sm-6" style="margin-bottom:25px;">
-          <h3>Languages</h3>
-          <i id="devicon" class="devicon-python-plain-wordmark colored"></i>
-          <i id="devicon" class="devicon-javascript-plain colored"></i>
-          <i id="devicon" class="devicon-html5-plain-wordmark colored"></i>
-          <i id="devicon" class="devicon-css3-plain-wordmark colored"></i>
-          <!-- <i id="devicon" class="devicon-ruby-plain-wordmark colored"></i> -->
+    <div id="skills">
+      <div class="container">
+        <h1>SKILLS</h1>
+        <div id="skills_wrapper">
+          <div class="skill">
+            <span id="devicon" class="devicon-python-plain colored"></span>
+            <h1>python</h1>
+          </div>
+          <div class="skill">
+            <span id="devicon" class="devicon-python-plain colored"></span>
+            <h1>python</h1>
+          </div>
+          <div class="skill">
+            <span id="devicon" class="devicon-python-plain colored"></span>
+            <h1>python</h1>
+          </div>
+          <div class="skill">
+            <span id="devicon" class="devicon-python-plain colored"></span>
+            <h1>python</h1>
+          </div>
+          <div class="skill">
+            <span id="devicon" class="devicon-python-plain colored"></span>
+            <h1>python</h1>
+          </div>
         </div>
-        <div class="col-sm-6" style="margin-bottom:25px;">
-          <h3>Frameworks</h3>
-          <i id="devicon" class="devicon-django-plain-wordmark colored"></i>
-          <i id="devicon" class="devicon-bootstrap-plain-wordmark colored"></i>
-          <!-- <i id="devicon" class="devicon-nodejs-plain-wordmark colored"></i>
-          <i id="devicon" class="devicon-angularjs-plain-wordmark colored"></i>
-          <i id="devicon" class="devicon-rails-plain-wordmark colored"></i> -->
+        <!-- <div class="row">
+          <div class="col-sm-6" style="margin-bottom:25px;">
+            <h3>Languages</h3>
+            <i id="devicon" class="devicon-python-plain colored"></i>
+            <i id="devicon" class="devicon-javascript-plain colored"></i>
+            <i id="devicon" class="devicon-html5-plain-wordmark colored"></i>
+            <i id="devicon" class="devicon-css3-plain-wordmark colored"></i>
+          </div>
+          <div class="col-sm-6" style="margin-bottom:25px;">
+            <h3>Frameworks</h3>
+            <i id="devicon" class="devicon-django-plain-wordmark colored"></i>
+            <i id="devicon" class="devicon-bootstrap-plain-wordmark colored"></i>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-6" style="margin-bottom:25px;">
-          <h3>Databases</h3>
-          <!-- <i id="devicon" class="devicon-mysql-plain-wordmark colored"></i> -->
-          <i id="devicon" class="devicon-postgresql-plain-wordmark colored"></i>
-          <i id="devicon" class="devicon-mongodb-plain-wordmark colored"></i>
-        </div>
-        <div class="col-sm-6" style="margin-bottom:25px;">
-          <h3>Etc.</h3>
-          <i id="devicon" class="devicon-amazonwebservices-plain-wordmark colored"></i>
-          <i id="devicon" class="devicon-github-plain-wordmark colored"></i>
-          <i id="devicon" class="devicon-jquery-plain-wordmark colored"></i>
-        </div>
+        <div class="row">
+          <div class="col-sm-6" style="margin-bottom:25px;">
+            <h3>Databases</h3>
+            <i id="devicon" class="devicon-mysql-plain-wordmark colored"></i>
+            <i id="devicon" class="devicon-postgresql-plain-wordmark colored"></i>
+          </div>
+          <div class="col-sm-6" style="margin-bottom:25px;">
+            <h3>Etc.</h3>
+            <i id="devicon" class="devicon-amazonwebservices-plain-wordmark colored"></i>
+            <i id="devicon" class="devicon-github-plain-wordmark colored"></i>
+            <i id="devicon" class="devicon-jquery-plain-wordmark colored"></i>
+          </div>
+        </div> -->
       </div>
     </div>
 
-      <div id="projects" class="container-fluid">
+      <!-- <div id="projects" class="container-fluid">
         <h1>MY PROJECTS</h1>
         <div id="projects_wrapper">
           <div id="project">
@@ -398,7 +476,7 @@
             </div>
           </div>
 
-        </div>
+        </div> -->
         <!-- End of projects wrapper -->
         <script>
           counter=0;
@@ -424,37 +502,27 @@
       <!-- End of Project -->
 
 
-      <div id="hobby" style="padding-top:50px; padding-bottom:50px; text-align:center; background-color:silver;">
+      <!-- <div id="hobby" style="padding-top:50px; padding-bottom:50px; text-align:center; background-color:silver;">
         <h1>What else do I love?</h1>
         <p>games</p>
         <p>counseling</p>
         <p>playing music</p>
         <p>outdoor activities (sports)</p>
-      </div>
+      </div> -->
 
 
-      <div id="contact" style="padding-top:50px; padding-bottom:100px; text-align:center; background-color:#042c62; color:white;">
+      <div id="contact">
         <h1>Let's get in touch!</h1>
-        <div id="contacts_wrapper">
+        <div id="contact_container" class="container">
+          <form id="formspree" action="https://formspree.io/f/mzboqwok" method="post">
+            <label style="width:49%; display:inline-table; float:left;"><input type="text" name="name" placeholder="Name" required></label>
+            <label style="width:49%; display:inline-table; float:right;"><input type="email" name="email" placeholder="Email" required></label>
+            <label><textarea name="message" rows="8" cols="60" placeholder="Message" required></textarea></label>
+            <input id="submit_button" type="submit" value="Submit">
 
-          <a href="mailto:wkdcodns100@gmail.com">
-            <i class="fa fa-envelope fa-3x" style="border-radius:50px;"></i>
-            <br>
-            wkdcodns100@gmail.com
-          </a>
-          <a href="https://www.linkedin.com/in/chai-jang-598724146/" target="_blank">
-            <i class="fa fa-linkedin-square fa-3x"></i>
-            <br>
-            LinkedIN
-          </a>
-          <a onclick="alert('Please send message before adding me as a friend. I usually decline friend requests from strangers.')" href="http://www.facebook.com/ChaiLatteh" target="_blank">
-            <i class="fa fa-facebook-official fa-3x"></i>
-            <br>
-            Facebook
-          </a>
-
-
+          </form>
         </div>
+
 
       </div>
     </div>
