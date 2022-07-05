@@ -14,7 +14,7 @@
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Devicons -->
-    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Favicon -->
@@ -69,13 +69,6 @@
     #aboutme h1{
       margin-bottom:50px;
     }
-    #mystory{
-      padding-top:50px;
-      text-align:center;
-    }
-    #story_wrapper{
-      max-width:1440px;
-    }
     #resume{
       color:#FED766;
       border:2px solid #FED766;
@@ -91,28 +84,42 @@
       color:#1a1a1a;
       background-color:#FED766;
     }
-    h3, h4, h5{
+    #mystory{
+      padding-top:50px;
+      text-align:center;
+    }
+    #story_wrapper{
+      max-width:1440px;
+    }
+    .story_left img{
+      width:100%;
+      background:white;
+      height:167px;
+    }
+    .story_right h3, .story_right h4, .story_right h5{
       font-weight:bold;
     }
-    h4{
+    .story_right h4{
       color:darkgreen;
     }
-    h5{
+    .story_right h5{
       font-size:16px;
     }
     #skills{
-      background-color:lightgrey;
-      padding-top:50px;
-      padding-bottom:50px;
+      background-color:silver;
       text-align:center;
+    }
+    #skills h2{
+      font-size:24px;
+      margin-bottom:25px;
     }
     #skills_wrapper{
       display:flex;
       flex-wrap:wrap;
     }
     #skills .skill{
+      padding:25px;
       width:25%;
-      padding-bottom:50px;
     }
     #projects{
       background-color:orange;
@@ -154,47 +161,62 @@
       font-size:5em;
     }
     #contact{
-      padding:50px 0px;
+      padding:10px 0px;
       text-align:center;
-      background-color:#042c62;
-      color:white;
+      /* background-color:aliceblue; */
     }
     #contact_container{
       text-align:center;
       max-width:800px;
       width:100%;
     }
-    #contact_container #formspree{
-      text-align:center;
-      font-size:18px;
+    #contact h1{
+      margin-bottom:25px;
     }
     #contact label{
+      width:49%;
       display:table;
-      width:100%;
+      padding:5px 0px;
     }
     #contact input{
-      border:none;
+      border:1px solid #666666;
       padding:5px;
-      background-color:#f5f5f5;
+      background-color:#fbfbfb;
       height:40px;
       width:100%;
     }
     #contact textarea{
-      border:none;
+      border:1px solid #666666;
       padding:5px;
-      background-color:#f5f5f5;
+      background-color:#fbfbfb;
       width:100%;
     }
-    #contact_container #submit_button{
+    #contact #submit_button{
       width:250px;
       text-align:center;
       height:initial;
       display:inline-table;
+      color:#666666;
+      border:2px solid #666666;
+      border-radius:2em;
+      padding:10px;
+      transition:0.5s;
+    }
+    #contact #submit_button:hover{
+      background-color:#666666;
       color:white;
-      background-color:rgba(38, 117, 92, 0.6);
-      border:none;
-      border-radius:2.5em;
-      padding:20px;
+      transition:0.5s;
+      border:2px solid #666666;
+    }
+    .copyright p{
+      color:#333333;
+      font-size:14px;
+      font-weight:bold;
+    }
+    @media screen and (min-width:992px){
+      #aboutme p{
+        font-size:18px;
+      }
     }
     @media screen and (min-width:1440px){
       .navbar .container-fluid{
@@ -213,15 +235,17 @@
         width:1500px;
       }
     }
+    @media screen and (max-width:991px){
+      #aboutme p{
+        font-size:16px;
+      }
+    }
     @media screen and (max-width:767px){
       #intro{
         background-attachment:initial;
       }
       #intro ul{
         display:none;
-      }
-      #aboutme p{
-        text-align:left;
       }
 
       #mystory .container{
@@ -236,20 +260,43 @@
         padding:0 !important;
         margin:0 !important;
       }
+      .story_left img{
+        max-width:100%;
+        height:auto !important;
+        max-height:438px !important;
+        background:white; height:167px;
+      }
       .story_right{
         width:100% !important;
       }
-      .story_left img{
-        height:auto !important;
-        max-height:438px !important;
+      .story_right p, .story_right a{
+        font-size:15px;
+      }
+      #skills .skill{
+        width:33%;
+      }
+      #skills h2{
+        font-size:24px;
       }
     }
     @media screen and (max-width:479px){
-      h2{
-        font-size:30px !important;
+      #mystory h2{
+        font-size:30px;
       }
-      p{
+      #mystory p{
         font-size:15px;
+      }
+      #skills .skill{
+        width:50%;
+      }
+      #skills .skill{
+        padding:10px 0px;
+      }
+      #devicon{
+        font-size:4em;
+      }
+      .copyright p{
+        font-weight:normal;
       }
     }
 
@@ -285,12 +332,12 @@
     <div id="intro">
       <h1 style="color:red; font-weight:bolder; position:absolute; width:100%;">SITE UNDER CONSTRUCTION</h1>
       <div class="container" style="display:table; height:100%; position:relative;">
-        <div style="position:absolute; left:0; bottom:120px;">
+        <div style="position:absolute; left:0; bottom:150px;">
           <div style="position:fixed;">
             <ul style="list-style:none;">
-              <li><a href="https://www.github.com/chailatteh" target="_blank"><img src="https://img.icons8.com/ios-glyphs/30/EBEBEB/github.png"/></a></li>
-              <li><a href="https://www.instagram.com/chai_latteh" target="_blank"><img src="https://img.icons8.com/ios-glyphs/30/EBEBEB/instagram-new.png"/></a></li>
-              <li><a href="https://www.linkedin.com/in/chaijang/" target="_blank"><img src="https://img.icons8.com/ios-glyphs/30/EBEBEB/linkedin.png"/></a></li>
+              <li><a href="https://www.github.com/chailatteh" target="_blank"><img src="https://img.icons8.com/ios-glyphs/40/EBEBEB/github.png"/></a></li>
+              <li><a href="https://www.instagram.com/chai_latteh" target="_blank"><img src="https://img.icons8.com/ios-glyphs/40/EBEBEB/instagram-new.png"/></a></li>
+              <li><a href="https://www.linkedin.com/in/chaijang/" target="_blank"><img src="https://img.icons8.com/ios-glyphs/40/EBEBEB/linkedin.png"/></a></li>
             </ul>
           </div>
         </div>
@@ -335,7 +382,7 @@
             <!-- left align -->
             <div class="story_left" style="vertical-align:top; text-align:center; width:25%; display:inline-block; height:fit-content; margin:0px 10px;">
               {% if story.image %}
-              <img style="width:100%; background:white; height:167px;" src="{{story.image.url}}">
+              <img src="{{story.image.url}}">
               {% else %}
               <img style="width:100%; height:167px;" src="/static/images/placeholder_image1.png" alt="">
               {% endif %}
@@ -363,52 +410,49 @@
         <div id="skills_wrapper">
           <div class="skill">
             <span id="devicon" class="devicon-python-plain colored"></span>
-            <h1>python</h1>
+            <h2>Python</h2>
           </div>
           <div class="skill">
-            <span id="devicon" class="devicon-python-plain colored"></span>
-            <h1>python</h1>
+            <span id="devicon" class="devicon-javascript-plain colored"></span>
+            <h2>JavaScript</h2>
           </div>
           <div class="skill">
-            <span id="devicon" class="devicon-python-plain colored"></span>
-            <h1>python</h1>
+            <span id="devicon" class="devicon-html5-plain colored"></span>
+            <h2>HTML</h2>
           </div>
           <div class="skill">
-            <span id="devicon" class="devicon-python-plain colored"></span>
-            <h1>python</h1>
+            <span id="devicon" class="devicon-css3-plain colored"></span>
+            <h2>CSS</h2>
           </div>
           <div class="skill">
-            <span id="devicon" class="devicon-python-plain colored"></span>
-            <h1>python</h1>
+            <span id="devicon" class="devicon-django-plain colored"></span>
+            <h2>DJango</h2>
+          </div>
+          <div class="skill">
+            <span id="devicon" class="devicon-bootstrap-plain colored"></span>
+            <h2>Bootstrap</h2>
+          </div>
+          <div class="skill">
+            <span id="devicon" class="devicon-postgresql-plain colored"></span>
+            <h2>PostgreSQL</h2>
+          </div>
+          <div class="skill">
+            <span id="devicon" class="devicon-mysql-plain colored"></span>
+            <h2>MySQL</h2>
+          </div>
+          <div class="skill">
+            <span id="devicon" class="devicon-amazonwebservices-plain colored"></span>
+            <h2>AWS</h2>
+          </div>
+          <div class="skill">
+            <span id="devicon" class="devicon-github-plain colored"></span>
+            <h2>GitHub</h2>
+          </div>
+          <div class="skill">
+            <span id="devicon" class="devicon-jquery-plain colored"></span>
+            <h2>JQuery</h2>
           </div>
         </div>
-        <!-- <div class="row">
-          <div class="col-sm-6" style="margin-bottom:25px;">
-            <h3>Languages</h3>
-            <i id="devicon" class="devicon-python-plain colored"></i>
-            <i id="devicon" class="devicon-javascript-plain colored"></i>
-            <i id="devicon" class="devicon-html5-plain-wordmark colored"></i>
-            <i id="devicon" class="devicon-css3-plain-wordmark colored"></i>
-          </div>
-          <div class="col-sm-6" style="margin-bottom:25px;">
-            <h3>Frameworks</h3>
-            <i id="devicon" class="devicon-django-plain-wordmark colored"></i>
-            <i id="devicon" class="devicon-bootstrap-plain-wordmark colored"></i>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6" style="margin-bottom:25px;">
-            <h3>Databases</h3>
-            <i id="devicon" class="devicon-mysql-plain-wordmark colored"></i>
-            <i id="devicon" class="devicon-postgresql-plain-wordmark colored"></i>
-          </div>
-          <div class="col-sm-6" style="margin-bottom:25px;">
-            <h3>Etc.</h3>
-            <i id="devicon" class="devicon-amazonwebservices-plain-wordmark colored"></i>
-            <i id="devicon" class="devicon-github-plain-wordmark colored"></i>
-            <i id="devicon" class="devicon-jquery-plain-wordmark colored"></i>
-          </div>
-        </div> -->
       </div>
     </div>
 
@@ -512,18 +556,21 @@
 
 
       <div id="contact">
-        <h1>Let's get in touch!</h1>
         <div id="contact_container" class="container">
-          <form id="formspree" action="https://formspree.io/f/mzboqwok" method="post">
-            <label style="width:49%; display:inline-table; float:left;"><input type="text" name="name" placeholder="Name" required></label>
-            <label style="width:49%; display:inline-table; float:right;"><input type="email" name="email" placeholder="Email" required></label>
-            <label><textarea name="message" rows="8" cols="60" placeholder="Message" required></textarea></label>
+          <h1>Let's get in touch!</h1>
+          <form id="formspree" action="https://formspree.io/f/mzboqwok" autocomplete="off" method="post">
+            <label style="float:left;"><input type="text" name="name" placeholder="Name" required></label>
+            <label style="float:right;"><input type="email" name="email" placeholder="Email" required></label>
+            <label style="width:100%;"><textarea name="message" rows="8" cols="60" placeholder="Message" required></textarea></label>
             <input id="submit_button" type="submit" value="Submit">
 
           </form>
         </div>
 
 
+        <div class="copyright" style="margin-top:50px;">
+          <p>Copyright © 2022. All rights reserved.</p>
+        </div>
       </div>
     </div>
       <!-- Content End -->
